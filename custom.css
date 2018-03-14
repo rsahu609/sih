@@ -1,0 +1,17 @@
+.form {
+    width: 1000px;
+    margin: auto;
+}
+#googleMap {
+    height=400px;
+    width=90%;
+    margin: auto;
+}
+.map {
+    width:90%;
+    margin: auto;
+}
+#id {
+    height: 400px;
+    width: inherit;
+}
