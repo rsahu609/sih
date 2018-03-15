@@ -12,7 +12,7 @@
     echo json_encode($ar);
     exit();
   }
-  $connect=mysqli_connect('localhost','id4970580_mhtgrwl5','13173356','id4970580_demo');
+  $connect=mysqli_connect('localhost','root','','sih');
   $query="insert into a_submit values('$_SESSION[user]','$idea','$des','$img','$long','$lat','0','$city','$state','$zip')";
   $result=mysqli_query($connect,$query);
   if ($result) {
