@@ -28,12 +28,18 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Login
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown show">
+        <a href="#" class="btn btn-secondary dropdown-toggle" role="button" id="log_reg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <!-- Username or login container-->
+            Username
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="login.php">Login</a>
           <a class="dropdown-item" href="#">Register</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
+          </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="submit.php">Submit Your Idea</a>
