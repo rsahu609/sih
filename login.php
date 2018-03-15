@@ -18,9 +18,9 @@
   </head>
   <body class="text-center">
     <form class="form-signin">
-      <img class="md-4" src="img/fluid%20drop.gif" alt="" width="200" height="200">
+      <img class="md-4" id="fluid-gif" src="img/fluid%20drop.gif" alt="Fluid Drop Image" width="300" height="200">
       <h1 class=" mb-3 font-weight-normal">Log In</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
+      <label for="username" class="sr-only">Username</label>
       <input type="text" id="username" class="form-control" placeholder="username" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="password" class="form-control" placeholder="Password" required>
