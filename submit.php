@@ -74,7 +74,7 @@
     
    <div class="form-group col-md-2">
        <label for="inputZip">Zip</label>
-      <input type="number" class="form-control" id="inputZip" min="6" name="pin" maxlength="6" placeholder="Pin Code">
+      <input type="number" class="form-control" id="pin" min="6" name="pin" maxlength="6" placeholder="Pin Code">
    </div>
    <div class="form-group col-md-12">
     <div class="custom-file">
@@ -83,13 +83,14 @@
        <input type="file" class="custom-file-input" id="file_submit">
        <br><br>
        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+       <div class="value">Some Value to be changed by json</div>
      </div>
     </div>
    </div>
 </form>
 <!-------------------------------------------------- Javascript dependencies  ------------------------------------------------------------------>
     <script src="js/popper.min.js"></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-2.2.4.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!--script src="bootstrap.bundle.js"></script-->
    <script>
@@ -103,11 +104,11 @@
     });
   
 </script>
-   <div class="map col-md-8" ><h3>Google Maps</h3>
+   <div class="map col-md-8" ><h3>Ideas near you</h3>
     <div id="map"></div>
 <div id="googleMap" style="width:800px;height:400px;margin:auto auto 100px auto;"></div>
 
-<script>
+<!--script>
 function myMap() {
 var mapProp= {
     center:new google.maps.LatLng(51.508742,-0.120850),
@@ -115,25 +116,30 @@ var mapProp= {
 };
 var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 }
-</script>
+</script-->
 <script>
-    $('#submit').onclick(function(){
+    <!-- Ajas data request with submitted data ------>
+    $('#submit').click(function(){
         $.ajax({
-           method: "POST",
-           url: "post.php",
-           data: { title: $('#idea-title').val(),
+                type: "POST",
+                url: "post.php",
+                data: { title: $('#idea-title').val(),
                    des: $('#des').val(), 
                    city: $('#city').val(), 
                    state: $('#state').val(), 
                    pin: $('#pin').val(),
                    img: $('#file_submit').val(),
-                })
-        .done(function(){
+                   datatype: "json",
+                  success: function(result){
+                     console.log("This data is recieved : "+result.status); $('.value').innerHTML=result;
+                   }
+                }})
+            .done(function(){
             alert("Successfully Submitted");
-        })
+        });
     });
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
+<!--script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script-->
 
 <!--script src="https://maps.googleapis.com/maps/api/js?key=&callback=myMap"></script-->
     </div>
