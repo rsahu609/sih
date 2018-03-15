@@ -9,45 +9,9 @@
     <body>
     
 <!-------------------- Navigation Section for header file ---------------------------------------------------------------------------------- -->
-    
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Aprakshan</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Newsfeed</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Login
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="login.php">Login</a>
-          <a class="dropdown-item" href="#">Register</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Submit Your Idea</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-  
+    <?php include('header.php'); ?>
    <!-- Navigation Section End here---------------------------------------------------------------------------------------------------- -->
-    <form>
+    <form id="form">
   <div class="form-row form">
     
   <div class="form-group col-md-12">
@@ -58,7 +22,7 @@
   
   <div class="form-group col-md-12">
     <label for="description">Description</label>
-    <textarea name="description" class="form-control" name="des" id="des" placeholder="Enter Description here" ></textarea>
+    <textarea  class="form-control" name="des" id="des" placeholder="Enter Description here" ></textarea>
   </div>
   <div class="form-group col-md-6">
       <label for="inputCity">City</label>
@@ -66,9 +30,9 @@
   </div>
     <div class="form-group col-md-4">
       <label for="inputState">State</label>
-      <select id="state" class="form-control">
+      <select id="state" name="state" class="form-control">
         <option selected >Choose...</option>
-        <option value="cg">Chhattisgarh</option><option value="tel">Telangana</option><option value="vnsi">Varanasi</option>
+        <option value="cg" name="cg">Chhattisgarh</option><option value="tel" name="tel">Telangana</option><option value="vnsi" name="vnsi">Varanasi</option>
       </select>
    </div>
     
@@ -79,8 +43,8 @@
    <div class="form-group col-md-12">
     <div class="custom-file">
     <div class="img-submit"></div>
-       <label class="custom-file-label" for="customFile">Choose file</label>
-       <input type="file" class="custom-file-input" id="file_submit">
+       <label class="custom-file-label" for="customFile" >Choose file</label>
+       <input type="file" class="custom-file-input" id="file_submit" name="img">
        <br><br>
        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
        <div class="value">Some Value to be changed by json</div>
@@ -119,21 +83,16 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 </script-->
 <script>
     <!-- Ajas data request with submitted data ------>
-    $('#submit').click(function(){
+    $('#submit').click(function(e){
+        e.preventDefault();
         $.ajax({
                 type: "POST",
                 url: "post.php",
-                data: { title: $('#idea-title').val(),
-                   des: $('#des').val(), 
-                   city: $('#city').val(), 
-                   state: $('#state').val(), 
-                   pin: $('#pin').val(),
-                   img: $('#file_submit').val(),
-                   datatype: "json",
-                  success: function(result){
-                     console.log("This data is recieved : "+result.status); $('.value').innerHTML=result;
-                   }
-                }})
+                data: new FormData(document.getElementById('form')),
+            cache: false,
+            processData: false,
+            contentType: false
+        })
             .done(function(){
             alert("Successfully Submitted");
         });
