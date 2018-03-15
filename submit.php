@@ -8,7 +8,7 @@
 </head>
     <body>
     
-    <!-- Navigation Section for header file ---------------------------------------------------------------------------------- -->
+<!-------------------- Navigation Section for header file ---------------------------------------------------------------------------------- -->
     
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Aprakshan</a>
@@ -29,7 +29,7 @@
           Login
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Login</a>
+          <a class="dropdown-item" href="login.php">Login</a>
           <a class="dropdown-item" href="#">Register</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
@@ -87,6 +87,8 @@
     </div>
    </div>
 </form>
+<!-------------------------------------------------- Javascript dependencies  ------------------------------------------------------------------>
+    <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!--script src="bootstrap.bundle.js"></script-->
