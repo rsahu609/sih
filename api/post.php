@@ -1,5 +1,5 @@
 <?php
-  //include 'auth.php';
+  include 'auth.php';
   $idea=$_POST['title'];
   $des=$_POST['des'];
   $city=$_POST['city'];
