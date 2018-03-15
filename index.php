@@ -29,7 +29,7 @@
           Login
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Login</a>
+          <a class="dropdown-item" href="login.php">Login</a>
           <a class="dropdown-item" href="#">Register</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
@@ -55,6 +55,8 @@
      </div>
     </div>
     </form>
+<!--------------------------- Javascript dependencies  ---------------------------------------------------------------------------------->
+    <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!--script src="bootstrap.bundle.js"></script-->
@@ -70,7 +72,7 @@
   
 </script>
    
-    <div id="googleMap" style="width:800px;height:400px;margin:auto auto 100px auto;"></div>
+    <div id="map" style="width:800px;height:400px;margin:auto auto 100px auto;"></div>
 
 <!--script>
 function myMap() {
@@ -82,14 +84,14 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 }
 </script-->
 <script>
-<script>
 function myMap() {
 var mapProp= {
     center:new google.maps.LatLng(21.1904, 81.2849),
     zoom:5,
 };
-var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var map=new google.maps.Map(document.getElementById("map"),mapProp);
 }
+</script>    
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
 
 
