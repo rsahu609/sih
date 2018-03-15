@@ -1,7 +1,6 @@
-<?php
+<?php session_start();
   $user=$_REQUEST['user'];
   $pass=md5($_REQUEST['pass']);
-
   $connect=mysqli_connect('localhost','root','','sih');
   $query="select * from a_login where username=$user and pasword=$pass";
   $row=mysqli_query($connect,$query);
@@ -13,5 +12,4 @@
       $ar=array('status'=>'Error');
       echo json_encode($ar);
     }
-
 ?>
