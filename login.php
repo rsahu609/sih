@@ -16,7 +16,9 @@
     <!-- Custom styles for this template -->
     <link href="css/signin.css" rel="stylesheet">
   </head>
-  <body class="text-center">
+  <body class="text-center fluid-bg">
+  <!-- Including Header file for navigation-------------------------------->
+   <?php include('header.php');?>
     <form class="form-signin">
       <img class="md-4" id="fluid-gif" src="img/fluid%20drop.gif" alt="Fluid Drop Image" width="300" height="200">
       <h1 class=" mb-3 font-weight-normal">Log In</h1>

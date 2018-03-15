@@ -7,11 +7,13 @@
     width=90%;
     margin: auto;
 }
-.map {
+#map {
     width:90%;
     margin: auto;
+    border: 2px;
+    padding: 20px;
 }
-#id {
-    height: 400px;
-    width: inherit;
+.fluid-bg {
+    background-image: url(img/fluid drop.jpg);
+    background-size: cover;
 }
