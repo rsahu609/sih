@@ -19,6 +19,7 @@
   <body class="text-center fluid-bg">
   <!-- Including Header file for navigation-------------------------------->
    <?php include('header.php');?>
+  <!-- Header file end ---------------------------------------------------->
     <form class="form-signin">
       <img class="md-4" id="fluid-gif" src="img/fluid%20drop.gif" alt="Fluid Drop Image" width="300" height="200">
       <h1 class=" mb-3 font-weight-normal">Log In</h1>
@@ -34,7 +35,7 @@
     <script>
     $('.form-signin').on('submit' , function (e) {
         e.preventDefault();
-         $('#error-message').fadeOut();
+        $('#error-message').fadeOut();
         $.ajax(
         {
             url: 'api/login.php',
