@@ -1,11 +1,12 @@
 <?php
-$fileName=$_FILES['i']['name'];
+/*$fileName=$_FILES['i']['name'];
 $temp=$_FILES['i']['tmp_name'];
-if(move_uploaded_file($temp,$fileName)){
-  echo "error";
-}
+$e=move_uploaded_file($temp,$fileName);
+if($e){
+    echo "success";
+}*/
 //get the EXIF all metadata from Images
-$exif = exif_read_data($fileName);
+$exif = exif_read_data("E:\Transfer\Media\Mauritius of chhattisgarh\New folder\IMG_20160327_065155.jpg");
 if(isset($exif["GPSLatitudeRef"])){
     $LatM = 1; $LongM = 1;
     if($exif["GPSLatitudeRef"] == 'S'){

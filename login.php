@@ -21,11 +21,36 @@
       <img class="md-4" src="img/fluid%20drop.gif" alt="" width="200" height="200">
       <h1 class=" mb-3 font-weight-normal">Log In</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="username" class="form-control" placeholder="username" required autofocus>
+      <input type="text" id="username" class="form-control" placeholder="username" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="password" class="form-control" placeholder="Password" required>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <p id="error-message" class="text-danger" style="display:none">Please check username and password</p>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
+    <script src="js/jquery-2.2.4.js"></script>
+    <script>
+    $('.form-signin').on('submit' , function (e) {
+        e.preventDefault();
+         $('#error-message').fadeOut();
+        $.ajax(
+        {
+            url: 'api/login.php',
+            method: 'post',
+            data: {
+                user: $('#username').val(),
+                pass: $('#password').val()
+            },
+            dataType: 'json'
+            
+        }).done(function(response){
+            if(response.status == 'SUCCESS') {
+                document.location = 'index.php';
+            } else {
+                $('#error-message').fadeIn();
+            }
+        })
+    });        
+    </script>
   </body>
 </html>
