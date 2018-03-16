@@ -8,10 +8,10 @@ $connect=mysqli_connect('localhost','root','','sih');
 $row=mysqli_query($connect,$query);
   if ($data=mysqli_fetch_array($row)) {
     $_SESSION['user']=$user;
-      $ar=array('status' => 'SUCCESS');
+      $ar=array('status'=>'Error');
       echo json_encode($ar);
     } else {
-      $ar=array('status'=>'Error');
+      $ar=array('status' => 'SUCCESS');
       echo json_encode($ar);
     }
 ?>

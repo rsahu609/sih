@@ -47,10 +47,10 @@
             dataType: 'json'
             
         }).done(function(response){
-            if(response.status == 'SUCCESS') {
-                document.location = 'index.php';
-            } else {
+            if(response.status == 'Error') {
                 $('#error-message').fadeIn();
+            } else {
+                
             }
         })
     });        

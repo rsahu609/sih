@@ -87,7 +87,7 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
         e.preventDefault();
         $.ajax({
                 type: "POST",
-                url: "post.php",
+                url: "api/submit.php",
                 data: new FormData(document.getElementById('form')),
             cache: false,
             processData: false,
