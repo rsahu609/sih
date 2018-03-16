@@ -13,16 +13,16 @@
       <li class="nav-item">
         <a class="nav-link" href="newsfeed.php">Newsfeed</a>
       </li>
-      <?php if(isset($_SESSION['user']) {
-      echo "<li class=\"nav-item dropdown\">
-        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown2\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">$_SESSION['user']</a>
-        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown2\">
-          <a class=\"dropdown-item\" href=\"#\">Profile</a>
-          <a class=\"dropdown-item\" href=\"#\">Another action</a>
-          <div class=\"dropdown-divider\"></div>
-          <a class=\"dropdown-item\" href=\"#\">Something else here</a>
-        </div>
-      </li>"; }
+      <?php
+      if(isset($_SESSION['user'])) {
+      echo    "<li class='nav-item dropdown'>";
+      echo    "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown2' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>$_SESSION[user]</a>";
+      echo    "<div class='dropdown-menu' aria-labelledby='navbarDropdown2'>";
+      echo    "<a class='dropdown-item' href='#'>Profile</a>";
+      echo    "<a class='dropdown-item' href='#'>Another action</a>";
+      echo    "<div class='dropdown-divider'></div>";
+      echo    "<a class='dropdown-item' href='#'>Something else here</a></div></li>";
+    }
       ?>
       <li class="nav-item">
        <span>
@@ -39,4 +39,3 @@
   </div>
 </nav>
 </div>
-  
