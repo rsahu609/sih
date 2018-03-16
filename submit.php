@@ -47,7 +47,7 @@
        <input type="file" class="custom-file-input" id="file_submit" name="img">
        <br><br>
        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-       <div class="value">Some Value to be changed by json</div>
+       <div class="value submitstatus">Successfully submitted</div>
      </div>
     </div>
    </div>
@@ -85,8 +85,8 @@ function myMap() {
 );
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
+    <!-- Ajax data request with submitted data ------>
 <script>
-    <!-- Ajas data request with submitted data ------>
     $('#submit').click(function(e){
         e.preventDefault();
         $.ajax({
@@ -98,7 +98,7 @@ function myMap() {
             contentType: false
         })
             .done(function(){
-            alert("Successfully Submitted");
+            $('.submitstatus').fadeIn();
         });
     });
 </script>
