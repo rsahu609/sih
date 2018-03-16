@@ -18,7 +18,6 @@
   </head>
   <body class="text-center fluid-bg">
   <!-- Including Header file for navigation-------------------------------->
-   <?php include('header.php');?>
   <!-- Header file end ---------------------------------------------------->
     <form class="form-signin">
       <img class="md-4" id="fluid-gif" src="img/fluid%20drop.gif" alt="Fluid Drop Image" width="300" height="200">
@@ -47,10 +46,10 @@
             dataType: 'json'
             
         }).done(function(response){
-            if(response.status == 'Error') {
-                $('#error-message').fadeIn();
+            if(response.status == 'SUCCESS') {
+                document.location = 'index.php';
             } else {
-                
+                $('#error-message').fadeIn();
             }
         })
     });        

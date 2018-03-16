@@ -33,7 +33,7 @@
       <input type="password" id="confpass" class="form-control" placeholder="Confirm Password" required>
       
       <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-      <p id="error-message" class="text-danger" style="display:none">Password Entered must be same</p>
+      <p id="error-message" class="text-danger" style="display:none"></p>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
     <script src="js/jquery-2.2.4.js"></script>
@@ -41,7 +41,7 @@
       $('.form-register').on('submit' , function (e) {
         e.preventDefault();
          $('#error-message').fadeOut();
-        if($('#password') == $('#confpass')){
+        if($('#password').val() == $('#confpass').val()){
         $.ajax(
         {
             url: 'api/register.php',
@@ -55,14 +55,22 @@
             
         }).done(function(response){
             if(response.status == 'SUCCESS') {
-                document.location = 'index.php';
+                document.location = 'login.php';
             } 
-        })
-        }
-        else {
+            else if(response.status=='NOAVAIL'){
+                $('#error-message').html('Username Not Available');
                 $('#error-message').fadeIn();
             }
-    });   
+            else {
+            }
+                $('#error-message').html('Some error occured! Please re-enter');
+                $('#error-message').fadeIn();
+            });
+         }          else{
+                $('#error-message').html("Password doesn't match");
+                $('#error-message').fadeIn();
+          }
+      });   
     </script>
   </body>
 </html>

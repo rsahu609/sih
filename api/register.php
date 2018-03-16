@@ -3,13 +3,14 @@
   $pass=$_REQUEST['pass'];
   $mob=$_REQUEST['no'];
   $connect=mysqli_connect('localhost','root','','sih');
-  $query_usrcheck="select * from a_login where username='$user'";
+  $query_usrcheck="select * from a_login where username=".$user;
   $r=mysqli_query($connect,$query_usrcheck);
   if ($r) {
     $re = array('status' => "NOAVAIL", );
+    echo json_encode($re);
   } else {
-    $query="insert into a_login values('','$user','$pass','$mob','0')";
-    $rs=mysqli_connect($connect,$query);
+    $query="insert into a_login values('','$user','$pass','0','$mob')";
+    $rs=mysqli_query($connect,$query);
     if($rs){
       $s = array('status' => 'SUCCESS', );
       echo json_encode($s);
