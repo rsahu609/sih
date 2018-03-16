@@ -1,0 +1,46 @@
+activity
+    id
+    idea
+    desc
+    image
+    state
+    zip
+    city
+    user
+    status
+    date
+    lat
+    long
+
+user
+    id
+    username
+    password
+    role    admin/moderator/general
+    email
+
+
+index.php
+    feed limit latest n
+        top activity*
+        latest
+        filter by state/zip/city
+    upload
+    login
+
+login.php 
+    login
+    register
+
+register.php
+    username
+    password
+    email
+
+stats.php
+    total submissions
+    state with highest number of conservation activities
+    highest rated activity*
+    submissions in last month/week/day
+    state wise activity count
+    state vs number of activities graph
