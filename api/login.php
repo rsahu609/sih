@@ -6,7 +6,7 @@ $connect=mysqli_connect('localhost','root','','sih');
   $query="select * from a_login where username='$user' and password='$pass'";
  
 $row=mysqli_query($connect,$query);
-  if (!$data=mysqli_fetch_array($row)) {
+  if (!($data=mysqli_fetch_array($row))) {
     $_SESSION['user']=$user;
       $ar=array('status'=>'Error');
       echo json_encode($ar);

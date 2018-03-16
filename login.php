@@ -47,7 +47,7 @@
             
         }).done(function(response){
             if(response.status == 'SUCCESS') {
-                document.location = 'index.php';
+                document.location = 'home.php';
             } else {
                 $('#error-message').fadeIn();
             }

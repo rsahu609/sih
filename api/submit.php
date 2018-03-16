@@ -8,11 +8,14 @@
   $temp=$_FILES['img']['tmp_name'];
   $loc_img=uniqid().".jpg";
   if (!move_uploaded_file($temp,$loc_img)) {
-    $ar=array('status'=>'Error');
+    echo "error";
+      /*$ar=array('status'=>'Error');
     echo json_encode($ar);
-    exit();
+    exit();*/
+  } else{
+      echo "success";
   }
-  $connect=mysqli_connect('localhost','root','','sih');
+  /*$connect=mysqli_connect('localhost','root','','sih');
   $query="insert into a_submit values('Rajan','$idea','$des','$loc_img','21.12221','83.31323','0','$city','$state','$zip')";
   $result=mysqli_query($connect,$query);
   if ($result) {
@@ -21,5 +24,5 @@
   } else {
     $ar=array('status'=>'Error');
     echo json_encode($ar);
-  }
+  }*/
 ?>
