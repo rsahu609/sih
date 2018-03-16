@@ -57,6 +57,7 @@
     </div>
   </div>
 </div>
+    <br><br>
      <!--div class="map col-md-8" ><h3>Innovations Near You</h3>
       <div id="map"></div-->
 <!--------------------------- Javascript dependencies  ---------------------------------------------------------------------------------->
