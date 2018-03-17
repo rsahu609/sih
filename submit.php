@@ -47,7 +47,7 @@
        <input type="file" class="custom-file-input" id="file_submit" name="img">
        <br><br>
        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-       <div class="value submitstatus">Successfully submitted</div>
+       <div class="value submitstatus text-success" style="display:none;">Successfully submitted</div>
      </div>
     </div>
    </div>
