@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-    <title>Submit your Idea</title>
+    <title>Home</title>
 </head>
     <body>
 <!-- Navigation Section for header file ---------------------------------------------------------------------------------- -->    
