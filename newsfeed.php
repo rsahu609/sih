@@ -49,7 +49,7 @@
      <!--div class="map col-md-8" ><h3>Innovations Near You</h3>
       <div id="map"></div-->
 <!--------------------------- Javascript dependencies  ---------------------------------------------------------------------------------->
-    <script src="js/popper.min%20(2).js"></script>
+    <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.2.1.slim.min.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
     <!--script src="bootstrap.bundle.js"></script-->

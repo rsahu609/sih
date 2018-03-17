@@ -61,7 +61,7 @@
      <!--div class="map col-md-8" ><h3>Innovations Near You</h3>
       <div id="map"></div-->
 <!--------------------------- Javascript dependencies  ---------------------------------------------------------------------------------->
-    <script src="js/popper.min%20(2).js"></script>
+    <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.2.1.slim.min.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
     <!--script src="bootstrap.bundle.js"></script-->
@@ -89,7 +89,10 @@ function myMap() {
   var map = new google.maps.Map(mapCanvas, mapOptions);
   var marker = new google.maps.Marker({position:location});
   marker.setMap(map);
-  var location = new google.maps.LatLng(21.19,81.28);
+  var location = new google.maps.LatLng(21.1800,81.2800);
+  var marker = new google.maps.Marker({position:location});
+  marker.setMap(map);
+  var location = new google.maps.LatLng(21.1922,81.2822);
   var marker = new google.maps.Marker({position:location});
   marker.setMap(map);
 });

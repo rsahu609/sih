@@ -75,10 +75,16 @@
 <script>
 $('document').ready(
 function myMap() {
-  var location = new google.maps.LatLng(21.1904,81.2849);
+  var location = new google.maps.LatLng(21.200437, 81.298213);
   var mapCanvas = document.getElementById("map");
-  var mapOptions = {center: location, zoom: 12};
+  var mapOptions = {center: location, zoom: 13};
   var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:location});
+  marker.setMap(map);
+  var location = new google.maps.LatLng(21.1800,81.2800);
+  var marker = new google.maps.Marker({position:location});
+  marker.setMap(map);
+  var location = new google.maps.LatLng(21.1922,81.2822);
   var marker = new google.maps.Marker({position:location});
   marker.setMap(map);
 }

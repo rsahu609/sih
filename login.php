@@ -23,10 +23,12 @@
       <img class="md-4" id="fluid-gif" src="img/fluid%20drop.gif" alt="Fluid Drop Image" width="300" height="200">
       <h1 class=" mb-3 font-weight-normal">Log In</h1>
       <label for="username" class="sr-only">Username</label>
-      <input type="text" id="username" class="form-control" placeholder="username" required autofocus>
+      <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="password" class="form-control" placeholder="Password" required>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <br>
+      <a href="register.php" class="alert alert-primary">Register Here</a>
       <p id="error-message" class="text-danger" style="display:none">Please check username and password</p>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
