@@ -1,9 +1,7 @@
 <?php
-
+header('Access-Control-Allow-Origin: *');
 include('../utils.php');
 header('Content-Type: text/json');
-//header('Access-Control-Allow-Origin: *');
-//header('Access-Control-Allow-Methods: GET, POST');
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
