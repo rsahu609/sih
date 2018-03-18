@@ -17,44 +17,45 @@ if(!isset($_SESSION['user'])){
 <!-------------------- Navigation Section for header file ---------------------------------------------------------------------------------- -->
     <?php include('header.php'); ?>
    <!-- Navigation Section End here---------------------------------------------------------------------------------------------------- -->
-    <form id="form">
+   <div class="form-container">
+     <form id="form">
   <div class="form-row form">
     
   <div class="form-group col-md-12">
    <br>
     <label for="ideatitle">Idea title</label>
     <input type="text" class="form-control" name="title" id="idea-title" placeholder="Idea title" autofocus>
-     <small class="text-muted">Here is some help</small>
+     <small class="text-muted">Enter the name of the idea or Context</small>
   </div>
   
   <div class="form-group col-md-12">
     <label for="description">Description</label>
     <textarea  class="form-control" name="des" id="des" placeholder="Enter Description here" ></textarea>
-     <small class="text-muted">Here is some help</small>
+     <small class="text-muted">All the information about the idea in detail</small>
   </div>
-  <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" name="city" id="city" placeholder="City">
-       <small class="text-muted">Here is some help</small>
+  <div class="form-group col-md-5">
+      <label for="inputCity">District</label>
+      <input type="text" class="form-control" name="city" id="city" placeholder="District">
+       <small class="text-muted">Where is the idea implemented</small>
   </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-3">
       <label for="inputState">State</label>
       <select id="state" name="state" class="form-control">
         <option selected >Choose...</option>
         <option value="cg">Chhattisgarh</option><option value="tel" name="tel">Telangana</option><option value="vnsi" name="vnsi">Varanasi</option>
       </select>
-       <small class="text-muted">Here is some help</small>
+       <small class="text-muted">Name of the state</small>
    </div>
     
-   <div class="form-group col-md-2">
+   <div class="form-group col-md-4">
        <label for="inputZip">Zip</label>
-      <input type="number" class="form-control" id="pin" min="6" name="pin" maxlength="6" placeholder="Pin Code">
-       <small class="text-muted">Here is some help</small>
+      <input type="number" class="form-control" id="pin" min="100000" name="pin" maxlength="6" placeholder="Pin Code">
+       <small class="text-muted">Enter pin code</small>
    </div>
    <div class="form-group col-md-12">
     <div class="custom-file">
     <div class="img-submit"></div>
-       <label class="custom-file-label" for="customFile" >Choose file</label>
+       <label class="custom-file-label" for="customFile">Click here to Upload Image</label>
        <input type="file" class="custom-file-input" id="file_submit" name="img">
         <small class="text-muted">Here is some help</small>
        <br><br>
@@ -64,6 +65,7 @@ if(!isset($_SESSION['user'])){
     </div>
    </div>
 </form>
+        </div>
 <!-------------------------------------------------- Javascript dependencies  ------------------------------------------------------------------>
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-2.2.4.js"></script>
@@ -81,9 +83,9 @@ if(!isset($_SESSION['user'])){
   
 </script>
   
-  <!-- <div class="map col-md-8" ><h3>Ideas near you</h3>-->
+   <div class="map-container" style="padding: 10px;">
     <div id="map" style="width:800px;height:500px;margin:auto;"></div>
-   <!--</div>-->
+   </div>
 
 <script>
 $('document').ready(

@@ -2,7 +2,8 @@
   $user=$_REQUEST['user'];
   $pass=$_REQUEST['pass'];
   $mob=$_REQUEST['no'];
-  $connect=mysqli_connect('localhost','root','','sih');
+$password = $_SERVER['HTTP_HOST'] == '18.188.54.21' ? 'password' : '';
+  $connect=mysqli_connect('localhost','root',$password,'sih');
   $query_usrcheck="select * from a_login where username=".$user;
   $r=mysqli_query($connect,$query_usrcheck);
   if ($r) {

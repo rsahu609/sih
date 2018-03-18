@@ -47,7 +47,8 @@
     $long=$result["longitude"];
     //$result[datetime]
   }
-  $connect=mysqli_connect('127.0.0.1','root','','sih');
+    $password = $_SERVER['HTTP_HOST'] == '18.188.54.21' ? 'password' : '';
+  $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
   $query="insert into a_submit values('','Rajan','$idea','this ain't possible','$loc_img','$lat','$long','0','$city','$state','$zip')";
   $resu=mysqli_query($connect,$query);
   if ($resu) {

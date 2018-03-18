@@ -1,5 +1,5 @@
 .form {
-    width: 1000px;
+    max-width: 600px;
     margin: auto;
 }
 #googleMap {
@@ -23,7 +23,7 @@
 #feed-container {
     
     overflow-y: scroll;
-    height: inherit;
+    height: ;
 }
 form#form small {
       opacity:0;
