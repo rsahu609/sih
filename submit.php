@@ -32,7 +32,7 @@
       <label for="inputState">State</label>
       <select id="state" name="state" class="form-control">
         <option selected >Choose...</option>
-        <option value="cg" name="cg">Chhattisgarh</option><option value="tel" name="tel">Telangana</option><option value="vnsi" name="vnsi">Varanasi</option>
+        <option value="cg">Chhattisgarh</option><option value="tel" name="tel">Telangana</option><option value="vnsi" name="vnsi">Varanasi</option>
       </select>
    </div>
     
@@ -68,9 +68,10 @@
     });
   
 </script>
-   <div class="map col-md-8" ><h3>Ideas near you</h3>
+  
+  <!-- <div class="map col-md-8" ><h3>Ideas near you</h3>-->
     <div id="map" style="width:800px;height:500px;margin:auto;"></div>
-   </div>
+   <!--</div>-->
 
 <script>
 $('document').ready(
