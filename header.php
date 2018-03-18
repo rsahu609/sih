@@ -13,7 +13,11 @@
       <li class="nav-item">
         <a class="nav-link" href="newsfeed.php">Newsfeed</a>
       </li>
-
+      <li class="nav-item">
+       <span>
+           <a class="nav-link" href="submit.php">Submit Your Idea</a>
+       </span>
+      </li>
       <?php
       if(isset($_SESSION['user'])) {
       echo    "<li class='nav-item dropdown'>";
@@ -23,16 +27,11 @@
       echo    "<a class='dropdown-item' href='#'>Another action</a>";
       echo    "<div class='dropdown-divider'></div>";
       echo    "<a class='dropdown-item' href='#'>Something else here</a></div></li>";
+    } else {
+      echo '<li><a class="nav-link" href="login.php">Login</a></li>
+      <li><a class="nav-link" href="register.php">Register</a></li>';
     }
-      ?>
-
-      <li class="nav-item">
-       <span>
-           <a class="nav-link" href="submit.php">Submit Your Idea</a>
-       </span>
-      </li>
-      <li><a class="nav-link" href="login.php">Login</a></li>
-      <li><a class="nav-link" href="register.php">Register</a></li>
+    ?>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

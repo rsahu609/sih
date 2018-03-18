@@ -1,5 +1,5 @@
 <?php
-  //include 'auth.php';
+  include 'auth.php';
   $idea=$_POST['title'];
   $des=$_POST['des'];
   $city=$_POST['city'];
@@ -48,7 +48,7 @@
     //$result[datetime]
   }
   $connect=mysqli_connect('127.0.0.1','root','','sih');
-  $query="insert into a_submit values('','Rajan','$idea','$des','$loc_img','$lat','$long','0','$city','$state','$zip')";
+  $query="insert into a_submit values('','Rajan','$idea','this ain't possible','$loc_img','$lat','$long','0','$city','$state','$zip')";
   $resu=mysqli_query($connect,$query);
   if ($resu) {
     $ar=array('status' => 'SUCCESS');
