@@ -18,7 +18,7 @@
   </head>
   <body class="text-center">
     <form class="form-register">
-      <img class="md-4" src="img/fluid%20drop.gif" alt="Preloader" width="300" height="200">
+        <a href="newsfeed.php"><img class="md-4" src="img/fluid%20drop.gif" alt="Preloader" width="300" height="200"></a>
       <h1 class=" mb-3 font-weight-normal">Register</h1>
       <label for="username" class="sr-only">Username</label>
       <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>

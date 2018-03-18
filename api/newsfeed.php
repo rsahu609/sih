@@ -1,7 +1,7 @@
 <?php
  if( $_REQUEST['request']=='data'){
   $connect=mysqli_connect('127.0.0.1','root','','sih');
-  $query="SELECT `user_id`, `idea`, `description`, `image`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1'";
+  $query="SELECT `user_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1'";
   $result=mysqli_query($connect,$query);
   $arr;
   while($row = mysqli_fetch_assoc($result)){

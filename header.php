@@ -18,6 +18,11 @@
            <a class="nav-link" href="submit.php">Submit Your Idea</a>
        </span>
       </li>
+      <li class="nav-item">
+       <span>
+           <a class="nav-link" href="stats.php">Statistics</a>
+       </span>
+      </li>
       <?php
       if(isset($_SESSION['user'])) {
       echo    "<li class='nav-item dropdown'>";
