@@ -1,4 +1,5 @@
 <?php
+  include 'auth.php';
   $p_id=$_REQUEST['post_id'];
   $state=$_REQUEST['status'];
   if ($state=='Accept') {
