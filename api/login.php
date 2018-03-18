@@ -1,4 +1,4 @@
-<?php session_start();
+<?php 
   $user=$_REQUEST['user'];
   $pass=($_REQUEST['pass']);
 
@@ -10,6 +10,7 @@ $row=mysqli_query($connect,$query);
       $ar=array('status'=>'Error');
       echo json_encode($ar);
     } else {
+      session_start();
       $_SESSION['user']=$user;
       $_SESSION['role']=$data['role'];
       $ar=array('status' => 'SUCCESS');

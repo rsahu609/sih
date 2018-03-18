@@ -1,3 +1,9 @@
+<?php session_start();
+
+if(!isset($_SESSION['user'])){
+        header('Location: login.php');
+        exit();
+}         ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,15 +24,18 @@
    <br>
     <label for="ideatitle">Idea title</label>
     <input type="text" class="form-control" name="title" id="idea-title" placeholder="Idea title" autofocus>
+     <small class="text-muted">Here is some help</small>
   </div>
   
   <div class="form-group col-md-12">
     <label for="description">Description</label>
     <textarea  class="form-control" name="des" id="des" placeholder="Enter Description here" ></textarea>
+     <small class="text-muted">Here is some help</small>
   </div>
   <div class="form-group col-md-6">
       <label for="inputCity">City</label>
       <input type="text" class="form-control" name="city" id="city" placeholder="City">
+       <small class="text-muted">Here is some help</small>
   </div>
     <div class="form-group col-md-4">
       <label for="inputState">State</label>
@@ -34,17 +43,20 @@
         <option selected >Choose...</option>
         <option value="cg">Chhattisgarh</option><option value="tel" name="tel">Telangana</option><option value="vnsi" name="vnsi">Varanasi</option>
       </select>
+       <small class="text-muted">Here is some help</small>
    </div>
     
    <div class="form-group col-md-2">
        <label for="inputZip">Zip</label>
       <input type="number" class="form-control" id="pin" min="6" name="pin" maxlength="6" placeholder="Pin Code">
+       <small class="text-muted">Here is some help</small>
    </div>
    <div class="form-group col-md-12">
     <div class="custom-file">
     <div class="img-submit"></div>
        <label class="custom-file-label" for="customFile" >Choose file</label>
        <input type="file" class="custom-file-input" id="file_submit" name="img">
+        <small class="text-muted">Here is some help</small>
        <br><br>
        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
        <div class="value submitstatus text-success" style="display:none;">Successfully submitted</div>
@@ -107,6 +119,13 @@ function myMap() {
             .done(function(){
             $('.submitstatus').fadeIn();
         });
+    });
+    /*Form controll scripts ----------------------------------------------------------------*/
+    $('.form-control').on('focus', function() {
+      this.closest('.form-group').classList.add('active');
+    });
+    $('.form-control').on('blur', function() {
+      this.closest('.form-group').classList.remove('active');
     });
 </script>
 </body>

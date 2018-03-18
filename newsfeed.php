@@ -14,7 +14,7 @@
     <div class="container">
     <div class="row">
 <!----------------------------Carousels----------------------------------------------------->
-        <div class="carousels col-md-8"><div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousels col-lg-8"><div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -41,7 +41,7 @@
   </a>
 </div></div>
 
-<div class="cardouter col-md-4">
+<div class="cardouter col-lg-4">
 <!-------------------Carousels end here-->
 
       <div class="form-group">
@@ -106,8 +106,14 @@
 <script src="js/bootstrap.bundle.js"></script>
 <script src="js/handlebars.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
-<div id="map" style="width:800px;height:500px;margin:auto;"></div>
-    <!--script src="bootstrap.bundle.js"></script-->   
+<!---------------------------Map code-------------------------------->
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div id="map" style=""></div>
+        </div>
+        <!--script src="bootstrap.bundle.js"></script-->
+<!---------------------------Map code-------------------------------->
 
 <script>
 $('document').ready(
