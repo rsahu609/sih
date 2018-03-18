@@ -11,6 +11,7 @@
 <?php  include('header.php');?>
 <!-- Navigation Section End here---------------------------------------------------------------------------------------------------- -->
     <br><br>
+    <div class="container">
     <div class="row">
 <!----------------------------Carousels----------------------------------------------------->
         <div class="carousels col-md-8"><div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -39,9 +40,28 @@
     <span class="sr-only">Next</span>
   </a>
 </div></div>
+
 <div class="cardouter col-md-4">
 <!-------------------Carousels end here-->
-<div id="feed-container">
+
+      <div class="form-group">
+    <label for="filter">Select State</label>
+    <select class="form-control" id="filter">
+<?php 
+   $connect=mysqli_connect('127.0.0.1','root','','sih');
+  $query="SELECT DISTINCT `state` FROM `a_submit` WHERE status='1'";
+  $result=mysqli_query($connect,$query);
+  $arr;
+  while($row = mysqli_fetch_assoc($result)){
+      $arr[] = $row;
+ ?><option value="<?=$row['state']?>"><?=$row['state']?></option>
+  <?php
+  }
+?>
+    </select>
+  </div>
+
+ <div id="feed-container">
   <div class="card">
     <img class="card-img-top" src="..." alt="Card image cap">
     <div class="card-body">
@@ -75,7 +95,8 @@
   </div>
 </div>
   </div>
-        </div>
+    </div>
+    </div>
     <br><br>
      <!--div class="map col-md-8" ><h3>Innovations Near You</h3>
       <div id="map"></div-->
@@ -119,6 +140,8 @@ function myMap() {
   </div>
 
 <script>
+     var source = $('#entry-template').html();
+     var template = Handlebars.compile(source);
  $(document).ready(function(){
      var source = $('#entry-template').html();
      var template = Handlebars.compile(source);
@@ -140,7 +163,26 @@ function myMap() {
      console.log(html)
         $('#feed-container').html(html);         
     })
- });        
+ });     
+$('#filter').on('change',function(){
+    $.ajax({
+    url: 'api/newsfeed.php',
+    method: 'post',
+    data: {
+           state: this.value 
+    },
+    dataType: 'json',
+ })
+   .done(function(response){
+      
+     console.log(source)
+        var context = response;
+     console.log(response)
+        var html = template(context);
+     console.log(html)
+        $('#feed-container').html(html);         
+    })
+})
 </script>
       <!-- compilation code for templating
       var source   = document.getElementById("entry-template").innerHTML;
