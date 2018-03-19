@@ -31,14 +31,29 @@ if(!isset($_SESSION['user'])){
   <div class="form-group col-md-12">
     <label for="description">Description</label>
     <textarea  class="form-control" name="des" id="des" placeholder="Enter Description here" ></textarea>
-     <small class="text-muted">All the details regarding practical utility,budget,precautionsand crop type,soil type(in case of irrigation ideas)</small>
+     <small class="text-muted">All the details regarding practical utility, budget, precautions and crop type, soil type(in case of irrigation ideas)</small>
   </div>
-  <div class="form-group col-md-5">
+    <div class="form-group col-md-12">
+    <label for="description">List of Items and Equipments required</label>
+    <textarea  class="form-control" name="equip" id="equip" placeholder="Enter Description here" ></textarea>
+     <small class="text-muted">No. of Items with costs</small>
+  </div>
+    <div class="form-group col-md-12">
+    <label for="description">Related Polices or Subsidies</label>
+    <textarea  class="form-control" name="policy" id="policy" placeholder="Enter Description here" ></textarea>
+     <small class="text-muted">If there are government polices or subsidies related to your project you should write it down here</small>
+  </div>
+   <div class="form-group col-md-5">
+      <label for="inputCity">Approximate Budget</label>
+      <input type="text" class="form-control" name="budget" id="budget" placeholder="Cost of the setup">
+       <small class="text-muted">Approximate bugdet of your project</small>
+  </div>
+  <div class="form-group col-md-7">
       <label for="inputCity">District</label>
       <input type="text" class="form-control" name="city" id="city" placeholder="District">
        <small class="text-muted">Where is the idea implemented</small>
   </div>
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-8">
       <label for="inputState">State</label>
       <select id="state" name="state" class="form-control">
         <option selected >Choose...</option>
@@ -60,7 +75,7 @@ if(!isset($_SESSION['user'])){
         <small class="text-muted">Here is some help</small>
        <br><br>
        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-       <div class="value submitstatus text-success" style="display:none;">Successfully submitted</div>
+       <div class="value submitstatus text-success" style="display:none;"></div>
      </div>
     </div>
    </div>
@@ -118,8 +133,15 @@ function myMap() {
             processData: false,
             contentType: false
         })
-            .done(function(){
+            .done(function(response){ if(response=='success'){
+            $('.submitstatus').html('Successfully Submitted');
             $('.submitstatus').fadeIn();
+        }
+                                     else{
+            ('.submitstatus').html('unsuccesful submission');
+            $('.submitstatus').fadeIn();
+                                         
+                                     }
         });
     });
     /*Form controll scripts ----------------------------------------------------------------*/

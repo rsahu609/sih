@@ -2,7 +2,7 @@
   $user=$_REQUEST['user'];
   $pass=($_REQUEST['pass']);
 
-  $password = $_SERVER['HTTP_HOST'] == '18.188.54.21' ? 'password' : '';
+  $password = 'password';
   $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
   $query="select * from a_login where username='$user' and password='$pass'";
 

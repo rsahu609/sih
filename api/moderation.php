@@ -7,7 +7,7 @@
   } else {
     $status=2;
   }
-  $password = $_SERVER['HTTP_HOST'] == '18.188.54.21' ? 'password' : '';
+  $password = 'password';
   $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
   $query=" update a_submit set status='$status' WHERE post_id='$p_id'";
   $res=mysqli_query($connect,$query);

@@ -13,10 +13,7 @@
     margin: auto;
     height: 500px;
 }
-/*.fluid-bg {
-    background-image: url(img/fluid drop.jpg);
-    background-size: cover;
-}*/
+
 .card {
     margin-bottom: 10px;
 }
@@ -27,6 +24,7 @@
 }
 form#form small {
       opacity:0;
+      line-height: 0;
       transition: opacity 0.5s;
     }
     form#form div.form-group.active small {
