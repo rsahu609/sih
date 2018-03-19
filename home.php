@@ -1,4 +1,4 @@
-<?php if(isset($_SESSION)) session_start(); ?>
+<?php if(!isset($_SESSION)) session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +17,7 @@
         else if($_SESSION['role']==1) /*FOR USER*/
          include('home_user.php');
           else
-              include('home_admin.php'); /*FOR ADMIN*/
+            include('home_admin.php'); /*FOR ADMIN*/
     ?>
 </body>
 
