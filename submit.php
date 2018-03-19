@@ -13,25 +13,25 @@ if(!isset($_SESSION['user'])){
     <title>Submit your Idea</title>
 </head>
     <body>
-    
+
 <!-------------------- Navigation Section for header file ---------------------------------------------------------------------------------- -->
     <?php include('header.php'); ?>
    <!-- Navigation Section End here---------------------------------------------------------------------------------------------------- -->
    <div class="form-container">
      <form id="form">
   <div class="form-row form">
-    
+
   <div class="form-group col-md-12">
    <br>
     <label for="ideatitle">Idea title</label>
     <input type="text" class="form-control" name="title" id="idea-title" placeholder="Idea title" autofocus>
      <small class="text-muted">Enter the name of the idea or Context</small>
   </div>
-  
+
   <div class="form-group col-md-12">
     <label for="description">Description</label>
     <textarea  class="form-control" name="des" id="des" placeholder="Enter Description here" ></textarea>
-     <small class="text-muted">All the information about the idea in detail</small>
+     <small class="text-muted">All the details regarding practical utility,budget,precautionsand crop type,soil type(in case of irrigation ideas)</small>
   </div>
   <div class="form-group col-md-5">
       <label for="inputCity">District</label>
@@ -46,7 +46,7 @@ if(!isset($_SESSION['user'])){
       </select>
        <small class="text-muted">Name of the state</small>
    </div>
-    
+
    <div class="form-group col-md-4">
        <label for="inputZip">Zip</label>
       <input type="number" class="form-control" id="pin" min="100000" name="pin" maxlength="6" placeholder="Pin Code">
@@ -73,16 +73,16 @@ if(!isset($_SESSION['user'])){
     <!--script src="bootstrap.bundle.js"></script-->
    <script>
     $('document').ready(function(){
-    //$(':submit').css('background-color','red'); 
+    //$(':submit').css('background-color','red');
     //$('*').hide();
     $('a.disabled').hide();
     $(':submit').click(function(e){
     $('.img-submit').html('')
     })
     });
-  
+
 </script>
-  
+
    <div class="map-container" style="padding: 10px;">
     <div id="map" style="width:800px;height:500px;margin:auto;"></div>
    </div>
