@@ -6,8 +6,8 @@
   $state=$_POST['state'];
   $zip=$_POST['pin'];
   $temp=$_FILES['img']['tmp_name'];
-  $loc_img=uniqid().".jpg";
-  if (!move_uploaded_file($temp,$loc_img)) {
+  $loc_img="images/"uniqid().".jpg";
+  if (!move_uploaded_file($temp,"../".$loc_img)) {
     $ar=array('status'=>'Errorimg');
     echo json_encode($ar);
     exit();
