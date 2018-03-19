@@ -1,7 +1,6 @@
-<?php session_start();
-?>
+ <?php if(!isset($_SESSION['user'])){session_start();}?>
    <br><br>
-    <div id="accordion" class="submit-container">
+    <div id="accordion" id="submit-container">
         <div class="card">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
@@ -92,9 +91,34 @@
                 });
                 marker.setMap(map);
             });
+        var source = $('#submit-template').html();
+                var template = Handlebars.compile(source);
+                $(document).ready(function() {
+                    var source = $('#submit-template').html();
+                    var template = Handlebars.compile(source);
+                    console.log("ready funciton called");
+                    $.ajax({
+                            url: 'api/home_auth.php',
+                            method: 'post',
+                            data: {
+                                request: 'bhai data de'
+                            },
+                            dataType: 'json',
+                        })
+                        .done(function(response) {
+                            console.log(source)
+                            var context = response;
+                            console.log(response)
+                            var html = template(context);
+                            console.log(html)
+                            $('#submit-container').html(html);
+                        })
+                });
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
-<div class="submit-template">
+<!-----------------------------Submmission template for authorities----------------------------------------------------->
+   
+   <div id="submit-template">
     <div class="card">
             <div class="card-header" id="headingTwo">
                 <h5 class="mb-0">
