@@ -1,4 +1,4 @@
-
+<?php session_start(); if(isset($_SESSION['user'])) header('Location: newsfeed.php') ?>
 <!doctype html>
 <html lang="en">
   <head>

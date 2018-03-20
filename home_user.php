@@ -51,18 +51,6 @@
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
-    <!--script src="bootstrap.bundle.js"></script-->
-    <script>
-        $('document').ready(function() {
-            //$(':submit').css('background-color','red'); 
-            //$('*').hide();
-            $('a.disabled').hide();
-            /*    $(':submit').click(function(e){
-                $('.img-submit').html('')
-                })
-                */
-        });
-    </script>
 
     <div id="map" style="width:800px;height:500px;margin:auto;"></div>
 
@@ -81,16 +69,7 @@
                     position: location
                 });
                 marker.setMap(map);
-                var location = new google.maps.LatLng(21.1800, 81.2800);
-                var marker = new google.maps.Marker({
-                    position: location
-                });
-                marker.setMap(map);
-                var location = new google.maps.LatLng(21.1922, 81.2822);
-                var marker = new google.maps.Marker({
-                    position: location
-                });
-                marker.setMap(map);
+                
             });
         /*-------------------------AJAX RESPONSE CODES HERE -------------------------------------------------------------*/
         var source = $('#entry-template').html();
@@ -100,7 +79,7 @@
                     var template = Handlebars.compile(source);
                     console.log("ready funciton called");
                     $.ajax({
-                            url: 'api/newsfeed.php',
+                            url: 'api/home_user.php',
                             method: 'post',
                             data: {
                                 request: 'data'

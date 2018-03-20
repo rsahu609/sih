@@ -42,8 +42,14 @@
        </span>
       </li>
         
-         <?php }
+         <?php }if($_SESSION['role'] == 2){ 
           ?>
+          <li class="nav-item">
+       <span>
+           <a class="nav-link" href="#"><?="Authority" ?></a>
+       </span>
+      </li>
+      <?php } ?>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

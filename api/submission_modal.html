@@ -1,47 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/bootstrap.css">
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<div class="container">
+  <h2>Modal Test</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Submission Form</h4>
+        </div>
+        <div class="modal-body">
+    <div class="form-container">
+        <form id="form">
+            <div class="form-row form">
+                <div class="form-group col-md-12">
+                    <br>
+                    <label for="idea-title">Idea title</label>
+                    <input type="text" class="form-control" name="title" id="idea-title" placeholder="Idea title" autofocus>
+                    <small class="text-muted">Enter the name of the idea or Context</small>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="des">Description</label>
+                    <textarea class="form-control" name="des" id="des" placeholder="Enter Description here"></textarea>
+                    <small class="text-muted">All the details regarding practical utility, budget, precautions and crop type, soil type(in case of irrigation ideas)</small>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="equip">List of Items and Equipments required</label>
+                    <textarea class="form-control" name="equip" id="equip" placeholder="Enter Description here"></textarea>
+                    <small class="text-muted">Number of Items with costs</small>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="radio">Is there any policy or subsidy provided form government or any other agencies ?</label> 
+                    <div>
+                     <label for="yes">Yes </label>
+                      <input type="radio" name="policy_radio" value="radio_true" id="yes"> 
+                     <label for="no">No </label>
+                      <input type="radio" name="policy_radio" value="radio_false" id="no">
+                    </div>
+                    <label for="policytitle"></label>
+                    <input type="text" class="form-control" name="title" placeholder="Name of the organization who gives the subisidy or policy" autofocus>
+                    <small class="text-muted">Enter the name of the idea or Context</small>
+                </div>
+                <div class="form-group col-md-12">
+                <textarea class="form-control" name="policy" id="policy" placeholder="Details about the policy"></textarea>
+                <small class="text-muted">If there are government polices or subsidies related to your project you should write it down here</small>
+                </div>
+            <div class="form-group col-md-5">
+                <label for="budget">Approximate Budget</label>
+                <input type="text" class="form-control" name="budget" id="budget" placeholder="Cost of the setup in Rupees">
+                <small class="text-muted">Approximate bugdet of your project</small>
+            </div>
+            <div class="form-group col-md-7">
+                <label for="city">District</label>
+                <input type="text" class="form-control" name="city" id="city" placeholder="District">
+                <small class="text-muted">Place where is the idea implemented</small>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="state" for="state">State</label>
+                <select id="state" name="state" id="state" class="form-control">
+                    <option value="chhattisgarh">Chhattisgarh</option>
+                    <option value="telangana" name="telangana">Telangana</option>
+                    <option value="varanasi" name="varanasi">Varanasi</option>
+                </select>
+                <small class="text-muted">Name of the state</small>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="pin">Zip</label>
+                <input type="number" class="form-control" id="pin" min="100000" name="pin" maxlength="6" placeholder="Pin Code">
+                <small class="text-muted">Enter pin code</small>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="custom-file">
+                    <div class="img-submit"></div>
+                    <label class="custom-file-label" for="customFile">Click here to Upload Image</label>
+                    <input type="file" class="custom-file-input" id="file_submit" name="img">
+                    <small class="text-muted">Here is some help</small>
+                    <br><br>
+                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                    <div class="value submitstatus text-success" style="display:none;"></div>
+                </div>
+            </div>
+            </div>
+    </form>
+    </div>
+    <!-------------------------------------------------- Javascript dependencies  ------------------------------------------------------------------>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/jquery-2.2.4.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!--script src="bootstrap.bundle.js"></script-->
+    <script>
+        $('document').ready(function() {
+            //$(':submit').css('background-color','red');
+            //$('*').hide();
+            $('a.disabled').hide();
+            $(':submit').click(function(e) {
+                $('.img-submit').html('')
+            })
+        });
+    </script>
+
+    <div class="map-container" style="padding: 10px;">
+        <div id="map" style="width: auto; height:500px;margin:auto;"></div>
+    </div>
+
+    <script>
+        $('document').ready(
+            function myMap() {
+                var location = new google.maps.LatLng(21.200437, 81.298213);
+                var mapCanvas = document.getElementById("map");
+                var mapOptions = {
+                    center: location,
+                    zoom: 13
+                };
+                var map = new google.maps.Map(mapCanvas, mapOptions);
+                var marker = new google.maps.Marker({
+                    position: location
+                });
+                marker.setMap(map);
+                var location = new google.maps.LatLng(21.1800, 81.2800);
+                var marker = new google.maps.Marker({
+                    position: location
+                });
+                marker.setMap(map);
+                var location = new google.maps.LatLng(21.1922, 81.2822);
+                var marker = new google.maps.Marker({
+                    position: location
+                });
+                marker.setMap(map);
+            }
+        );
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
+    <!-- Ajax data request with submitted data ------>
+    <script>
+        $('#submit').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                    type: "POST",
+                    url: "api/submit.php",
+                    data: new FormData(document.getElementById('form')),
+                    cache: false,
+                    processData: false,
+                    contentType: false
+                })
+                .done(function(response) {
+                    if (response == 'success') {
+                        $('.submitstatus').html('Successfully Submitted');
+                        $('.submitstatus').fadeIn();
+                    } else {
+                        ('.submitstatus').html('unsuccesful submission');
+                        $('.submitstatus').fadeIn();
+
+                    }
+                });
+        });
+        /*Form controll scripts ----------------------------------------------------------------*/
+        $('.form-control').on('focus', function() {
+            this.closest('.form-group').classList.add('active');
+        });
+        $('.form-control').on('blur', function() {
+            this.closest('.form-group').classList.remove('active');
+        });
+    </script>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
       </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-<!--          Aria stands for accebility Rich Internet Access   -->
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Make changes</button>
-      </div>
+      
     </div>
   </div>
-</div><!--
-    <script src="../js/bootstrap.bundle.js"></script>-->
-    <script src="js/popper.min.js"></script>
-    <script src="js/jquery-2.2.4.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    </body>
+  
+</div>
+
+</body>
 </html>
