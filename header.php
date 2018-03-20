@@ -9,6 +9,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
+        <a class="nav-link" href="home.php">Home</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="newsfeed.php">Newsfeed</a>
       </li>
       <li class="nav-item">
@@ -22,9 +25,6 @@
        </span>
       </li>
       <?php if(isset($_SESSION['user'])){?>
-      <li class="nav-item active">
-        <a class="nav-link" href="home.php">Home</a>
-      </li>
       <li class="nav-item">
        <span>
            <a class="nav-link" href="api/logout.php">Logout</a>
@@ -32,7 +32,7 @@
       </li>
       <li class="nav-item">
        <span>
-           <a class="nav-link" href="profile.php"><?=$_SESSION['user'] ?></a>
+           <a class="nav-link" href="profile.php"><?=ucfirst($_SESSION['user']) ?></a>
        </span>
       </li>
       <?php } else {?>

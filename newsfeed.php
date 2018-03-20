@@ -52,7 +52,7 @@
                     <label for="filter">Select State</label>
                     <select class="form-control" id="filter">
 <?php 
-     $password = $_SERVER['HTTP_HOST'] == '18.188.54.21' ? 'password' : '';
+     $password = 'password';
   $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
   $query="SELECT DISTINCT `state` FROM `a_submit` WHERE status='1'";
   $result=mysqli_query($connect,$query);
