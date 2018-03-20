@@ -49,7 +49,7 @@
   }
     $password = 'password';
   $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
-  $query="insert into a_submit values('','Rajan','$idea',$des,'$loc_img','$lat','$long','0','$city','$state','$zip')";
+  $query="insert into a_submit values('','$_SESSION[user]','$idea',$des,'$loc_img','$lat','$long','0','$city','$state','$zip')";
   $resu=mysqli_query($connect,$query);
   if ($resu) {
     $ar=array('status' => 'SUCCESS');
