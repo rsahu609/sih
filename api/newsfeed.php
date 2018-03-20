@@ -5,8 +5,10 @@
   $query="SELECT `user_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1'";
   $result=mysqli_query($connect,$query);
   $arr;
+  $i=mysqli_num_rows($result);
   while($row = mysqli_fetch_assoc($result)){
-      $arr[] = $row;
+      $i-=1;
+      $arr[$i] = $row;
   }
   echo json_encode(array('activity'=>$arr));
  }
