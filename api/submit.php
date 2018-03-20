@@ -6,7 +6,7 @@
   $state=$_POST['state'];
   $zip=$_POST['pin'];
   $temp=$_FILES['img']['tmp_name'];
-  $loc_img="images/"uniqid().".jpg";
+  $loc_img="images/".uniqid().".jpg";
   if (!move_uploaded_file($temp,"../".$loc_img)) {
     $ar=array('status'=>'Errorimg');
     echo json_encode($ar);
@@ -47,7 +47,7 @@
     $long=$result["longitude"];
     //$result[datetime]
   }
-    $password = $_SERVER['HTTP_HOST'] == '18.188.54.21' ? 'password' : '';
+    $password = $_SERVER['HTTP_HOST'] == '18.188.54.21' ? 'password' : 'password';
   $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
   $query="insert into a_submit values('','Rajan','$idea',$des,'$loc_img','$lat','$long','0','$city','$state','$zip')";
   $resu=mysqli_query($connect,$query);
