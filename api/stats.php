@@ -2,7 +2,6 @@
   $start;
   $end;
   $connect=mysqli_connect('127.0.0.1','root','password','sih');
-<<<<<<< HEAD
   if (isset($_REQUEST['year'])) {
     $year=$_REQUEST['year'];
     $month=$_REQUEST['month'];
@@ -27,11 +26,3 @@
   }
   echo json_encode($arr);
   ?>
-=======
-  $query="SELECT COUNT(post_id), state FROM a_submit GROUP BY state";
-  $count=mysqli_query($connect,$query);
-  while(($a=mysqli_fetch_assoc($count))){
-    print_r($a);
-  }
-?>
->>>>>>> 4271c88d54d53177ae87e5f163b0c09bd702d572

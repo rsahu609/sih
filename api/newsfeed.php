@@ -1,7 +1,7 @@
 <?php
  if( isset($_REQUEST['request'])){
      $password = 'password';
-  $connect=mysqli_connect('127.0.0.1','root','','sih');
+  $connect=mysqli_connect('127.0.0.1','root','$password','sih');
   $query="SELECT `user_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1'";
   $result=mysqli_query($connect,$query);
   $arr;
