@@ -90,7 +90,7 @@ if(!isset($_SESSION['user'])){
                     <div class="value submitstatus text-success" style="display:none;"></div>
                 </div>
             </div>
-    
+            </div>
     </form>
     </div>
     <!-------------------------------------------------- Javascript dependencies  ------------------------------------------------------------------>

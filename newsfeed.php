@@ -117,6 +117,8 @@
             <div class="col-sm">
                 <div id="map" style=""></div>
             </div>
+        </div>
+    </div>
             <!--script src="bootstrap.bundle.js"></script-->
             <!---------------------------Map code-------------------------------->
 
