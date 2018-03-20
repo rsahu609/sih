@@ -1,6 +1,6 @@
  <?php if(!isset($_SESSION['user'])){session_start();}?>
    <br><br>
-    <div id="accordion" id="submit-container">
+    <div id="accordion submit-container">
         <div class="card">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
@@ -93,10 +93,10 @@
             });
         var source = $('#submit-template').html();
                 var template = Handlebars.compile(source);
-                $(document).ready(function() {
+                $('document)'.ready(function() {
                     var source = $('#submit-template').html();
                     var template = Handlebars.compile(source);
-                    console.log("ready funciton called");
+                    console.log("ready funciton called to load submissions");
                     $.ajax({
                             url: 'api/home_auth.php',
                             method: 'post',
@@ -120,11 +120,11 @@
    
    <div id="submit-template">
     <div class="card">
-            <div class="card-header" id="headingTwo">
+            <div class="card-header" id="">
                 <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          {{title}}
-        </button>
+                     {{title}}
+                    </button>
                 </h5>
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
