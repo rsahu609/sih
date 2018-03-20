@@ -17,8 +17,9 @@ if(!(isset($_SESSION['user']))){
 </head>
 
 <body>
-    <?php  include('header.php'); /*HEADER FILE FOR NAVIGATION*/
-
+    <?php  include('header.php');?> <!--HEADER FILE FOR NAVIGATION-->
+ <div class="container"> 
+   <?php 
     if($_SESSION['role'] == 2) /*FOR AUTHORITY*/
      include('home_auth.php');
         else if($_SESSION['role']==1) /*FOR USER*/
@@ -26,5 +27,6 @@ if(!(isset($_SESSION['user']))){
           else
             include('home_admin.php'); /*FOR ADMIN*/
     ?>
+    </div>
 </body>
 </html>

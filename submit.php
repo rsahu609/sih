@@ -47,12 +47,12 @@ if(!isset($_SESSION['user'])){
                       <input type="radio" name="policy_radio" value="radio_false" id="no">
                     </div>
                     <label for="policytitle"></label>
-                    <input type="text" class="form-control" name="title" placeholder="Name of the organization who gives the subisidy or policy" autofocus>
+                    <input type="text" class="form-control policy_fields" name="title" placeholder="Name of the organization who gives the subisidy or policy">
                     <small class="text-muted">Enter the name of the idea or Context</small>
                 </div>
                 <div class="form-group col-md-12">
-                <textarea class="form-control" name="policy" id="policy" placeholder="Details about the policy"></textarea>
-                <small class="text-muted">If there are government polices or subsidies related to your project you should write it down here</small>
+                <textarea class="form-control policy_fields" name="policy" id="policy" placeholder="Details about the policy"></textarea>
+                <small class="text-muted">If there are government subsidies or financial help provided, related to your project you should write it down here</small>
                 </div>
             <div class="form-group col-md-5">
                 <label for="budget">Approximate Budget</label>
@@ -70,6 +70,10 @@ if(!isset($_SESSION['user'])){
                     <option value="chhattisgarh">Chhattisgarh</option>
                     <option value="telangana" name="telangana">Telangana</option>
                     <option value="varanasi" name="varanasi">Varanasi</option>
+                    <option value="West Bengal" name="West Bengal"></option>
+                    <option value="Kerala" name="Kerala">Kerala</option>
+                    <option value="Uttar Pradesh" name="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Punjab" name="Punjab">Punjab</option>
                 </select>
                 <small class="text-muted">Name of the state</small>
             </div>
@@ -97,24 +101,15 @@ if(!isset($_SESSION['user'])){
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-2.2.4.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!--script src="bootstrap.bundle.js"></script-->
-    <script>
-        $('document').ready(function() {
-            //$(':submit').css('background-color','red');
-            //$('*').hide();
-            $('a.disabled').hide();
-            $(':submit').click(function(e) {
-                $('.img-submit').html('')
-            })
-        });
-    </script>
+
 
     <div class="map-container" style="padding: 10px;">
         <div id="map" style="width:800px;height:500px;margin:auto;"></div>
     </div>
 
     <script>
-        $('document').ready(
+        $('document').ready( function(){
+            $('.policy_fields').fadeOut();
             function myMap() {
                 var location = new google.maps.LatLng(21.200437, 81.298213);
                 var mapCanvas = document.getElementById("map");
@@ -138,7 +133,7 @@ if(!isset($_SESSION['user'])){
                 });
                 marker.setMap(map);
             }
-        );
+        });
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
     <!-- Ajax data request with submitted data ------>
@@ -171,6 +166,14 @@ if(!isset($_SESSION['user'])){
         $('.form-control').on('blur', function() {
             this.closest('.form-group').classList.remove('active');
         });
+        $('input[name=policy_radio]').click(function(){
+            if($(this).val()=='radio_true') {
+                $('.policy_fields').fadeIn();
+            }
+            else{
+                $('.policy_fields').fadeOut();
+            }
+        })
     </script>
 </body>
 

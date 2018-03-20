@@ -32,17 +32,17 @@
                 <div class="form-group col-md-12">
                     <br>
                     <label for="idea-title">Idea title</label>
-                    <input type="text" class="form-control" name="title" id="idea-title" placeholder="Idea title" autofocus>
+                    <input type="text" class="form-control" name="title" id="idea-title" placeholder="Idea title" value="{{idea}}">
                     <small class="text-muted">Enter the name of the idea or Context</small>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="des">Description</label>
-                    <textarea class="form-control" name="des" id="des" placeholder="Enter Description here"></textarea>
+                    <textarea class="form-control" name="des" id="des" placeholder="Enter Description here">{{description}}</textarea>
                     <small class="text-muted">All the details regarding practical utility, budget, precautions and crop type, soil type(in case of irrigation ideas)</small>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="equip">List of Items and Equipments required</label>
-                    <textarea class="form-control" name="equip" id="equip" placeholder="Enter Description here"></textarea>
+                    <textarea class="form-control" name="equip" id="equip" placeholder="Enter Description here">{{equip}}</textarea>
                     <small class="text-muted">Number of Items with costs</small>
                 </div>
                 <div class="form-group col-md-12">
@@ -54,49 +54,47 @@
                       <input type="radio" name="policy_radio" value="radio_false" id="no">
                     </div>
                     <label for="policytitle"></label>
-                    <input type="text" class="form-control" name="title" placeholder="Name of the organization who gives the subisidy or policy" autofocus>
+                    <input type="text" class="form-control" name="policy-title" value="{{policy-title}}" placeholder="Name of the organization who gives the subisidy or policy">
                     <small class="text-muted">Enter the name of the idea or Context</small>
                 </div>
                 <div class="form-group col-md-12">
-                <textarea class="form-control" name="policy" id="policy" placeholder="Details about the policy"></textarea>
+                <textarea class="form-control" name="policy" id="policy" placeholder="Details about the policy">{{policy}}</textarea>
                 <small class="text-muted">If there are government polices or subsidies related to your project you should write it down here</small>
                 </div>
             <div class="form-group col-md-5">
                 <label for="budget">Approximate Budget</label>
-                <input type="text" class="form-control" name="budget" id="budget" placeholder="Cost of the setup in Rupees">
+                <input type="text" class="form-control" name="budget" value="{{budget}}" id="budget" placeholder="Cost of the setup in Rupees">
                 <small class="text-muted">Approximate bugdet of your project</small>
             </div>
             <div class="form-group col-md-7">
                 <label for="city">District</label>
-                <input type="text" class="form-control" name="city" id="city" placeholder="District">
+                <input type="text" class="form-control" name="city" id="city" value="{{city}}" placeholder="District">
                 <small class="text-muted">Place where is the idea implemented</small>
             </div>
             <div class="form-group col-md-8">
                 <label for="state" for="state">State</label>
-                <select id="state" name="state" id="state" class="form-control">
-                    <option value="chhattisgarh">Chhattisgarh</option>
-                    <option value="telangana" name="telangana">Telangana</option>
-                    <option value="varanasi" name="varanasi">Varanasi</option>
-                </select>
+                <input type="text" class="form-control" id="state"  value="{{state}}">
                 <small class="text-muted">Name of the state</small>
             </div>
 
             <div class="form-group col-md-4">
                 <label for="pin">Zip</label>
-                <input type="number" class="form-control" id="pin" min="100000" name="pin" maxlength="6" placeholder="Pin Code">
+                <input type="number" class="form-control" id="pin" min="100000" name="pin" maxlength="6" placeholder="Pin Code" value="{{pin}}">
                 <small class="text-muted">Enter pin code</small>
             </div>
             <div class="form-group col-md-12">
-                <div class="custom-file">
+
                     <div class="img-submit"></div>
-                    <label class="custom-file-label" for="customFile">Click here to Upload Image</label>
-                    <input type="file" class="custom-file-input" id="file_submit" name="img">
-                    <small class="text-muted">Here is some help</small>
+                    <img src="{{}}">
+                    <small class="text-muted">Uploaded image</small>
                     <br><br>
-                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                    <div class="value submitstatus text-success" style="display:none;"></div>
-                </div>
             </div>
+                    <button type="submit" class="btn btn-success">Approve</button>
+                    
+                    <button type="submit" class="btn btn-primary">No Change</button>
+                    
+                    <button type="submit" class="btn btn-danger">Deny</button>
+                    
             </div>
     </form>
     </div>
@@ -105,16 +103,6 @@
     <script src="../js/jquery-2.2.4.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <!--script src="bootstrap.bundle.js"></script-->
-    <script>
-        $('document').ready(function() {
-            //$(':submit').css('background-color','red');
-            //$('*').hide();
-            $('a.disabled').hide();
-            $(':submit').click(function(e) {
-                $('.img-submit').html('')
-            })
-        });
-    </script>
 
     <div class="map-container" style="padding: 10px;">
         <div id="map" style="width: auto; height:500px;margin:auto;"></div>
@@ -165,7 +153,7 @@
                         $('.submitstatus').html('Successfully Submitted');
                         $('.submitstatus').fadeIn();
                     } else {
-                        ('.submitstatus').html('unsuccesful submission');
+                        ('.submitstatus').html('unsuccessful submission');
                         $('.submitstatus').fadeIn();
 
                     }

@@ -27,6 +27,12 @@ form#form small {
       line-height: 0;
       transition: opacity 0.5s;
     }
-    form#form div.form-group.active small {
+form#form div.form-group.active small {
       opacity: 1;
     }
+td.description-overflow {
+ text-overflow: ellipsis;
+ white-space: nowrap;
+ overflow: hidden;
+ max-width: 200px;
+}
