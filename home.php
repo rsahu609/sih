@@ -4,6 +4,7 @@ if(!(isset($_SESSION['user']))){
   exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +12,7 @@ if(!(isset($_SESSION['user']))){
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <script src="js/handlebars.min.js"></script>
     <title>Home</title>
 </head>
 
@@ -25,5 +27,4 @@ if(!(isset($_SESSION['user']))){
             include('home_admin.php'); /*FOR ADMIN*/
     ?>
 </body>
-
 </html>
