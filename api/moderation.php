@@ -15,7 +15,7 @@
     $ar = array('status' => 'Successful');
     echo json_encode($ar);
   } else {
-    $ar = array('status' => 'Update failed' , 'post_id' => '$p_id');
+    $ar = array('status' => 'Update failed');
     echo json_encode($ar);
   }
  ?>
