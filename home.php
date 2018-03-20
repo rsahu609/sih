@@ -1,4 +1,9 @@
-<?php if(!isset($_SESSION)) session_start(); ?>
+<?php session_start();
+if(!(isset($_SESSION['user']))){
+  header('Location: login.php');
+  exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +16,7 @@
 
 <body>
     <?php  include('header.php'); /*HEADER FILE FOR NAVIGATION*/
-    
+
     if($_SESSION['role'] == 2) /*FOR AUTHORITY*/
      include('home_auth.php');
         else if($_SESSION['role']==1) /*FOR USER*/
