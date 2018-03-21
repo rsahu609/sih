@@ -7,8 +7,7 @@
   } else {
     $status=2;
   }
-  $password = 'password';
-  $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
+  include 'connection.php';
   $query=" update a_submit set status='$status' WHERE post_id='$p_id'";
   $res=mysqli_query($connect,$query);
   if ($res) {

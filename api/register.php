@@ -3,7 +3,7 @@
   $pass=$_REQUEST['pass'];
   $mob=$_REQUEST['no'];
   $password = 'password';
-  $connect=mysqli_connect('localhost','root',$password,'sih');
+  include 'connection.php';
   $query_usrcheck="select * from a_login where username=".$user;
   $r=mysqli_query($connect,$query_usrcheck);
   if ($r) {

@@ -2,7 +2,7 @@
   $user=$_REQUEST['user'];
   $pass=$_REQUEST['pass'];
   $mob=$_REQUEST['no'];
-  $connect=mysqli_connect('127.0.0.1','root','password','sih');
+  include 'connection.php';
   $query="SELECT `username` FROM a_login WHERE username='$user'";
   $chk=mysqli_query($connect,$query);
   if ($chk) {

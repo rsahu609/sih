@@ -47,9 +47,7 @@
     $lat=$result["latitude"];
     $long=$result["longitude"];
     //$result[datetime]
-  }
-    $password = 'password';
-  $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
+  include 'connection.php';
   $query="insert into a_submit values('','$_SESSION[user]','$idea','$des','$loc_img','$lat','$long','0','$city','$state','$zip','a','a','a','a','')";
   $resu=mysqli_query($connect,$query);
   if ($resu) {
@@ -59,5 +57,9 @@
     $ar=array('status'=>'Error');
     echo json_encode($ar);
   }
-  }
+}else{
+  $t = array('STATUS' => 'GEO ACCESS FAILED');
+  echo json_encode($t);
+}
+}
 ?>
