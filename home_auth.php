@@ -1,5 +1,5 @@
-<?php if (session_status() == PHP_SESSION_NONE) {
-    session_start();}?>
+<?php// if (session_status() == PHP_SESSION_NONE) {
+    //session_start();}?>
 <br><br>
 <table class="table table-striped" style="table-layout:fixed">
     <thead>
@@ -30,13 +30,13 @@
 <script id="submit-template" type="text/handlebar">
     {{#each activity}}
     <tr>
-      
+
         <td>{{post_id}}</td>
         <td>{{user_id}}</td>
         <td class="description-overflow" style="max-width:'200px';text-overflow:ellipsis;overflow:hidden;">{{description}}</td>
         <td>{{date}}</td>
         <td><button class="btn btn-primary view-btn" data-postid="{{post_id}}">View</button></td>
-        
+
     </tr>
     {{/each}}
 </script>
@@ -83,7 +83,7 @@
             });
     });
     $('body').on('click','.view-btn',function(){
-       console.log($(this).data('postid')); 
+       console.log($(this).data('postid'));
     })
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
