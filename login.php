@@ -25,7 +25,7 @@
         <a href="newsfeed.php"><img class="md-4" id="fluid-gif" src="img/fluid%20drop.gif" alt="Fluid Drop Image" width="300" height="200"></a>
         <h1 class=" mb-3 font-weight-normal">Log In</h1>
         <label for="username" class="sr-only">Username</label>
-        <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
+        <input type="text" id="username" class="form-control" placeholder="Username" required autofocus autocomplete="rajan">
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="password" class="form-control" placeholder="Password" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>

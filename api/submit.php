@@ -7,12 +7,13 @@
   $zip=$_POST['pin'];
   $temp=$_FILES['img']['tmp_name'];
   $loc_img="images/".uniqid().".jpg";
-  if (!move_uploaded_file($temp,"../".$loc_img)) {
+  $lo_img="../".$loc_img;
+  if (!move_uploaded_file($temp,$lo_img)) {
     $ar=array('status'=>'Errorimg');
     echo json_encode($ar);
     exit();
   } else{
-    $lo="$loc_img";
+    $lo="$lo_img";
     $exif = exif_read_data($lo);
     if(isset($exif["GPSLatitudeRef"])){
         $LatM = 1; $LongM = 1;
@@ -49,7 +50,7 @@
   }
     $password = 'password';
   $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
-  $query="insert into a_submit values('','$_SESSION[user]','$idea',$des,'$loc_img','$lat','$long','0','$city','$state','$zip')";
+  $query="insert into a_submit values('','$_SESSION[user]','$idea','$des','$loc_img','$lat','$long','0','$city','$state','$zip','a','a','a','a','')";
   $resu=mysqli_query($connect,$query);
   if ($resu) {
     $ar=array('status' => 'SUCCESS');

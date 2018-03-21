@@ -25,7 +25,7 @@ if(!isset($_SESSION['user'])){
                 <div class="form-group col-md-12">
                     <br>
                     <label for="idea-title">Idea title</label>
-                    <input type="text" class="form-control" name="title" id="idea-title" placeholder="Idea title" autofocus>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="Idea title" autofocus>
                     <small class="text-muted">Enter the name of the idea or Context</small>
                 </div>
                 <div class="form-group col-md-12">
@@ -47,7 +47,7 @@ if(!isset($_SESSION['user'])){
                       <input type="radio" name="policy_radio" value="radio_false" id="no">
                     </div>
                     <label for="policytitle"></label>
-                    <input type="text" class="form-control policy_fields" name="title" placeholder="Name of the organization who gives the subisidy or policy">
+                    <input type="text" class="form-control policy_fields" name="policy_title" placeholder="Name of the organization who gives the subisidy or policy">
                     <small class="text-muted">Enter the name of the idea or Context</small>
                 </div>
                 <div class="form-group col-md-12">
@@ -91,7 +91,7 @@ if(!isset($_SESSION['user'])){
                     <small class="text-muted">Here is some help</small>
                     <br><br>
                     <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                    <div class="value submitstatus text-success" style="display:none;"></div>
+                    <div class="text-success" id="submitstatus" style="display:none;"></div>
                 </div>
             </div>
             </div>
@@ -148,14 +148,16 @@ if(!isset($_SESSION['user'])){
                     processData: false,
                     contentType: false
                 })
-                .done(function(response) {
-                    if (response == 'success') {
-                        $('.submitstatus').html('Successfully Submitted');
-                        $('.submitstatus').fadeIn();
+                .done(function(response) { 
+                    var r=JSON.parse(response);
+                    if (r.status== 'SUCCESS') {
+                        $('#submitstatus').html('Successfully Submitted');
+                        $('#submitstatus').fadeIn();
+                    
                     } else {
-                        ('.submitstatus').html('unsuccesful submission');
-                        $('.submitstatus').fadeIn();
-
+                        $('#submitstatus').html('Some error occured. Please try submitting it again.');
+                        $('#submitstatus').fadeIn();
+    
                     }
                 });
         });

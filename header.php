@@ -1,5 +1,6 @@
- <?php if(session_status()== PHP_SESSION_NONE) session_start();?>
+ <?php //if(session_status() == PHP_SESSION_NONE)  session_start();?>
 <div class='header'>
+<link href="img/leaves-with-water-droplets_1504589.jpg" rel="icon" type="image/png" />
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="newsfeed.php">Aprakshan</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,16 +13,16 @@
         <a class="nav-link" href="home.php">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="newsfeed.php">Newsfeed</a>
+        <a class="nav-link" href="newsfeed.php">Newsfeed </a>
       </li>
       <li class="nav-item">
        <span>
-           <a class="nav-link" href="submit.php">Submit Your Idea</a>
+           <a class="nav-link" href="submit.php">&nbsp;&nbsp;Submit Your Idea&nbsp;&nbsp;</a>
        </span>
       </li>
       <li class="nav-item">
        <span>
-           <a class="nav-link" href="stats.php">Statistics</a>
+           <a class="nav-link" href="stats.php">&nbsp;Statistics</a>
        </span>
       </li>
       <?php if(isset($_SESSION['user'])){?>
