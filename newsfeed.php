@@ -152,6 +152,7 @@
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">{{city}}, {{state}}</small>
+                        <button class="btn btn-primary" style="float:right">View</button>
                     </div>
                 </div>
                 {{/each}}

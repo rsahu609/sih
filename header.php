@@ -1,4 +1,4 @@
- <?php //if(session_status() == PHP_SESSION_NONE)  session_start();?>
+<?php if((session_status() == PHP_SESSION_NONE)) session_start();?> 
 <div class='header'>
 <link href="img/leaves-with-water-droplets_1504589.jpg" rel="icon" type="image/png" />
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -42,8 +42,8 @@
            <a class="nav-link" href="login.php">Login</a>
        </span>
       </li>
-        
-         <?php }if(isset($_SESSION['role'])) if($_SESSION['role'] == 2){ 
+
+         <?php }if(isset($_SESSION['role'])) if($_SESSION['role'] == 2){
           ?>
           <li class="nav-item">
        <span>

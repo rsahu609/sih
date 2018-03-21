@@ -1,9 +1,10 @@
-<?php //if (session_status() == PHP_SESSION_NONE) {
-    //session_start();}?>
+
 <br><br>
 <table class="table table-striped" style="table-layout:fixed">
     <thead>
         <tr>
+           
+            <th scope="col">Serial No.</th>
             <th scope="col">Post ID</th>
             <th scope="col">User ID</th>
             <th scope="col" style="max-width:'200px';text-overflow:ellipsis;overflow:hidden;">Description</th>
@@ -15,7 +16,7 @@
 
     </tbody>
 </table>
-</div>
+
 <br><br>
 <!--div class="map col-md-8" ><h3>Innovations Near You</h3>
       <div id="map"></div-->
@@ -27,21 +28,19 @@
 
 <div id="map" style="width:800px;height:500px;margin:auto;"></div>
 
-<DIV id="submit-template" type="text/handlebar">
+<script id="submit-template" type="text/handlebar">
     {{#each activity}}
     <tr>
-      
+        <td>{{@key}}</td>
         <td>{{post_id}}</td>
         <td>{{user_id}}</td>
         <td class="description-overflow" style="max-width:'200px';text-overflow:ellipsis;overflow:hidden;">{{description}}</td>
         <td>{{date}}</td>
-        <td><button class="btn btn-primary view-btn" data-postid="{{post_id}}" data-row="{{../activity}}">View</button></td>
-        
+        <td><button class="btn btn-primary view-btn" data-postid="{{post_id}}">View</button></td>
     </tr>
     {{/each}}
-</DIV>
-
-
+</script>
+    <?php    include('submission_modal.html'); ?>
 <script>
     $('document').ready(
         function myMap() {
@@ -82,10 +81,23 @@
                 $('#submit-container').html(html);
             });
     });
+    
     $('body').on('click','.view-btn',function(){
        console.log($(this).data('postid'));
-       console.log($(this).data('row'));
-    })
+        $.ajax({
+            url: 'api/home_auth.php',
+            method: 'post',
+            data: {
+            postid: $(this).data('postid')
+            },
+            dataType: 'json',
+               })
+        .done(function(response){
+            var context = response;
+            var html = template(context);
+            $('#modal-template').html(html);
+        });
+    });
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
 <!-----------------------------Submmission template for authorities----------------------------------------------------->
