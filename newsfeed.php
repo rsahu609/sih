@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +52,7 @@
                 <div class="form-group">
                     <label for="filter">Select State</label>
                     <select class="form-control" id="filter">
-<?php 
+<?php
      $password = 'password';
   $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
   $query="SELECT DISTINCT `state` FROM `a_submit` WHERE status='1'";
