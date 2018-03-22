@@ -23,7 +23,7 @@ else if(isset($_REQUEST['postid'])){
   $query="SELECT * FROM a_submit WHERE post_id=$pid";
   $row=mysqli_query($connect,$query);
   $d=mysqli_fetch_assoc($row);
-  echo json_encode(array('STATUS'=>'m_success','activity'=>$d));
+  echo json_encode(array('activity'=>$d));
 }
 ?>
 

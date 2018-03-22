@@ -1,3 +1,12 @@
+<?php if(session_status() == PHP_SESSION_NONE) session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><?= $_SESSION['user'] ?></title>
+</head>
+<body>
+    
 <link href="css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
 <script src="js/bootstrap.bundle.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -12,7 +21,7 @@
         <div class="useravatar">
             <img alt="" src="http://lorempixel.com/100/100/people/9/">
         </div>
-        <div class="card-info"> <span class="card-title">Pamela Anderson</span>
+        <div class="card-info"> <span class="card-title"><?= ucfirst($_SESSION['user']); ?></span>
 
         </div>
     </div>
@@ -51,3 +60,5 @@
     </div>
             
     
+</body>
+</html>

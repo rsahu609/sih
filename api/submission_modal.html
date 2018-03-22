@@ -1,12 +1,12 @@
-    <div class="modal fade modal-lg" id="myModal{{post_id}}" role="dialog">
+    <div class="modal fade" id="myModal{{post_id}}" style="" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+                    <h4 class="modal-title" style="float: left">Submission Form</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Submission Form</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-container">
+                    <div class="form-container container-fluid">
                         <form id="form">
                             <div class="form-row form">
                                 <div class="form-group col-md-12">
@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="equip">List of Items and Equipments required</label>
-                                    <textarea class="form-control" name="equip" id="equip" placeholder="Enter Description here">{{equip}}</textarea>
+                                    <textarea class="form-control" name="equip" id="equip" placeholder="Enter Description here">{{equipments}}</textarea>
                                     <small class="text-muted">Number of Items with costs</small>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -34,16 +34,16 @@
                                         <input type="radio" name="policy_radio" value="radio_false" id="no">
                                     </div>
                                     <label for="policytitle"></label>
-                                    <input type="text" class="form-control" name="policy-title" value="{{policy-title}}" placeholder="Name of the organization who gives the subisidy or policy">
+                                    <input type="text" class="form-control" name="policy-title" value="{{policy_title}}" placeholder="Name of the organization who gives the subisidy or policy">
                                     <small class="text-muted">Enter the name of the idea or Context</small>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <textarea class="form-control" name="policy" id="policy" placeholder="Details about the policy">{{policy}}</textarea>
+                                    <textarea class="form-control" name="policy" id="policy" placeholder="Details about the policy">{{state_policy}}</textarea>
                                     <small class="text-muted">If there are government polices or subsidies related to your project you should write it down here</small>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label for="budget">Approximate Budget</label>
-                                    <input type="text" class="form-control" name="budget" value="{{budget}}" id="budget" placeholder="Cost of the setup in Rupees">
+                                    <input type="text" class="form-control" name="budget" value="{{project_budget}}" id="budget" placeholder="Cost of the setup in Rupees">
                                     <small class="text-muted">Approximate bugdet of your project</small>
                                 </div>
                                 <div class="form-group col-md-7">
@@ -59,7 +59,7 @@
 
                                 <div class="form-group col-md-4">
                                     <label for="pin">Zip</label>
-                                    <input type="number" class="form-control" id="pin" min="100000" name="pin" maxlength="6" placeholder="Pin Code" value="{{pin}}">
+                                    <input type="number" class="form-control" id="pin" min="100000" name="pin" maxlength="6" placeholder="Pin Code" value="{{zip}}">
                                     <small class="text-muted">Enter pin code</small>
                                 </div>
                                 <div class="form-group col-md-12">

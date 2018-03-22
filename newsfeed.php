@@ -49,8 +49,9 @@
                 <!-------------------Carousels end here-->
 
                 <div class="form-group">
-                    <label for="filter">Select State</label>
+                    <label for="filter">Filter entries by state</label>
                     <select class="form-control" id="filter">
+                    <option value="all">All</option>
 <?php 
      $password = 'password';
   $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
@@ -152,7 +153,7 @@
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">{{city}}, {{state}}</small>
-                        <button class="btn btn-primary" style="float:right">View</button>
+                        <a class="" href="" style="float:right">View</a>
                     </div>
                 </div>
                 {{/each}}
