@@ -62,9 +62,9 @@
                 $('#error-message').fadeIn();
             }
             else {
-            }
                 $('#error-message').html('Some error occured! Please re-enter');
                 $('#error-message').fadeIn();
+            }
             });
          }          else{
                 $('#error-message').html("Password doesn't match");

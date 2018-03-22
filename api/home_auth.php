@@ -26,5 +26,5 @@
     } else {
       echo json_encode(array('STATUS' => 'm_fail'));
     }
-  }
+}
 ?>

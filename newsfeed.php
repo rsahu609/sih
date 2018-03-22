@@ -1,4 +1,11 @@
-<?php session_start(); ?>
+<?php
+$connect = mysqli_connect('127.0.0.1','root','password','sih');
+$query = "SELECT DISTINCT `state` FROM `a_submit` WHERE status='1'";
+$result = mysqli_query($connect, $query);
+while($row = mysqli_fetch_assoc($result)){
+  $states[] = $row['state'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,46 +13,42 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-    <title>Newsfeed</title>
+    <title>Home - Aprakshan</title>
 </head>
 
 <body>
-    <!-- Navigation Section for header file ---------------------------------------------------------------------------------- -->
     <?php  include('header.php');?>
-    <!-- Navigation Section End here---------------------------------------------------------------------------------------------------- -->
-    <br><br>
     <div class="container">
-        <div class="row">
-            <!----------------------------Carousels----------------------------------------------------->
-            <div class="carousels col-lg-8">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="img/1.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/2.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/3.jpg" alt="Third slide">
-                        </div>
+        <!-- <div class="carousels">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="img/1.jpg" alt="First slide">
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="img/2.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="img/3.jpg" alt="Third slide">
+                    </div>
                 </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
             </div>
+          -->
 
+<<<<<<< HEAD
             <div class="cardouter col-lg-4">
                 <!-------------------Carousels end here-->
 
@@ -65,54 +68,30 @@
   }
 ?>
     </select>
+=======
+            <div class="cardouter">
+              <form>
+                <div class="form-group row">
+                  <label for="filter" class="col-sm-6 col-form-label">Filter entries by state</label>
+                  <div class="col-sm-6">
+                    <select class="form-control form-control-sm" id="filter">
+                      <option value="all">All</option>
+                      <?php
+                      foreach($states as $state) {
+                        echo "<option value='$state'>$state</option>";
+                      }
+                      ?>
+                    </select>
+                  </div>
+>>>>>>> e148040c4f5819ff1979576d55fad33c87346242
                 </div>
-
+              </form>
                 <div id="feed-container">
-                    <div class="card">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
-
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
-                    </div>
+                  <p> Loading feed .. </p>
                 </div>
             </div>
         </div>
     </div>
-    <br><br>
-    <!--div class="map col-md-8" ><h3>Innovations Near You</h3>
-      <div id="map"></div-->
-    <!--------------------------- Javascript dependencies  ---------------------------------------------------------------------------------->
-    <script src="js/popper.min.js"></script>
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
-    <script src="js/handlebars.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
-    <!---------------------------Map code-------------------------------->
     <div class="container">
         <div class="row">
             <div class="col-sm">
@@ -120,96 +99,92 @@
             </div>
         </div>
     </div>
-            <!--script src="bootstrap.bundle.js"></script-->
-            <!---------------------------Map code-------------------------------->
-
-            <script>
-                $('document').ready(
-                    function myMap() {
-                        var location = new google.maps.LatLng(21.1904, 81.2849);
-                        var mapCanvas = document.getElementById("map");
-                        var mapOptions = {
-                            center: location,
-                            zoom: 12
-                        };
-                        var map = new google.maps.Map(mapCanvas, mapOptions);
-                        var marker = new google.maps.Marker({
-                            position: location
-                        });
-                        marker.setMap(map);
-                    });
-            </script>
-            <!--script src="https://maps.googleapis.com/maps/api/js?key=&callback=myMap"></script-->
-            <!-- Google maps api experiment end here  ----------------------------------------------------------------------->
-            <!-- Card template-->
-
-            <div class="template" id="entry-template" style="display:none;">
-                {{#each activity}}
-                <div class="card">
-                    <img class="card-img-top" src="api/{{image}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{idea}}</h5>
-                        <p class="card-text">{{description}}</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">{{city}}, {{state}}</small>
-                        <button class="btn btn-primary" style="float:right">View</button>
-                    </div>
-                </div>
-                {{/each}}
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/handlebars.min.js"></script>
+    <script>
+      function populateMap(context) {
+        console.log(context.activity);
+        var locations = [];
+        context.activity.forEach(function(activity) {
+          locations.push(new google.maps.LatLng(activity.latitude, activity.longitude));
+        });
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = {
+            center: locations[0],
+            zoom: 6
+        };
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+        var markers = [];
+        locations.forEach(function(location) {
+          markers.push(new google.maps.Marker({ position: location }));
+        });
+        markers.forEach(function(marker) {
+          marker.setMap(map);
+        });
+      }
+    </script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap">
+    </script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY"></script>
+    <div class="template" id="entry-template" style="display:none;">
+        {{#each activity}}
+        <div class="card">
+            <img class="card-img-top" src="api/{{image}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{idea}}</h5>
+                <p class="card-text">{{description}}</p>
             </div>
-
-            <script>
-                var source = $('#entry-template').html();
-                var template = Handlebars.compile(source);
-                $(document).ready(function() {
-                    var source = $('#entry-template').html();
-                    var template = Handlebars.compile(source);
-                    console.log("ready funciton called");
-                    $.ajax({
-                            url: 'api/newsfeed.php',
-                            method: 'post',
-                            data: {
-                                request: 'data'
-                            },
-                            dataType: 'json',
-                        })
-                        .done(function(response) {
-
-                            console.log(source)
-                            var context = response;
-                            console.log(response)
-                            var html = template(context);
-                            console.log(html)
-                            $('#feed-container').html(html);
-                        })
-                });
-                $('#filter').on('change', function() {
-                    $.ajax({
-                            url: 'api/newsfeed.php',
-                            method: 'post',
-                            data: {
-                                state: this.value
-                            },
-                            dataType: 'json',
-                        })
-                        .done(function(response) {
-
-                            console.log(source)
-                            var context = response;
-                            console.log(response)
-                            var html = template(context);
-                            console.log(html)
-                            $('#feed-container').html(html);
-                        })
+            <div class="card-footer">
+                <small class="text-muted">{{city}}, {{state}}</small>
+                <a class="" href="" style="float:right"><small>View full article</small></a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <script>
+        var source = $('#entry-template').html();
+        var template = Handlebars.compile(source);
+        $(document).ready(function() {
+            var source = $('#entry-template').html();
+            var template = Handlebars.compile(source);
+            $.ajax({
+                    url: 'api/newsfeed.php',
+                    method: 'post',
+                    data: {
+                        request: 'data'
+                    },
+                    dataType: 'json',
                 })
-            </script>
-            <!-- compilation code for templating
-      var source   = document.getElementById("entry-template").innerHTML;
-      var template = Handlebars.compile(source);
-      var context = {title: "My New Post", body: "This is my first post!"};
-      var html    = template(context);
-  -->
-</body>
+                .done(function(response) {
+                    var context = response;
+                    var html = template(context);
+                    $('#feed-container').html(html);
+                    populateMap(context);
+                })
+        });
+        $('#filter').on('change', function() {
+            $.ajax({
+                    url: 'api/newsfeed.php',
+                    method: 'post',
+                    data: {
+                        state: this.value
+                    },
+                    dataType: 'json',
+                })
+                .done(function(response) {
 
+                    var context = response;
+                    var html = template(context);
+                    $('#feed-container').html(html);
+                    populateMap(context);
+                })
+        })
+    </script>
+</body>
+<<<<<<< HEAD
+
+=======
+>>>>>>> e148040c4f5819ff1979576d55fad33c87346242
 </html>

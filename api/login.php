@@ -2,6 +2,7 @@
   $user=$_REQUEST['user'];
   $pass=($_REQUEST['pass']);
   include 'connection.php';
+
   $query="select * from a_login where username='$user' and password='$pass'";
 
 $row=mysqli_query($connect,$query);

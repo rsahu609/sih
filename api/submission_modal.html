@@ -1,151 +1,111 @@
+    <div class="modal fade" id="myModal{{post_id}}" style="" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="float: left">Submission Form</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-container container-fluid">
+                        <form id="form">
+                            <div class="form-row form">
+                                <div class="form-group col-md-12">
+                                    <br>
+                                    <label for="idea-title">Idea title</label>
+                                    <input type="text" class="form-control" name="title" id="idea-title" placeholder="Idea title" value="{{idea}}">
+                                    <small class="text-muted">Enter the name of the idea or Context</small>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="des">Description</label>
+                                    <textarea class="form-control" name="des" id="des" placeholder="Enter Description here">{{description}}</textarea>
+                                    <small class="text-muted">All the details regarding practical utility, budget, precautions and crop type, soil type(in case of irrigation ideas)</small>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="equip">List of Items and Equipments required</label>
+                                    <textarea class="form-control" name="equip" id="equip" placeholder="Enter Description here">{{equipments}}</textarea>
+                                    <small class="text-muted">Number of Items with costs</small>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="radio">Is there any policy or subsidy provided form government or any other agencies ?</label>
+                                    <div>
+                                        <label for="yes">Yes </label>
+                                        <input type="radio" name="policy_radio" value="radio_true" id="yes">
+                                        <label for="no">No </label>
+                                        <input type="radio" name="policy_radio" value="radio_false" id="no">
+                                    </div>
+                                    <label for="policytitle"></label>
+                                    <input type="text" class="form-control" name="policy-title" value="{{policy_title}}" placeholder="Name of the organization who gives the subisidy or policy">
+                                    <small class="text-muted">Enter the name of the idea or Context</small>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <textarea class="form-control" name="policy" id="policy" placeholder="Details about the policy">{{state_policy}}</textarea>
+                                    <small class="text-muted">If there are government polices or subsidies related to your project you should write it down here</small>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="budget">Approximate Budget</label>
+                                    <input type="text" class="form-control" name="budget" value="{{project_budget}}" id="budget" placeholder="Cost of the setup in Rupees">
+                                    <small class="text-muted">Approximate bugdet of your project</small>
+                                </div>
+                                <div class="form-group col-md-7">
+                                    <label for="city">District</label>
+                                    <input type="text" class="form-control" name="city" id="city" value="{{city}}" placeholder="District">
+                                    <small class="text-muted">Place where is the idea implemented</small>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <label for="state" for="state">State</label>
+                                    <input type="text" class="form-control" id="state" value="{{state}}">
+                                    <small class="text-muted">Name of the state</small>
+                                </div>
 
-<div class="container" id="modal-template">
-  <h2>Modal Test</h2>
-  
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>
+                                <div class="form-group col-md-4">
+                                    <label for="pin">Zip</label>
+                                    <input type="number" class="form-control" id="pin" min="100000" name="pin" maxlength="6" placeholder="Pin Code" value="{{zip}}">
+                                    <small class="text-muted">Enter pin code</small>
+                                </div>
+                                <div class="form-group col-md-12">
 
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-md">
-    
-    
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Submission Form</h4>
-        </div>
-        <div class="modal-body">
-    <div class="form-container">
-        <form id="form">
-            <div class="form-row form">
-                <div class="form-group col-md-12">
-                    <br>
-                    <label for="idea-title">Idea title</label>
-                    <input type="text" class="form-control" name="title" id="idea-title" placeholder="Idea title" value="{{idea}}">
-                    <small class="text-muted">Enter the name of the idea or Context</small>
-                </div>
-                <div class="form-group col-md-12">
-                    <label for="des">Description</label>
-                    <textarea class="form-control" name="des" id="des" placeholder="Enter Description here">{{description}}</textarea>
-                    <small class="text-muted">All the details regarding practical utility, budget, precautions and crop type, soil type(in case of irrigation ideas)</small>
-                </div>
-                <div class="form-group col-md-12">
-                    <label for="equip">List of Items and Equipments required</label>
-                    <textarea class="form-control" name="equip" id="equip" placeholder="Enter Description here">{{equip}}</textarea>
-                    <small class="text-muted">Number of Items with costs</small>
-                </div>
-                <div class="form-group col-md-12">
-                    <label for="radio">Is there any policy or subsidy provided form government or any other agencies ?</label> 
-                    <div>
-                     <label for="yes">Yes </label>
-                      <input type="radio" name="policy_radio" value="radio_true" id="yes"> 
-                     <label for="no">No </label>
-                      <input type="radio" name="policy_radio" value="radio_false" id="no">
+                                    <div class="img-submit"></div>
+                                    <img src="{{image}}">
+                                    <small class="text-muted">Uploaded image</small>
+                                    <br><br>
+                                </div>
+                                <button type="button" class="btn btn-success">Approve</button>
+                                <button type="button" class="btn btn-primary">No Change</button>
+                                <button type="button" class="btn btn-danger">Deny</button>
+                            </div>
+                        </form>
                     </div>
-                    <label for="policytitle"></label>
-                    <input type="text" class="form-control" name="policy-title" value="{{policy-title}}" placeholder="Name of the organization who gives the subisidy or policy">
-                    <small class="text-muted">Enter the name of the idea or Context</small>
+
+                    <div class="map-container" style="padding: 10px;">
+                        <div id="map{{post_id}}" style="width: auto; height:500px;margin:auto;"></div>
+                    </div>
+
+                    <!--
+                      <script>
+                        $('document').ready(
+                            function myMap() {
+                                var location = new google.maps.LatLng({{lat}},{{long}});
+                                var mapCanvas = document.getElementById("map{{post_id}}");
+                                var mapOptions = {
+                                    center: location,
+                                    zoom: 13
+                                };
+                                var map = new google.maps.Map(mapCanvas, mapOptions);
+                                var location = new google.maps.LatLng({{lat}},{{long}});
+                                var marker = new google.maps.Marker({
+                                    position: location
+                                });
+                                marker.setMap(map);
+                            }
+                        );
+                    </script>
+                    -->
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
-                <div class="form-group col-md-12">
-                <textarea class="form-control" name="policy" id="policy" placeholder="Details about the policy">{{policy}}</textarea>
-                <small class="text-muted">If there are government polices or subsidies related to your project you should write it down here</small>
-                </div>
-            <div class="form-group col-md-5">
-                <label for="budget">Approximate Budget</label>
-                <input type="text" class="form-control" name="budget" value="{{budget}}" id="budget" placeholder="Cost of the setup in Rupees">
-                <small class="text-muted">Approximate bugdet of your project</small>
             </div>
-            <div class="form-group col-md-7">
-                <label for="city">District</label>
-                <input type="text" class="form-control" name="city" id="city" value="{{city}}" placeholder="District">
-                <small class="text-muted">Place where is the idea implemented</small>
-            </div>
-            <div class="form-group col-md-8">
-                <label for="state" for="state">State</label>
-                <input type="text" class="form-control" id="state"  value="{{state}}">
-                <small class="text-muted">Name of the state</small>
-            </div>
-
-            <div class="form-group col-md-4">
-                <label for="pin">Zip</label>
-                <input type="number" class="form-control" id="pin" min="100000" name="pin" maxlength="6" placeholder="Pin Code" value="{{pin}}">
-                <small class="text-muted">Enter pin code</small>
-            </div>
-            <div class="form-group col-md-12">
-
-                    <div class="img-submit"></div>
-                    <img src="{{}}">
-                    <small class="text-muted">Uploaded image</small>
-                    <br><br>
-            </div>
-                    <button type="submit" class="btn btn-success">Approve</button>
-                    
-                    <button type="submit" class="btn btn-primary">No Change</button>
-                    
-                    <button type="submit" class="btn btn-danger">Deny</button>
-                    
-            </div>
-    </form>
-    </div>
-
-    <div class="map-container" style="padding: 10px;">
-        <div id="map" style="width: auto; height:500px;margin:auto;"></div>
-    </div>
-
-    <script>
-        $('document').ready(
-            function myMap() {
-                var location = new google.maps.LatLng(21.200437, 81.298213);
-                var mapCanvas = document.getElementById("map");
-                var mapOptions = {
-                    center: location,
-                    zoom: 13
-                };
-                var map = new google.maps.Map(mapCanvas, mapOptions);
-                var location = new google.maps.LatLng({{lat}}, {{long}});
-                var marker = new google.maps.Marker({
-                    position: location
-                });
-                marker.setMap(map);
-            }
-        );
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
-    <!-- Ajax data request with submitted data ------>
-    <script>
-        /*$('#submit').click(function(e) {
-            e.preventDefault();
-            $.ajax({
-                    type: "POST",
-                    url: "api/submit.php",
-                    data: new FormData(document.getElementById('form')),
-                    cache: false,
-                    processData: false,
-                    contentType: false
-                })
-                .done(function(response) {
-                    if (response == 'success') {
-                        $('.submitstatus').html('Successfully Submitted');
-                        $('.submitstatus').fadeIn();
-                    } else {
-                        ('.submitstatus').html('unsuccessful submission');
-                        $('.submitstatus').fadeIn();
-
-                    }
-                });
-        });*/
-        /*Form controll scripts ----------------------------------------------------------------*/
-        $('.form-control').on('focus', function() {
-            this.closest('.form-group').classList.add('active');
-        });
-        $('.form-control').on('blur', function() {
-            this.closest('.form-group').classList.remove('active');
-        });
-    </script>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
-      </div>
+
     </div>
-  </div>
-  
-</div>
