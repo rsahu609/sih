@@ -2,7 +2,7 @@
 if(isset($_REQUEST['request'])){
     if($_REQUEST['request']=='bhai data de'){
         $connect=mysqli_connect('127.0.0.1','root','password','sih');
-        $query="SELECT * FROM a_submit WHERE status='1'";
+        $query="SELECT * FROM a_submit WHERE status='0'";
         $row=mysqli_query($connect,$query);
 if($row){  
          $data;
