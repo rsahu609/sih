@@ -19,9 +19,12 @@ else {
 else if(isset($_REQUEST['postid'])){
   $pid=$_REQUEST['postid'];
   $connect=mysqli_connect('127.0.0.1','root','password','sih');
+
   $query="SELECT * FROM a_submit WHERE post_id=$pid";
   $row=mysqli_query($connect,$query);
   $d=mysqli_fetch_assoc($row);
   echo json_encode(array('STATUS'=>'m_success','activity'=>$d));
 }
 ?>
+
+ 

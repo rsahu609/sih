@@ -1,9 +1,7 @@
-<?php 
+<?php
   $user=$_REQUEST['user'];
   $pass=($_REQUEST['pass']);
-
-  $password = 'password';
-  $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
+  include 'connection.php';
   $query="select * from a_login where username='$user' and password='$pass'";
 
 $row=mysqli_query($connect,$query);

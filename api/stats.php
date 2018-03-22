@@ -1,7 +1,7 @@
 <?php
   $start;
   $end;
-  $connect=mysqli_connect('127.0.0.1','root','password','sih');
+  include 'connection.php';
   if (isset($_REQUEST['year'])) {
     $year=$_REQUEST['year'];
     $month=$_REQUEST['month'];
