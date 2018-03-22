@@ -1,3 +1,11 @@
+<?php
+$connect = mysqli_connect('127.0.0.1','root','password','sih');
+$query = "SELECT DISTINCT `state` FROM `a_submit` WHERE status='1'";
+$result = mysqli_query($connect, $query);
+while($row = mysqli_fetch_assoc($result)){
+  $states[] = $row['state'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,17 +13,13 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-    <title>Newsfeed</title>
+    <title>Home - Aprakshan</title>
 </head>
 
 <body>
-    <!-- Navigation Section for header file ---------------------------------------------------------------------------------- -->
     <?php  include('header.php');?>
-    <!-- Navigation Section End here---------------------------------------------------------------------------------------------------- -->
-    <br><br>
     <div class="container">
         <div class="row">
-            <!----------------------------Carousels----------------------------------------------------->
             <div class="carousels col-lg-8">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -35,70 +39,31 @@
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
                     <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
                 </div>
             </div>
 
             <div class="cardouter col-lg-4">
-                <!-------------------Carousels end here-->
-
                 <div class="form-group">
                     <label for="filter">Filter entries by state</label>
                     <select class="form-control" id="filter">
-                    <option value="all">All</option>
-<?php 
-     $password = 'password';
-  $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
-  $query="SELECT DISTINCT `state` FROM `a_submit` WHERE status='1'";
-  $result=mysqli_query($connect,$query);
-  $arr;
-  while($row = mysqli_fetch_assoc($result)){
-      $arr[] = $row;
- ?><option value="<?=$row['state']?>"><?=$row['state']?></option>
-  <?php
-  }
-?>
-    </select>
+                      <option value="all">All</option>
+                      <?php
+                      foreach($states as $state) {
+                        echo "<option value='$state'>$state</option>";
+                      }
+                      ?>
+                    </select>
                 </div>
 
                 <div id="feed-container">
-                    <div class="card">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
-
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
-                    </div>
+                  <p> Loading feed .. </p>
                 </div>
             </div>
         </div>
