@@ -36,11 +36,11 @@
         <td>{{user_id}}</td>
         <td class="description-overflow" style="max-width:'200px';text-overflow:ellipsis;overflow:hidden;">{{description}}</td>
         <td>{{date}}</td>
-        <td><button class="btn btn-primary view-btn" data-postid="{{post_id}}">View</button></td>
+        <td><button class="btn btn-primary view-btn" data-toggle="modal" data-postid="{{post_id}}" data-target="#myModal{{post_id}}">View</button></td>
     </tr>
     {{/each}}
 </script>
-    <?php    include('submission_modal.html'); ?>
+    <?php    include('api/submission_modal.html'); ?>
 <script>
     $('document').ready(
         function myMap() {
@@ -93,11 +93,25 @@
             dataType: 'json',
                })
         .done(function(response){
+            var source = $('#modal-template').html();
+            console.log(source);
+            var template = Handlebars.compile(source);
             var context = response;
+            console.log('done function worked');
             var html = template(context);
+            console.log(html);
             $('#modal-template').html(html);
         });
     });
 </script>
+                    <script>
+        
+                        $('.form-control').on('focus', function() {
+                            this.closest('.form-group').classList.add('active');
+                        });
+                        $('.form-control').on('blur', function() {
+                            this.closest('.form-group').classList.remove('active');
+                        });
+                    </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
 <!-----------------------------Submmission template for authorities----------------------------------------------------->

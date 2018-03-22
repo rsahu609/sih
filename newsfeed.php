@@ -174,7 +174,6 @@
                             dataType: 'json',
                         })
                         .done(function(response) {
-
                             console.log(source)
                             var context = response;
                             console.log(response)
