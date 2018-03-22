@@ -46,5 +46,3 @@ $.ajax('api/stats.php', {
     }
   });
 });
-
-
