@@ -17,7 +17,7 @@
       </li>
       <li class="nav-item">
        <span>
-           <a class="nav-link" href="submit.php">&nbsp;&nbsp;Submit Your Idea&nbsp;&nbsp;</a>
+           <a class="nav-link" href="submit.php">&nbsp;&nbsp;Submit Your Implementation&nbsp;&nbsp;</a>
        </span>
       </li>
       <li class="nav-item">

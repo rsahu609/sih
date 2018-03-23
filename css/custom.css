@@ -91,12 +91,12 @@ a.nav-link {
 }
 .navbar-brand {
   transition: .5s;
-  color: lightblue;
+  color: lightcyan;
   padding: 12px 10px;
 }
 .navbar-brand:hover{
     transition: .5s;
-    background-color:lightblue;
+    background-color:#e9ecef;
 }
 #authority{
     background-color: #00a2ff;
@@ -106,10 +106,10 @@ a.nav-link {
     background-color: #00a2ff;
 }
 li.nav-item:hover {
-  background-color: skyblue;
+  background-color: #e9ecef;
 }
 .navbar-toggler-icon {
-  background-color: skyblue;
+  background-color: #e9ecef;
 }
 li.nav-item {
   transition: background-color 0.5s;

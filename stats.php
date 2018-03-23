@@ -11,7 +11,16 @@
 <body>
     <?php  include('header.php');?>
     <div class="container">
-        <canvas id="myChart" width="400" height="400" style="height: 400px; width: 400px"></canvas>
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Number of activities by state</h2>
+          <canvas id="myChart" width="400" height="400" style="height: 400px; width: 400px"></canvas>
+        </div>
+        <div class="col-md-6">
+          <h2>Number of activities by category</h2>
+          <canvas id="myChart_c" width="400" height="400" style="height: 400px; width: 400px"></canvas>
+        </div>
+      </div>
     </div>
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.3.1.js"></script>
