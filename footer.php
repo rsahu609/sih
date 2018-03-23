@@ -1,5 +1,3 @@
-<footer class="">
-    <div class="container">
-        <span class="">Aprakshan &copy; 2017 - 2018</span>
-    </div>
+<footer class="footer" style="width:auto;">
+        Aprakshan &copy; 2017 - 2018
 </footer>

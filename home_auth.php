@@ -35,8 +35,8 @@
 </script>
 <script>
     $('document').ready({
-        
-     /*   function myMap() {
+
+        /*   function myMap() {
             var location = new google.maps.LatLng(21.200437, 81.298213);
             var mapCanvas = document.getElementById("map");
             var mapOptions = {
@@ -71,25 +71,25 @@
                 $('#submit-container').html(html);
             });
     });
-    $('body').on('click','.view-btn',function(){
+    $('body').on('click', '.view-btn', function() {
         $.ajax({
-            url: 'api/home_auth.php',
-            method: 'post',
-            data: {
-            postid: $(this).data('postid')
-            },
-            dataType: 'json',
-               })
-        .done(function(response){
-            $.get('api/submission_modal.html').then(function(modal) {
-              var template = Handlebars.compile(modal);
-              var context = response;
-              console.log(response);
-              var html = template(context.activity);
-              $('body').prepend(html);
-              $(`#myModal${response.activity.post_id}`).modal('show')
+                url: 'api/home_auth.php',
+                method: 'post',
+                data: {
+                    postid: $(this).data('postid')
+                },
+                dataType: 'json',
+            })
+            .done(function(response) {
+                $.get('api/submission_modal.html').then(function(modal) {
+                    var template = Handlebars.compile(modal);
+                    var context = response;
+                    console.log(response);
+                    var html = template(context.activity);
+                    $('body').prepend(html);
+                    $(`#myModal${response.activity.post_id}`).modal('show');
+                });
             });
-        });
     });
 </script>
 <script>

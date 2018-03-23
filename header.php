@@ -1,4 +1,4 @@
-<?php //if((session_status() == PHP_SESSION_NONE)) session_start();?>
+<?php if((session_status() == PHP_SESSION_NONE)) session_start();?>
 <div class='header'>
 <link href="img/leaves-with-water-droplets_1504589.jpg" rel="icon" type="image/png" />
 <nav class="navbar navbar-expand-lg bg-green fixed-top bg-light">
@@ -47,7 +47,7 @@
           ?>
           <li class="nav-item">
        <span>
-           <a class="nav-link" href="#"><?="Authority" ?></a>
+           <a id="authority" class="nav-link"><?="(Authority)" ?></a>
        </span>
       </li>
       <?php } ?>
