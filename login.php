@@ -26,15 +26,15 @@
         <a href="newsfeed.php"><img class="md-4" id="fluid-gif" src="img/fluid%20drop.gif" alt="Fluid Drop Image" width="300" height="200"></a>
         <h1 class=" mb-3 font-weight-normal">Log In</h1>
         <label for="username" class="sr-only">Username</label>
-        <input type="text" id="username" class="form-control" placeholder="Username" required autofocus autocomplete="username">
+        <input type="text" id="username" class="form-control" placeholder="Username (उपयोगकर्ता नाम)" required autofocus autocomplete="username">
 
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="password" class="form-control" placeholder="Password" required autocomplete="current-password">
+        <input type="password" id="password" class="form-control" placeholder="Password (पासवर्ड)" required autocomplete="current-password">
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit" role="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" role="submit">Sign in (साइन इन करें)</button>
         <br>
         <p id="error-message" class="text-danger" style="display:none;">Please check username and password</p>
-        <a href="register.php" class="btn btn-light">Register Here</a>
+        <a href="register.php" class="btn btn-light">Register Here (यहां रजिस्टर करें)</a>
         <p class="mt-5 mb-3" style="color:fff;">Aprakshan &copy; 2017-2018</p>
     </form>
     </div>
@@ -74,7 +74,7 @@
 
         console.log(_('Hello, World!'));
     </script>
-   
+
 </body>
 
 </html>

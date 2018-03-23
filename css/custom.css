@@ -7,6 +7,10 @@ html {
   position: relative;
   min-height: 100%;
 }
+.btn-outline-success{
+    border-color: aliceblue;
+    color:aliceblue
+}
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
@@ -80,6 +84,7 @@ a.nav-link {
 }
 
 .navbar-brand {
+  transition: .5s;
   color: lightblue;
   border-radius: 4px;
   padding: 5px 10px;;

@@ -30,52 +30,56 @@ if(!isset($_SESSION['user'])){
                 <div class="form-group col-md-12">
                     <br>
                     <label for="idea-title">Idea title</label>
-                    <input type="text" class="form-control" name="title" id="title" placeholder="Idea title" autofocus>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="अभ्यास का शीर्षक" autofocus>
                     <small class="text-muted">Enter the name of the idea or Context</small>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="des">Description</label>
-                    <textarea class="form-control" name="des" id="des" placeholder="Enter Description here"></textarea>
+                    <textarea class="form-control" name="des" id="des" placeholder="यहाँ प्रस्ताव का विवरण दर्ज करें"></textarea>
                     <small class="text-muted">All the details regarding practical utility, budget, precautions and crop type, soil type(in case of irrigation ideas)</small>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="equip">List of Items and Equipments required</label>
-                    <textarea class="form-control" name="equip" id="equip" placeholder="Enter Description here"></textarea>
+                    <textarea class="form-control" name="equip" id="equip" placeholder="उपकरणों एवं वस्तुओं का विवरण यहाँ दर्ज करें"></textarea>
                     <small class="text-muted">Number of Items with costs</small>
                 </div>
                 <div class="form-group col-md-12">
-                    <label for="radio">Is there any policy or subsidy provided form government or any other <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data=placement="top">agencies</a> ?</label> 
+                    <label for="radio">Is there any policy or subsidy of government or any other <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data=placement="top">agencies</a> ?
+                      <br>(क्या सरकार या किसी अन्य <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data=placement="top">एजेंसियों</a> की कोई नीति या सब्सिडी है?)
+                    </label>
                     <div>
                      <label for="yes">Yes </label>
-                      <input type="radio" name="policy_radio" value="radio_true" id="yes"> 
+                      <input type="radio" name="policy_radio" value="radio_true" id="yes">
                      <label for="no">No </label>
                       <input type="radio" name="policy_radio" value="radio_false" id="no">
                     </div>
                     <label for="policytitle"></label>
-                    <input type="text" class="form-control policy_fields" name="policy_title" placeholder="Name of the organization who gives the subisidy or policy">
-                    <small class="text-muted">Enter the name of the idea or Context</small>
+                    <input type="text" class="form-control policy_fields" name="policy_title" placeholder="सब्सिडी प्रदान करने वाले संगठन का नाम यहाँ दर्ज करे">
+
+                    <small class="text-muted">Enter the name of organisation </small>
                 </div>
                 <div class="form-group col-md-12">
-                <textarea class="form-control policy_fields" name="policy" id="policy" placeholder="Details about the policy"></textarea>
+                <textarea class="form-control policy_fields" name="policy" id="policy" placeholder= "नीति के बारे में जानकारी यहाँ दर्ज करें"></textarea>
                 <small class="text-muted">If there are government subsidies or financial help provided, related to your project you should write it down here</small>
                 </div>
             <div class="form-group col-md-5">
                 <label for="budget">Approximate Budget</label>
-                <input type="text" class="form-control" name="budget" id="budget" placeholder="Cost of the setup in Rupees">
+                <input type="text" class="form-control" name="budget" id="budget" placeholder="प्रस्ताव का अनुमानित मूल्य">
                 <small class="text-muted">Approximate bugdet of your project</small>
             </div>
             <div class="form-group col-md-7">
                 <label for="city">District</label>
-                <input type="text" class="form-control" name="city" id="city" placeholder="District">
+                <input type="text" class="form-control" name="city" id="city" placeholder="जिला">
                 <small class="text-muted">Place where is the idea implemented</small>
             </div>
             <div class="form-group col-md-8">
                 <label for="state" for="state">State</label>
-                <select id="state" name="state" id="state" class="form-control">
+                <select id="state" name="state" id="state" required class="form-control">
+                    <option value="">Choose State(राज्य चुनें)</option>
                     <option value="chhattisgarh">Chhattisgarh</option>
                     <option value="telangana" name="telangana">Telangana</option>
                     <option value="varanasi" name="varanasi">Varanasi</option>
-                    <option value="West Bengal" name="West Bengal"></option>
+                    <option value="West Bengal" name="West Bengal">West Bengal</option>
                     <option value="Kerala" name="Kerala">Kerala</option>
                     <option value="Uttar Pradesh" name="Uttar Pradesh">Uttar Pradesh</option>
                     <option value="Punjab" name="Punjab">Punjab</option>
@@ -85,13 +89,13 @@ if(!isset($_SESSION['user'])){
 
             <div class="form-group col-md-4">
                 <label for="pin">Zip</label>
-                <input type="number" class="form-control" id="pin" min="100000" name="pin" maxlength="6" placeholder="Pin Code">
+                <input type="number" class="form-control" id="pin" min="100000" name="pin" maxlength="6" placeholder="पिन कोड">
                 <small class="text-muted">Enter pin code</small>
             </div>
             <div class="form-group col-md-12">
                 <div class="custom-file">
                     <div class="img-submit"></div>
-                    <label class="custom-file-label" for="customFile">Click here to Upload Image</label>
+                    <label class="custom-file-label" for="customFile">Click here to Upload Image(चित्र अपलोड करने हेतु यहाँ क्लिक करें)</label>
                     <input type="file" class="custom-file-input" id="file_submit" name="img">
                     <small class="text-muted">Here is some help</small>
                     <br><br>
@@ -102,12 +106,12 @@ if(!isset($_SESSION['user'])){
             </div>
     </form>
     </div>
- 
+
     <div class="map-container" style="padding: 10px;">
         <div id="map" style="width:800px;height:500px;margin:auto;"></div>
     </div>
 
-    <script>
+  <!--  <script>
         $('document').ready( function(){
             $('.policy_fields').fadeOut();
             function myMap() {
@@ -134,10 +138,10 @@ if(!isset($_SESSION['user'])){
                 marker.setMap(map);
             };
             console.log('function befor ready');
-            $('[data-toggle="tooltip"]').tooltip();   
+            $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>-->
     <!-- Ajax data request with submitted data ------>
     <script>
         $('#submit').click(function(e) {
@@ -150,20 +154,25 @@ if(!isset($_SESSION['user'])){
                     processData: false,
                     contentType: false
                 })
-                .done(function(response) { 
+                .done(function(response) {
                     var r=JSON.parse(response);
                     if (r.status== 'SUCCESS') {
                         $('#submitstatus').html('Successfully Submitted');
                         $('#submitstatus').fadeIn();
-                    
-                    } else {
+
+                    } else if (r.status== 'Errorimg') {
+                        $('#submitstatus').html('Image not submitted');
+                        $('#submitstatus').fadeIn();
+                    }else
+                        {
                         $('#submitstatus').html('Some error occured. Please try submitting it again.');
                         $('#submitstatus').fadeIn();
-    
+
                     }
                 });
         });
         /*Form controll scripts ----------------------------------------------------------------*/
+                $('.policy_fields').fadeOut();
         $('.form-control').on('focus', function() {
             this.closest('.form-group').classList.add('active');
         });
