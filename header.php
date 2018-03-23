@@ -1,7 +1,7 @@
-<?php if((session_status() == PHP_SESSION_NONE)) session_start();?> 
+<?php //if((session_status() == PHP_SESSION_NONE)) session_start();?>
 <div class='header'>
 <link href="img/leaves-with-water-droplets_1504589.jpg" rel="icon" type="image/png" />
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg bg-green fixed-top bg-light">
   <a class="navbar-brand" href="newsfeed.php">Aprakshan</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -54,7 +54,7 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" role="Submit">Search</button>
     </form>
   </div>
 </nav>
