@@ -2,24 +2,35 @@
   include 'auth.php';
   $idea=$_POST['title'];
   $des=$_POST['des'];
-  $city=$_POST['city'];
+  $equip=$_POST['equip'];
+  $policy=$_POST['policy_radio'];
+  if ($policy=='radio_true'){
+    $policy_org=$_POST['policy_title'];
+    $policy_details=$_POST['policy'];
+  } else {
+    $policy_org='';
+    $policy_details='';
+  }
+  $budget=$_POST['budget'];
+  $procedure=$_POST['procedure'];
+  $dstt=$_POST['city'];
   $state=$_POST['state'];
   $zip=$_POST['pin'];
   $temp=$_FILES['img']['tmp_name'];
   $loc_img="images/".uniqid().".jpg";
   $lo_img="../".$loc_img;
-  if (!move_uploaded_file($temp,$lo_img)) {
-    $ar=array('status'=>'Errorimg');
-    echo json_encode($ar);
-    exit();
-  } else{
-    $lo="$lo_img";
-    $exif = exif_read_data($lo);
+    $exif = exif_read_data($temp);
     if(isset($exif["GPSLatitudeRef"])){
+      if (!move_uploaded_file($temp,$lo_img)) {
+      $ar=array('status'=>'Errorimg');
+      echo json_encode($ar);
+      exit();
+    } else{
         $LatM = 1; $LongM = 1;
         if($exif["GPSLatitudeRef"] == 'S'){
             $LatM = -1;
         }
+        
         if($exif["GPSLongitudeRef"] == 'W'){
             $LongM = -1;
         }
@@ -48,18 +59,19 @@
     $long=$result["longitude"];
     //$result[datetime]
   include 'connection.php';
-  $query="insert into a_submit values('','$_SESSION[user]','$idea','$des','$loc_img','$lat','$long','0','$city','$state','$zip','a','a','a','a','')";
+  $query="insert into a_submit values('','$_SESSION[user]','$idea','$des','$loc_img','$lat','$long','0','$dstt','$state','$zip','$budget','$equip','','','','$policy','$policy_org','$policy_details')";
   $resu=mysqli_query($connect,$query);
   if ($resu) {
     $ar=array('status' => 'SUCCESS');
     echo json_encode($ar);
-  } else {
+  }
+  }
+  else {
     $ar=array('status'=>'Error');
     echo json_encode($ar);
   }
 }else{
   $t = array('STATUS' => 'GEO ACCESS FAILED');
   echo json_encode($t);
-}
 }
 ?>
