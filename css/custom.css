@@ -80,6 +80,7 @@ a.nav-link {
 }
 
 .navbar-brand {
+  transition: .5s;
   color: lightblue;
   border-radius: 4px;
   padding: 5px 10px;;
