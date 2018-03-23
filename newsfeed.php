@@ -48,27 +48,11 @@ while($row = mysqli_fetch_assoc($result)){
             </div>
           -->
 
-<<<<<<< HEAD
-            <div class="cardouter col-lg-4">
+
                 <!-------------------Carousels end here-->
 
-                <div class="form-group">
-                    <label for="filter">Select State</label>
-                    <select class="form-control" id="filter">
-<?php
-     $password = 'password';
-  $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
-  $query="SELECT DISTINCT `state` FROM `a_submit` WHERE status='1'";
-  $result=mysqli_query($connect,$query);
-  $arr;
-  while($row = mysqli_fetch_assoc($result)){
-      $arr[] = $row;
- ?><option value="<?=$row['state']?>"><?=$row['state']?></option>
-  <?php
-  }
-?>
-    </select>
-=======
+
+
             <div class="cardouter">
               <form>
                 <div class="form-group row">
@@ -83,7 +67,7 @@ while($row = mysqli_fetch_assoc($result)){
                       ?>
                     </select>
                   </div>
->>>>>>> e148040c4f5819ff1979576d55fad33c87346242
+
                 </div>
               </form>
                 <div id="feed-container">
@@ -91,7 +75,7 @@ while($row = mysqli_fetch_assoc($result)){
                 </div>
             </div>
         </div>
-    </div>
+   
     <div class="container">
         <div class="row">
             <div class="col-sm">
@@ -125,8 +109,6 @@ while($row = mysqli_fetch_assoc($result)){
         });
       }
     </script>
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap">
-    </script> -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY"></script>
     <div class="template" id="entry-template" style="display:none;">
         {{#each activity}}
@@ -138,11 +120,12 @@ while($row = mysqli_fetch_assoc($result)){
             </div>
             <div class="card-footer">
                 <small class="text-muted">{{city}}, {{state}}</small>
-                <a class="" href="" style="float:right"><small>View full article</small></a>
+                <a class="" href="post.php" style="float:right"><small>View full article</small></a>
             </div>
         </div>
         {{/each}}
     </div>
+    
     <script>
         var source = $('#entry-template').html();
         var template = Handlebars.compile(source);
@@ -182,9 +165,7 @@ while($row = mysqli_fetch_assoc($result)){
                 })
         })
     </script>
+<?php include('footer.php');?>
 </body>
-<<<<<<< HEAD
 
-=======
->>>>>>> e148040c4f5819ff1979576d55fad33c87346242
 </html>

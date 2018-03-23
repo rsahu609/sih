@@ -1,5 +1,5 @@
-<footer class="footer">
+<footer class="">
     <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+        <span class="">Aprakshan &copy; 2017 - 2018</span>
     </div>
 </footer>
