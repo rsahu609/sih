@@ -7,6 +7,10 @@ html {
   position: relative;
   min-height: 100%;
 }
+.btn-outline-success{
+    border-color: aliceblue;
+    color:aliceblue
+}
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
