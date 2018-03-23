@@ -35,7 +35,7 @@
 </script>
 <script>
     $('document').ready({
-        
+
      /*   function myMap() {
             var location = new google.maps.LatLng(21.200437, 81.298213);
             var mapCanvas = document.getElementById("map");

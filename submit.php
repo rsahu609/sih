@@ -30,7 +30,7 @@ if(!isset($_SESSION['user'])){
                 <div class="form-group col-md-12">
                     <br>
                     <label for="idea-title">Idea title</label>
-                    <input type="text" class="form-control" name="title" id="title" placeholder="प्रस्ताव शीर्षक" autofocus>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="अभ्यास का शीर्षक" autofocus>
                     <small class="text-muted">Enter the name of the idea or Context</small>
                 </div>
                 <div class="form-group col-md-12">

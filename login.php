@@ -31,10 +31,10 @@
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="password" class="form-control" placeholder="Password (पासवर्ड)" required autocomplete="current-password">
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit" role="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" role="submit">Sign in (साइन इन करें)</button>
         <br>
         <p id="error-message" class="text-danger" style="display:none;">Please check username and password</p>
-        <a href="register.php" class="btn btn-light">Register Here</a>
+        <a href="register.php" class="btn btn-light">Register Here (यहां रजिस्टर करें)</a>
         <p class="mt-5 mb-3" style="color:fff;">Aprakshan &copy; 2017-2018</p>
     </form>
     </div>

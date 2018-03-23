@@ -24,8 +24,7 @@ if(!(isset($_SESSION['user']))){
      include('home_auth.php');
         else if($_SESSION['role']==1) /*FOR USER*/
          include('home_user.php');
-          else
-            //include('home_admin.php'); /*FOR ADMIN*/
+           /*FOR ADMIN*/
     ?>
     </div>
 </body>
