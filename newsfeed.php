@@ -57,9 +57,9 @@ while($row = mysqli_fetch_assoc($result)){
             <div class="cardouter">
               <form>
                 <div class="form-group row">
-                  <label for="filter" class="col-sm-6 col-form-label">Filter entries by state</label>
-                  <div class="col-sm-6">
-                    <select class="form-control form-control-sm" id="filter">
+                    <label for="filter" class="col-sm-6 col-form-label"><span style="font-size:22px; margin-height:auto">Filter entries by state</span></label>
+                  <div class="col-sm-6" style="margin:auto;">
+                    <select class="form-control form-control-sm" id="filter" style="padding:auto;">
                       <option value="all">All</option>
                       <?php
                       foreach($states as $state) {
@@ -88,14 +88,14 @@ while($row = mysqli_fetch_assoc($result)){
     <div class="template" id="entry-template" style="display:none;">
         {{#each activity}}
         <div class="card">
-            <img class="card-img-top" src="api/{{image}}" alt="Card image cap">
+            <img class="card-img-top" src="api/{{image}}" alt="{{image}}" style="image-size:cover;">
             <div class="card-body">
                 <h5 class="card-title">{{idea}}</h5>
                 <p class="card-text">{{description}}</p>
             </div>
             <div class="card-footer">
                 <small class="text-muted">{{city}}, {{state}}</small>
-                <a class="" href="post.php" style="float:right"><small>View full article</small></a>
+                <a class="" href="post.php?post_id={{post_id}}" style="float:right" target="_blank"><small>View full article</small></a>
             </div>
         </div>
         {{/each}}

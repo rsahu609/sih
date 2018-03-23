@@ -44,6 +44,7 @@ if(!isset($_SESSION['user'])){
                     <small class="text-muted">Number of Items with costs</small>
                 </div>
                 <div class="form-group col-md-12">
+
                     <label for="radio">Is there any policy or subsidy of government or any other <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data=placement="top">agencies</a> ?
                       <br>(क्या सरकार या किसी अन्य <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data=placement="top">एजेंसियों</a> की कोई नीति या सब्सिडी है?)
                     </label>
@@ -52,6 +53,7 @@ if(!isset($_SESSION['user'])){
                       <input type="radio" name="policy_radio" value="radio_true" id="yes">
                      <label for="no">No </label>
                       <input type="radio" name="policy_radio" value="radio_false" id="no">
+
                     </div>
                     <label for="policytitle"></label>
                     <input type="text" class="form-control policy_fields" name="policy_title" placeholder="सब्सिडी प्रदान करने वाले संगठन का नाम यहाँ दर्ज करे">
@@ -172,13 +174,9 @@ if(!isset($_SESSION['user'])){
                 });
         });
         /*Form controll scripts ----------------------------------------------------------------*/
-                $('.policy_fields').fadeOut();
-        $('.form-control').on('focus', function() {
-            this.closest('.form-group').classList.add('active');
-        });
-        $('.form-control').on('blur', function() {
-            this.closest('.form-group').classList.remove('active');
-        });
+        $('.policy_fields').fadeOut();
+    
+        
         $('input[name=policy_radio]').click(function(){
             if($(this).val()=='radio_true') {
                 $('.policy_fields').fadeIn();

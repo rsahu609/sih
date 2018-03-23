@@ -13,9 +13,11 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
-
+  margin: 60px auto;
 }
+
+
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -35,7 +37,7 @@ body {
 
 body .container {
   padding: 60px 15px 15px;
-  background-color: #f0f8ff;
+  background-color:#e9ecef;
   border-radius: 5px;
   
 }
@@ -44,7 +46,6 @@ body .container {
   padding-right: 15px;
   padding-left: 15px;
 }
-
 
 .form {
     max-width: 600px;
@@ -82,27 +83,36 @@ a.nav-link {
   text-decoration: none;
   color: #225422;
 }
-
+.nav-link{
+    padding: 15px;
+}
+.navbar {
+    padding:0 20px;
+}
 .navbar-brand {
   transition: .5s;
-  color: lightblue;
-  border-radius: 4px;
-  padding: 5px 10px;;
+  color: lightcyan;
+  padding: 12px 10px;
 }
 .navbar-brand:hover{
     transition: .5s;
-    background-color: lightblue;
+    background-color:#e9ecef;
+}
+#authority{
+    background-color: #00a2ff;
+}
+#authority:hover {
+    cursor: default;
+    background-color: #00a2ff;
 }
 li.nav-item:hover {
-  background-color: skyblue;
+  background-color: #e9ecef;
 }
 .navbar-toggler-icon {
-  background-color: skyblue;
-  border-radius: 4px;
+  background-color: #e9ecef;
 }
 li.nav-item {
   transition: background-color 0.5s;
-  border-radius: 4px;
   margin:0 2px;
 }
 
