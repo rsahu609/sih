@@ -1,4 +1,5 @@
 <?php
+session_start();
 $connect = mysqli_connect('127.0.0.1','root','password','sih');
 $query = "SELECT DISTINCT `state` FROM `a_submit` WHERE status='1'";
 $result = mysqli_query($connect, $query);
