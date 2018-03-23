@@ -107,7 +107,7 @@ if(!isset($_SESSION['user'])){
         <div id="map" style="width:800px;height:500px;margin:auto;"></div>
     </div>
 
-    <script>
+  <!--  <script>
         $('document').ready( function(){
             $('.policy_fields').fadeOut();
             function myMap() {
@@ -137,7 +137,7 @@ if(!isset($_SESSION['user'])){
             $('[data-toggle="tooltip"]').tooltip();   
         });
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>-->
     <!-- Ajax data request with submitted data ------>
     <script>
         $('#submit').click(function(e) {
@@ -156,7 +156,11 @@ if(!isset($_SESSION['user'])){
                         $('#submitstatus').html('Successfully Submitted');
                         $('#submitstatus').fadeIn();
                     
-                    } else {
+                    } else if (r.status== 'Errorimg') {
+                        $('#submitstatus').html('Image not submitted');
+                        $('#submitstatus').fadeIn();
+                    }else
+                        {
                         $('#submitstatus').html('Some error occured. Please try submitting it again.');
                         $('#submitstatus').fadeIn();
     
@@ -164,6 +168,7 @@ if(!isset($_SESSION['user'])){
                 });
         });
         /*Form controll scripts ----------------------------------------------------------------*/
+                $('.policy_fields').fadeOut();
         $('.form-control').on('focus', function() {
             this.closest('.form-group').classList.add('active');
         });
