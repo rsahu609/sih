@@ -21,8 +21,7 @@
   $i=0;
   $arr;
   while(($a=mysqli_fetch_assoc($count))){
-    $arr[$i]['state']=$a['state'];
-    $arr[$i]['count']=$a['COUNT(post_id)'];
+    $arr[$a['state']]=$a['COUNT(post_id)'];
   }
   echo json_encode($arr);
   ?>

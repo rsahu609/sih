@@ -15,6 +15,11 @@ if(!isset($_SESSION['user'])){
 </head>
 
 <body>
+   <!-------------------------------------------------- Javascript dependencies  ------------------------------------------------------------------>
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
 
     <!-------------------- Navigation Section for header file ---------------------------------------------------------------------------------- -->
     <?php include('header.php'); ?>
@@ -39,12 +44,12 @@ if(!isset($_SESSION['user'])){
                     <small class="text-muted">Number of Items with costs</small>
                 </div>
                 <div class="form-group col-md-12">
-                    <label for="radio">Is there any policy or subsidy provided form government or any other agencies ?</label> 
+                    <label for="radio">Is there any policy or subsidy provided form government or any other <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data=placement="top">agencies</a> ?</label> 
                     <div>
                      <label for="yes">Yes </label>
                       <input type="radio" name="policy_radio" value="radio_true" id="yes"> 
                      <label for="no">No </label>
-                      <input type="radio" name="policy_radio" value="radio_false" id="no">
+                      <input type="radio" name="policy_radio" value="radio_false" id="no" checked>
                     </div>
                     <label for="policytitle"></label>
                     <input type="text" class="form-control policy_fields" name="policy_title" placeholder="Name of the organization who gives the subisidy or policy">
@@ -97,12 +102,7 @@ if(!isset($_SESSION['user'])){
             </div>
     </form>
     </div>
-    <!-------------------------------------------------- Javascript dependencies  ------------------------------------------------------------------>
-    <script src="js/popper.min.js"></script>
-    <script src="js/jquery-2.2.4.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
-
+ 
     <div class="map-container" style="padding: 10px;">
         <div id="map" style="width:800px;height:500px;margin:auto;"></div>
     </div>
@@ -132,7 +132,9 @@ if(!isset($_SESSION['user'])){
                     position: location
                 });
                 marker.setMap(map);
-            }
+            };
+            console.log('function befor ready');
+            $('[data-toggle="tooltip"]').tooltip();   
         });
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
