@@ -59,6 +59,37 @@
     
     </div>
             
-    
+    <section class="cid-qv5Axatcp1" id="social-buttons2-34" data-rv-view="9570">
+
+    <div class="container footer">
+        <div class="media-container-row">
+            <div class="col-md-8 align-center">
+                <h2 class="pb-3 mbr-fonts-style display-2">
+                    FOLLOW US!
+                </h2>
+                <div class="social-list pl-0 mb-0">
+                    <a href="https://twitter.com/aprakshan" target="_blank">
+                        <span class="px-2 socicon-twitter socicon mbr-iconfont mbr-iconfont-social" media-simple="true"></span>
+                    </a>
+                    <a href="https://www.facebook.com/pages/aprakshan" target="_blank">
+                        <span class="px-2 socicon-facebook socicon mbr-iconfont mbr-iconfont-social" media-simple="true"></span>
+                    </a>
+                    <a href="https://instagram.com/aprakshan" target="_blank">
+                        <span class="px-2 socicon-instagram socicon mbr-iconfont mbr-iconfont-social" media-simple="true"></span>
+                    </a>
+                    <a href="https://www.youtube.com/c/aprakshan" target="_blank">
+                        <span class="px-2 socicon-youtube socicon mbr-iconfont mbr-iconfont-social" media-simple="true"></span>
+                    </a>
+                    <a href="https://plus.google.com/u/0/+aprakshan" target="_blank">
+                        <span class="px-2 socicon-googleplus socicon mbr-iconfont mbr-iconfont-social" media-simple="true"></span>
+                    </a>
+                    <a href="https://www.behance.net/aprakshan" target="_blank">
+                        <span class="px-2 socicon-behance socicon mbr-iconfont mbr-iconfont-social" media-simple="true"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
 </html>

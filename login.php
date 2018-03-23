@@ -26,10 +26,10 @@
         <h1 class=" mb-3 font-weight-normal">Log In</h1>
         <label for="username" class="sr-only">Username</label>
         <input type="text" id="username" class="form-control" placeholder="Username" required autofocus autocomplete="username">
-        
+
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="password" class="form-control" placeholder="Password" required autocomplete="current-password">
-        
+
         <button class="btn btn-lg btn-primary btn-block" type="submit" role="submit">Sign in</button>
         <br>
         <p id="error-message" class="text-danger" style="display:none;">Please check username and password</p>
@@ -58,20 +58,21 @@
                 }
             })
         });
-   var gettext = require('gettext'),
-    _ = gettext.gettext;
+        var gettext = require('gettext'),
+            _ = gettext.gettext;
 
-gettext.loadLanguageFile('./locale/de/messages.po', 'de');
-gettext.loadLanguageFile('./locale/fr/messages.po', 'fr');
+        gettext.loadLanguageFile('./locale/de/messages.po', 'de');
+        gettext.loadLanguageFile('./locale/fr/messages.po', 'fr');
 
-gettext.setlocale('LC_ALL', 'de');
+        gettext.setlocale('LC_ALL', 'de');
 
-console.log(_('Hello, World!'));
+        console.log(_('Hello, World!'));
 
-gettext.setlocale('LC_ALL', 'fr');
+        gettext.setlocale('LC_ALL', 'fr');
 
-console.log(_('Hello, World!'));
+        console.log(_('Hello, World!'));
     </script>
+    <?php include('footer.php'); ?>
 </body>
 
 </html>
