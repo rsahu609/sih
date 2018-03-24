@@ -59,38 +59,36 @@
         var source = $('#submit-template').html();
         var template = Handlebars.compile(source);
         $.ajax({
-                url: 'api/home_auth.php',
-                method: 'post',
-                data: {
-                    request: 'bhai data de'
-                },
-                dataType: 'json',
-            })
-            .done(function(response) {
-                var context = response;
-                var html = template(context);
-                $('#submit-container').html(html);
-            });
+            url: 'api/home_auth.php',
+            method: 'post',
+            data: {
+                request: 'bhai data de'
+            },
+            dataType: 'json',
+        }).done(function(response) {
+            var context = response;
+            var html = template(context);
+            $('#submit-container').html(html);
+        });
     });
     $('body').on('click', '.view-btn', function() {
         $.ajax({
-                url: 'api/home_auth.php',
-                method: 'post',
-                data: {
-                    postid: $(this).data('postid')
-                },
-                dataType: 'json',
-            })
-            .done(function(response) {
-                $.get('api/submission_modal.html').then(function(modal) {
-                    var template = Handlebars.compile(modal);
-                    var context = response;
-                    console.log(response);
-                    var html = template(context.activity);
-                    $('body').prepend(html);
-                    $(`#myModal${response.activity.post_id}`).modal('show');
-                });
+            url: 'api/home_auth.php',
+            method: 'post',
+            data: {
+                postid: $(this).data('postid')
+            },
+            dataType: 'json',
+        }).done(function(response) {
+            $.get('api/submission_modal.html').then(function(modal) {
+                var template = Handlebars.compile(modal);
+                var context = response;
+                console.log(response);
+                var html = template(context.activity);
+                $('body').prepend(html);
+                $(`#myModal${response.activity.post_id}`).modal('show');
             });
+        });
     });
 </script>
 <script>
