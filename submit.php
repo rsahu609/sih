@@ -11,7 +11,7 @@ if(!isset($_SESSION['user'])){
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-    
+
     <title>Submit your Idea</title>
 </head>
 
@@ -124,7 +124,7 @@ if(!isset($_SESSION['user'])){
                     <br><br>
                     <div class="text-success" id="manualaddress" style="display:none;"></div>
                     <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                    <button class="btn btn-secondary" id="modal-btn" style="float:right" data-toggle="modal" data-target="#samplemodal">See Sample modal</button>
+                    <button class="btn btn-secondary" id="modal-btn" style="float:right" data-toggle="modal" data-target="#samplemodal">See Sample Submission</button>
                     <div class="text-success" id="submitstatus" style="display:none;"></div>
                 </div>
             </div>
