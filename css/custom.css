@@ -1,4 +1,3 @@
-
 div.container {
   margin-top: 2em;
 }
@@ -15,9 +14,6 @@ body {
   /* Margin bottom by footer height */
   margin: 60px auto;
 }
-
-
-
 .footer {
   position: absolute;
   bottom: 0;
@@ -31,13 +27,12 @@ body {
     margin-top: 50px;
 }
 
-/* Custom page CSS
--------------------------------------------------- */
+/* Custom page CSS -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
 body .container {
   padding: 60px 15px 15px;
-  background-color:#e9ecef;
+  background-color: #e9ecef;
   border-radius: 5px;
   
 }
@@ -76,15 +71,14 @@ body .container {
 }
 
 nav.bg-green {
-  background-color:#00a2ff  !important;
+  background-color:#00a2ff !important;
 }
-
 a.nav-link {
   text-decoration: none;
   color: #225422;
+  padding: 15px;
 }
 .nav-link{
-    padding: 15px;
 }
 .navbar {
     padding:0 20px;
