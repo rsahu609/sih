@@ -22,7 +22,8 @@ if(!isset($_SESSION['user'])){
 
 
     <!-------------------- Navigation Section for header file ---------------------------------------------------------------------------------- -->
-    <?php include('header.php'); ?>
+    <?php include('header.php');
+          include('sample_submission.html');?>
     <!-- Navigation Section End here---------------------------------------------------------------------------------------------------- -->
     <div class="form-container">
         <form id="form">
@@ -57,7 +58,7 @@ if(!isset($_SESSION['user'])){
                      <label for="yes">Yes </label>
                       <input type="radio" name="policy_radio" value="radio_true" id="yes">
                      <label for="no">No </label>
-                      <input type="radio" name="policy_radio" value="radio_false" id="no">
+                      <input type="radio" name="policy_radio" value="radio_false" id="no" checked>
 
                     </div>
                     <label for="policytitle"></label>
@@ -107,6 +108,7 @@ if(!isset($_SESSION['user'])){
                     <small class="text-muted">Here is some help</small>
                     <br><br>
                     <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                    <button class="btn btn-secondary" id="modal-btn" style="float:right">See Sample modal</button>
                     <div class="text-success" id="submitstatus" style="display:none;"></div>
                 </div>
             </div>
