@@ -27,7 +27,7 @@ function search_in_lat_long_range($latstart, $latend, $longstart, $longend) {
   return $data;
 }
 
-if($_REQUEST['request_type'] == 'search_in_lat_long_range') {
+if(($_GET['request_type'] ?? null) == 'search_in_lat_long_range') {
 
   $latstart = $_GET['latstart'];
   $latend = $_GET['latend'];
@@ -42,7 +42,7 @@ if($_REQUEST['request_type'] == 'search_in_lat_long_range') {
 }
 
 
-if( isset($_GET['request'])){
+if( isset($_REQUEST['request'])){
   include 'connection.php';
   $query = "SELECT `user_id`,`post_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1'";
   $result=mysqli_query($connect,$query);

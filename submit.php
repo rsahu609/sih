@@ -108,7 +108,7 @@ if(!isset($_SESSION['user'])){
                     <small class="text-muted">Here is some help</small>
                     <br><br>
                     <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                    <button class="btn btn-secondary" id="modal-btn" style="float:right">See Sample modal</button>
+                    <button class="btn btn-secondary" id="modal-btn" style="float:right" data-toggle="modal" data-target="#samplem-modal">See Sample modal</button>
                     <div class="text-success" id="submitstatus" style="display:none;"></div>
                 </div>
             </div>
