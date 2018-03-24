@@ -20,7 +20,7 @@
      
     $p_id=$_REQUEST['postid'];
     $query="SELECT * FROM a_submit WHERE post_id=$p_id";
-       print_r($query); 
+
       $run=mysqli_query($connect,$query);
     if($run) {
       $a=mysqli_fetch_assoc($run);

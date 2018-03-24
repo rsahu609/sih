@@ -1,4 +1,4 @@
-<div class="modal fade" id="myModal{{post_id}}" style="" role="dialog">
+<div class="modal fade" id="samplemodal" tabindex="-1" style="" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -12,17 +12,17 @@
                                 <div class="form-group col-md-12">
                                     <br>
                                     <label for="idea-title">Idea title</label>
-                                    <input type="text" class="form-control" name="title" id="idea-title" placeholder="Ferro Cement Tanks" value="{{idea}}" disabled>
+                                    <input type="text" class="form-control" name="title" id="idea-title" placeholder="Ferro Cement Tanks" disabled>
                                     <small class="text-muted">Enter the name of the idea or Context</small>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="des">Description</label>
-                                    <textarea class="form-control" name="des" id="des" placeholder="This is alow cost alternative for expensive water harvesting containers made of masonry plastic and RCC. It has proved highly effective in high rainfall regions where large amoubt of water needs to be stored in clean form. These tanks requiring materials like sand, cement, mild steel bar and galvanized iron wire mesh, can be easily constructed skilled labours. It's light in weight and can be moulded into any shape required. It is believed to last for around 25 years with little maintenance. Picture here shows a ferro-cement tank under construction. It can be appropriate for use in Indian villages and disaster prone areas as its fireproof and tough in build. " disabled>{{description}}</textarea>
+                                    <textarea class="form-control" name="des" id="des" placeholder="This is alow cost alternative for expensive water harvesting containers made of masonry plastic and RCC. It has proved highly effective in high rainfall regions where large amoubt of water needs to be stored in clean form. These tanks requiring materials like sand, cement, mild steel bar and galvanized iron wire mesh, can be easily constructed skilled labours. It's light in weight and can be moulded into any shape required. It is believed to last for around 25 years with little maintenance. Picture here shows a ferro-cement tank under construction. It can be appropriate for use in Indian villages and disaster prone areas as its fireproof and tough in build. " disabled></textarea>
                                     <small class="text-muted">All the details regarding practical utility, budget, precautions and crop type, soil type(in case of irrigation ideas)</small>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="equip">List of Items and Equipments required</label>
-                                    <textarea class="form-control" name="equip" id="equip" placeholder="Harvesting containers made of masonry plastic and RCC,sand, cement, mild steel bar and galvanized iron wire mesh" disabled>{{equipments}}</textarea>
+                                    <textarea class="form-control" name="equip" id="equip" placeholder="Harvesting containers made of masonry plastic and RCC,sand, cement, mild steel bar and galvanized iron wire mesh" disabled></textarea>
                                     <small class="text-muted">Number of Items with costs</small>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -38,17 +38,17 @@
                                     <small class="text-muted">Enter the name of the idea or Context</small>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <textarea class="form-control" name="policy" id="policy" placeholder="50% of the total cost is provided as subsidy" disabled>{{policy_details}}</textarea>
+                                    <textarea class="form-control" name="policy" id="policy" placeholder="50% of the total cost is provided as subsidy" disabled></textarea>
                                     <small class="text-muted">If there are government polices or subsidies related to your project you should write it down here</small>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label for="budget">Approximate Budget</label>
-                                    <input type="text" class="form-control" name="budget" value="{{project_budget}}" id="budget" placeholder="10,000" disabled>
+                                    <input type="text" class="form-control" name="budget" id="budget" placeholder="10,000" disabled>
                                     <small class="text-muted">Approximate bugdet of your project</small>
                                 </div>
                                 <div class="form-group col-md-7">
                                     <label for="city">District</label>
-                                    <input type="text" class="form-control" name="city" id="city" value="{{city}}" placeholder="East Khasi Hills" disabled>
+                                    <input type="text" class="form-control" name="city" id="city" placeholder="East Khasi Hills" disabled>
                                     <small class="text-muted">Place where is the idea implemented</small>
                                 </div>
                                 <div class="form-group col-md-8">
@@ -59,13 +59,13 @@
 
                                 <div class="form-group col-md-4">
                                     <label for="pin">Zip</label>
-                                    <input type="number" class="form-control" id="pin" min="100000" name="pin" maxlength="6" placeholder="793008" value="{{zip}}" disabled>
+                                    <input type="number" class="form-control" id="pin" min="100000" name="pin" maxlength="6" placeholder="793008" disabled>
                                     <small class="text-muted">Enter pin code</small>
                                 </div>
                                 <div class="form-group col-md-12">
 
                                     <div class="img-submit"></div>
-                                    <img src="{{image}}">
+                                    <img>
                                     <small class="text-muted">Uploaded geotagged image</small>
                                     <br><br>
                                 </div>
