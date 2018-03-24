@@ -44,8 +44,13 @@ if(!isset($_SESSION['user'])){
                     <small class="text-muted">Number of Items with costs</small>
                 </div>
                 <div class="form-group col-md-12">
+                    <label for="equip">Procedure</label>
+                    <textarea class="form-control" name="_procedure" id="_procedure" placeholder="उपकरणों एवं वस्तुओं का विवरण यहाँ दर्ज करें"></textarea>
+                    <small class="text-muted">A well defined procedure for implementing</small>
+                </div>
+                <div class="form-group col-md-12">
 
-                    <label for="radio">Is there any policy or subsidy of government or any other <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data=placement="top">agencies</a> ?
+                    <label for="radio">Is there any policy or subsidy of government or any other <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data-placement="top">agencies</a> ?
                       <br>(क्या सरकार या किसी अन्य <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data=placement="top">एजेंसियों</a> की कोई नीति या सब्सिडी है?)
                     </label>
                     <div>
@@ -154,7 +159,8 @@ if(!isset($_SESSION['user'])){
                     data: new FormData(document.getElementById('form')),
                     cache: false,
                     processData: false,
-                    contentType: false
+                    contentType: false,
+                    dataType: 'json',
                 })
                 .done(function(response) {
                     var r=JSON.parse(response);
@@ -184,7 +190,13 @@ if(!isset($_SESSION['user'])){
             else{
                 $('.policy_fields').fadeOut();
             }
-        })
+        });
+    $('.form-control').on('focus', function() {
+      this.closest('.form-group').classList.add('active');
+    });
+    $('.form-control').on('blur', function() {
+      this.closest('.form-group').classList.remove('active');
+    });
     </script>
 </body>
 
