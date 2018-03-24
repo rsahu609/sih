@@ -1,0 +1,1 @@
+<input id="pac-input" class="controls" type="text" onblur="codeAddress()" placeholder="Search Box"> <br><br> <script src="js/geo_loc.js"></script> <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1sAjyD_NDrgsRGt_9ZLqf41Tu0QGTzqI&libraries=places&callback=initAutocomplete" async defer></script>

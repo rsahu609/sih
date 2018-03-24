@@ -13,6 +13,7 @@ if(!isset($_SESSION['user'])){
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <link href="img/leaves-with-water-droplets_1504589.jpg" rel="icon" type="image/png" />
+
     <title>Submit your Idea</title>
 </head>
 
@@ -95,8 +96,9 @@ if(!isset($_SESSION['user'])){
                     <small class="text-muted">Here is some help</small>
                     <br><br>
                     <div class="text-success" id="manualaddress" style="display:none;"></div>
+                    <input type="hidden" id="lat" name="lat"><input type="hidden" id="long" name="long">
                     <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                    <button class="btn btn-secondary" id="modal-btn" style="float:right" data-toggle="modal" data-target="#samplemodal">See Sample modal</button>
+                    <button class="btn btn-secondary" id="modal-btn" style="float:right" data-toggle="modal" data-target="#samplemodal">See Sample Submission</button>
                     <div class="text-success" id="submitstatus" style="display:none;"></div>
                 </div>
             </div>
@@ -226,12 +228,10 @@ if(!isset($_SESSION['user'])){
                         $('#submitstatus').html('Successfully Submitted');
                         $('#submitstatus').fadeIn();
 
-                    } else if (r.status== 'GEO ACCESS FAILED') {
+                    } else if (r.STATUS== 'GEO ACCESS FAILED') {
                         var a='Location not accessible try adding it manually';
-                        var ad='<input id="pac-input" class="controls" type="text" placeholder="Enter district"><button id="getCords" onClick="codeAddress();">getLat&Long</button>';
-                        ad= ad + '<br><input id="lat" type="text" placeholder="latitude" readonly="readonly"><input id="long" type="text" placeholder="longitude" readonly="readonly">';
                         $('#submitstatus').html(a);
-                        $('#manualaddress').html(ad);
+                        $('#manualaddress').load('geo.php');
                         $('#manualaddress').fadeIn();
                         $('#submitstatus').fadeIn();
                     }else
