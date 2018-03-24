@@ -72,7 +72,7 @@
                 $('#submit-container').html(html);
             });
     });
-    $('body').on('click', '.view-btn', function() {
+    $('body').on('click', '.btn.btn-primary.view-btn', function() {
         $.ajax({
                 url: 'api/home_auth.php',
                 method: 'post',
