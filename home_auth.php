@@ -34,25 +34,6 @@
   {{/each}}
 </script>
 <script>
-    $('document').ready({
-
-        /*   function myMap() {
-
-            var location = new google.maps.LatLng(21.200437, 81.298213);
-            var mapCanvas = document.getElementById("map");
-            var mapOptions = {
-                center: location,
-                zoom: 13
-            };
-            var map = new google.maps.Map(mapCanvas, mapOptions);
-            var marker = new google.maps.Marker({
-                position: location
-            });
-            marker.setMap(map);
-            var location = new google.maps.LatLng(21.1800, 81.2800);
-
-    }*/
-    });
     var source = $('#submit-template').html();
     var template = Handlebars.compile(source);
     $('document').ready(function() {
@@ -87,17 +68,16 @@
                 var html = template(context.activity);
                 $('body').prepend(html);
                 $(`#myModal${response.activity.post_id}`).modal('show');
+                $(`#myModal${response.activity.post_id}`).on('hidden.bs.modal', function(e) {
+                  $(this).remove();
+                });
             });
         });
     });
-</script>
-<script>
-
     $('.form-control').on('focus', function() {
         this.closest('.form-group').classList.add('active');
     });
     $('.form-control').on('blur', function() {
         this.closest('.form-group').classList.remove('active');
     });
-</script><!--
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>-->
+</script>
