@@ -1,9 +1,10 @@
 <?php session_start();
 
 if(!isset($_SESSION['user'])){
-        header('Location: login.php');
-        exit();
-}         ?>
+    header('Location: login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,42 +12,13 @@ if(!isset($_SESSION['user'])){
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-    
+    <link href="img/leaves-with-water-droplets_1504589.jpg" rel="icon" type="image/png" />
     <title>Submit your Idea</title>
 </head>
 
 <body>
-   <!-------------------------------------------------- Javascript dependencies  ------------------------------------------------------------------>
-    <script src="js/popper.min.js"></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
-
-    <!-------------------- Navigation Section for header file ---------------------------------------------------------------------------------- -->
-
-    <?php  include('sample_submit.php');?>
     <?php include('header.php');?>
-    <div class="modal fade" id="samplemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-    <!-- Navigation Section End here---------------------------------------------------------------------------------------------------- -->
     <div class="form-container">
         <form id="form">
             <div class="form-row form">
@@ -67,8 +39,8 @@ if(!isset($_SESSION['user'])){
                     <small class="text-muted">Number of Items with costs</small>
                 </div>
                 <div class="form-group col-md-12">
-                    <label for="radio">Is there any policy or subsidy of government or any other <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data=placement="top">agencies</a> ?
-                      <br>(क्या सरकार या किसी अन्य <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data=placement="top">एजेंसियों</a> की कोई नीति या सब्सिडी है?)
+                    <label for="radio">Is there any policy or subsidy of government or any other <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data-placement="top">agencies</a> ?
+                      <br>(क्या सरकार या किसी अन्य <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data-placement="top">एजेंसियों</a> की कोई नीति या सब्सिडी है?)
                     </label>
                     <div>
                      <label for="yes">Yes </label>
@@ -90,14 +62,14 @@ if(!isset($_SESSION['user'])){
                 <input type="text" class="form-control" name="budget" id="budget" placeholder="प्रस्ताव का अनुमानित मूल्य">
                 <small class="text-muted">Approximate bugdet of your project</small>
             </div>
-            <div class="form-group col-md-7">
+           <div class="form-group col-md-7">
                 <label for="city">District</label>
                 <input type="text" class="form-control" name="city" id="city" placeholder="जिला">
                 <small class="text-muted">Place where is the idea implemented</small>
             </div>
             <div class="form-group col-md-8">
-                <label for="state" for="state">State</label>
-                <select id="state" name="state" id="state" required class="form-control">
+                <label for="state">State</label>
+                <select id="state" name="state" required class="form-control">
                     <option value="">Choose State(राज्य चुनें)</option>
                     <option value="chhattisgarh">Chhattisgarh</option>
                     <option value="telangana" name="telangana">Telangana</option>
@@ -167,7 +139,10 @@ if(!isset($_SESSION['user'])){
             $('[data-toggle="tooltip"]').tooltip();
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>-->
-    <!-- Ajax data request with submitted data ------>
+    <!-- Ajax data request with submitted data -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1sAjyD_NDrgsRGt_9ZLqf41Tu0QGTzqI&libraries=places&callback=initAutocomplete" async defer></script>
     <script type="text/javascript">
 
@@ -268,7 +243,10 @@ if(!isset($_SESSION['user'])){
         });
          $('#modal-btn').click(function(e) {
             e.preventDefault();
-         $('#samplemodal').modal('show');
+            $('#samplemodal').length || $.ajax('sample_submit.php').done(function(response) {
+                $('body').prepend(response);
+                $('#samplemodal').modal('show');
+            })
          });
         /*Form controll scripts ----------------------------------------------------------------*/
                 $('.policy_fields').fadeOut();
