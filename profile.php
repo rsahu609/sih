@@ -44,7 +44,7 @@
                 <small class="text-muted">Mobile or Telephone number</small>
             </div>
             
-        <button type="submit" class="btn btn-primary" id="submit">Save Changes</button>
+        <button type="submit" class="btn btn-primary" id="save">Save Changes</button>
         <div class="text-success" id="submitstatus" style="display:none;"></div>
         </div>
           
@@ -57,6 +57,12 @@
         $('.form-control').on('blur', function() {
             this.closest('.form-group').classList.remove('active');
         });
-    
+     $('#save').click(function(){
+         $.ajax({
+            url: 'profile.php',
+            method: 'POST',
+            data: new FormData
+         })
+     });
 </script>
     </body>

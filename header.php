@@ -17,7 +17,7 @@
       </li>
       <li class="nav-item">
        <span>
-           <a class="nav-link" href="submit.php">&nbsp;&nbsp;Submit Your Implementation&nbsp;&nbsp;</a>
+           <a class="nav-link" href="submit.php" style="padding-left:10px;padding-right:10px;">Submit Your Implementation</a>
        </span>
       </li>
       <li class="nav-item">
@@ -25,6 +25,7 @@
            <a class="nav-link" href="stats.php">&nbsp;Statistics</a>
        </span>
       </li>
+    
       <?php if(isset($_SESSION['user'])){?>
       <li class="nav-item">
        <span>
@@ -51,9 +52,8 @@
        </span>
       </li>
       <?php } ?>
+   
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-    </form>
   </div>
 </nav>
 </div>
