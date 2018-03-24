@@ -1,4 +1,11 @@
- <?php if((session_status() == PHP_SESSION_NONE)) session_start();?>
+ <?php if((session_status() == PHP_SESSION_NONE)) session_start();
+if( isset($_REQUEST['post_id'])){
+  include 'api/connection.php';
+  $query = "SELECT `user_id`, `idea`, `description`, `image`, `city`,`policy_organization`, `state`, `policy_details`, `project_budget`, `latitude`,`equipments`, `longitude`, `status` FROM `a_submit` WHERE post_id=$_REQUEST[post_id]";
+  $row=mysqli_query($connect,$query);
+  $result = mysqli_fetch_assoc($row);
+}
+?>
  <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -6,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <script src="js/handlebars.min.js"></script>
      <meta charset="UTF-8">
-     <title><?= $_REQUEST['idea']?></title>
+     <title><?= $result['idea']?></title>
  </head>
  <body>
      <?php include('header.php') ;?>
@@ -14,30 +21,32 @@
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <div class="container">
-          <img src="images/{{image}}">
-        </div>
+   
+          <div style='background-image:url("api/<?=$result['image']?>");margin:auto;height:500px;background-repeat:no-repeat;background-size:cover; '></div>
+        
       </div>
 
       <div class="container">
         <!-- Example row of columns -->
         <div class="row">
           <div class="col-md-4">
-            <h2><?=$_REQUEST['idea']?></h2>
-            <p><?=$_REQUEST['description']?></p>
+            <h2><?=$result['idea']?></h2>
+            <p><?=$result['description']?></p>
+            </div>
           <div class="col-md-4">
-            <h2><?=$_REQUEST['state_policy']?></h2>
-            <p><?=$_REQUEST['state_policy']?></p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <h2><?=$result['policy_organization']?></h2>
+            <p><?=$result['policy_details']?></p>
           </div>
           <div class="col-md-4">
-            <h2>equipments</h2>
-            <p><?=$_REQUEST['equipments']?></p>
+            <h2>equipments</h2>    
+            <p><?=$result['equipments']?></p>
           </div>
         </div>
           </div>
         <hr>
-
-      </div> <!-- /container -->
+<div class="button-container">
+    <input type="button" value="upvote" id="upvote">
+</div>
+       <!-- /container -->
 
     </main>

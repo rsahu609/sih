@@ -1,27 +1,59 @@
 <?php
-  $start;
-  $end;
-  include 'connection.php';
-  if (isset($_REQUEST['year'])) {
-    $year=$_REQUEST['year'];
-    $month=$_REQUEST['month'];
-    if ($month>='1'&&$month<='9') {
-      $start=$year."-0".$month."-01 00:00:01";
-      $end=$year."-0".$month."-31 23:59:59";
-    } else {
-      $start=$year."-".$month."-01 00:00:01";
-      $end=$year."-".$month."-31 23:59:59";
-    }
-    $query="SELECT COUNT(post_id),state FROM a_submit GROUP BY state WHERE  `date` BETWEEN '$start' AND '$end' ";
 
-  } else {
-    $query="SELECT COUNT(post_id), state FROM a_submit GROUP BY state";
+include 'connection.php';
+
+
+function get_count_by_state($month=null, $year=null) {
+  global $connect;
+  $query = "select count(post_id) as cc, state from a_submit group by state";
+  if($month && $year) {
+    $query .= " where month(date_time) = $month and year(date_time) = $year";
   }
-  $count=mysqli_query($connect,$query);
-  $i=0;
-  $arr;
-  while(($a=mysqli_fetch_assoc($count))){
-    $arr[$a['state']]=$a['COUNT(post_id)'];
+
+  $result = mysqli_query($connect, $query);
+  if(!$result) {
+    error_log("Failed to get_count_by_state");
+    echo json_encode(array('status' => 'fail'));
+    exit();
   }
-  echo json_encode($arr);
-  ?>
+
+  while(($row = mysqli_fetch_assoc($result))){
+    $arr[$row['state']] = $row['cc'];
+  }
+  return $arr;
+}
+
+
+function get_count_by_category($month=null, $year=null) {
+  global $connect;
+  $query = "select count(post_id) as cc, category from a_submit group by category";
+  if($month && $year) {
+    $query .= " where month(date_time) = $month and year(date_time) = $year";
+  }
+
+  $result = mysqli_query($connect, $query);
+  if(!$result) {
+    error_log("Failed to get_count_by_category");
+    echo json_encode(array('status' => 'fail'));
+    exit();
+  }
+
+  while(($row = mysqli_fetch_assoc($result))){
+    $arr[$row['category']] = $row['cc'];
+  }
+
+  return $arr;
+}
+
+$month = $_REQUEST['month'] ?? null;
+$year = $_REQUEST['year'] ?? null;
+
+$count_by_state = get_count_by_state($month, $year);
+$count_by_category = get_count_by_category($month, $year);
+
+echo json_encode(array(
+  'by_state' => $count_by_state,
+  'by_category' => $count_by_category,
+));
+
+$connect = null;
