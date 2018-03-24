@@ -11,6 +11,7 @@ if(!isset($_SESSION['user'])){
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
+
     <title>Submit your Idea</title>
 </head>
 
@@ -22,7 +23,29 @@ if(!isset($_SESSION['user'])){
 
 
     <!-------------------- Navigation Section for header file ---------------------------------------------------------------------------------- -->
-    <?php include('header.php'); ?>
+
+    <?php  include('sample_submit.php');?>
+    <?php include('header.php');?>
+    <div class="modal fade" id="samplemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <!-- Navigation Section End here---------------------------------------------------------------------------------------------------- -->
     <div class="form-container">
         <form id="form">
@@ -102,7 +125,7 @@ if(!isset($_SESSION['user'])){
                     <div class="text-success" id="manualaddress" style="display:none;"></div>
                     <input type="hidden" id="lat" name="lat"><input type="hidden" id="long" name="long">
                     <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                    <button class="btn btn-secondary" id="modal-btn" style="float:right" data-toggle="modal" data-target="#samplem-modal">See Sample modal</button>
+                    <button class="btn btn-secondary" id="modal-btn" style="float:right" data-toggle="modal" data-target="#samplemodal">See Sample Submission</button>
                     <div class="text-success" id="submitstatus" style="display:none;"></div>
                 </div>
             </div>
@@ -141,8 +164,8 @@ if(!isset($_SESSION['user'])){
                 marker.setMap(map);
             };
             console.log('function befor ready');
-            $('[data-toggle="tooltip"]').tooltip();
         });
+            $('[data-toggle="tooltip"]').tooltip();
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>-->
     <!-- Ajax data request with submitted data ------>
@@ -175,10 +198,13 @@ if(!isset($_SESSION['user'])){
                         {
                         $('#submitstatus').html('Some error occured. Please try submitting it again.');
                         $('#submitstatus').fadeIn();
-
                     }
                 });
         });
+         $('#modal-btn').click(function(e) {
+            e.preventDefault();
+         $('#samplemodal').modal('show');
+         });
         /*Form controll scripts ----------------------------------------------------------------*/
                 $('.policy_fields').fadeOut();
         $('.form-control').on('focus', function() {
