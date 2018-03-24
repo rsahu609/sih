@@ -22,8 +22,7 @@ if(!isset($_SESSION['user'])){
 
 
     <!-------------------- Navigation Section for header file ---------------------------------------------------------------------------------- -->
-    <?php include('header.php');
-          include('sample_submission.html');?>
+    <?php include('header.php'); ?>
     <!-- Navigation Section End here---------------------------------------------------------------------------------------------------- -->
     <div class="form-container">
         <form id="form">
@@ -31,7 +30,7 @@ if(!isset($_SESSION['user'])){
                 <div class="form-group col-md-12">
                     <br>
                     <label for="idea-title">Idea title</label>
-                    <input type="text" class="form-control" name="title" id="title" placeholder="अभ्यास का शीर्षक" autofocus >
+                    <input type="text" class="form-control" name="title" id="title" placeholder="अभ्यास का शीर्षक" autofocus>
                     <small class="text-muted">Enter the name of the idea or Context</small>
                 </div>
                 <div class="form-group col-md-12">
@@ -45,21 +44,14 @@ if(!isset($_SESSION['user'])){
                     <small class="text-muted">Number of Items with costs</small>
                 </div>
                 <div class="form-group col-md-12">
-                    <label for="equip">Procedure</label>
-                    <textarea class="form-control" name="_procedure" id="_procedure" placeholder="उपकरणों एवं वस्तुओं का विवरण यहाँ दर्ज करें"></textarea>
-                    <small class="text-muted">A well defined procedure for implementing</small>
-                </div>
-                <div class="form-group col-md-12">
-
-                    <label for="radio">Is there any policy or subsidy of government or any other <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data-placement="top">agencies</a> ?
+                    <label for="radio">Is there any policy or subsidy of government or any other <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data=placement="top">agencies</a> ?
                       <br>(क्या सरकार या किसी अन्य <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data=placement="top">एजेंसियों</a> की कोई नीति या सब्सिडी है?)
                     </label>
                     <div>
                      <label for="yes">Yes </label>
                       <input type="radio" name="policy_radio" value="radio_true" id="yes">
                      <label for="no">No </label>
-                      <input type="radio" name="policy_radio" value="radio_false" id="no" checked>
-
+                      <input type="radio" name="policy_radio" value="radio_false" id="no">
                     </div>
                     <label for="policytitle"></label>
                     <input type="text" class="form-control policy_fields" name="policy_title" placeholder="सब्सिडी प्रदान करने वाले संगठन का नाम यहाँ दर्ज करे">
@@ -107,8 +99,9 @@ if(!isset($_SESSION['user'])){
                     <input type="file" class="custom-file-input" id="file_submit" name="img">
                     <small class="text-muted">Here is some help</small>
                     <br><br>
+                    <div class="text-success" id="manualaddress" style="display:none;"></div>
                     <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                    <button class="btn btn-secondary" id="modal-btn" style="float:right">See Sample modal</button>
+                    <button class="btn btn-secondary" id="modal-btn" style="float:right" data-toggle="modal" data-target="#samplem-modal">See Sample modal</button>
                     <div class="text-success" id="submitstatus" style="display:none;"></div>
                 </div>
             </div>
@@ -152,6 +145,72 @@ if(!isset($_SESSION['user'])){
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>-->
     <!-- Ajax data request with submitted data ------>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1sAjyD_NDrgsRGt_9ZLqf41Tu0QGTzqI&libraries=places&callback=initAutocomplete" async defer></script>
+    <script type="text/javascript">
+
+    function initAutocomplete() {
+
+
+    // Create the search box and link it to the UI element.
+    var input = document.getElementById('pac-input');
+    var searchBox = new google.maps.places.SearchBox(input);
+
+
+    // Bias the SearchBox results towards current map's viewport.
+
+
+    // Listen for the event fired when the user selects a prediction and retrieve
+    // more details for that place.
+    searchBox.addListener('places_changed', function() {
+      var places = searchBox.getPlaces();
+
+
+      // Clear out the old markers.
+      markers.forEach(function(marker) {
+        marker.setMap(null);
+      });
+
+      // For each place, get the icon, name and location.
+     });
+    }
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+      var address = (document.getElementById('pac-input'));
+      var autocomplete = new google.maps.places.Autocomplete(address);
+      autocomplete.setTypes(['geocode']);
+      google.maps.event.addListener(autocomplete, 'place_changed', function() {
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+              return;
+          }
+
+      var address = '';
+      if (place.address_components) {
+          address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+              ].join(' ');
+      }
+    });
+    }
+    function codeAddress() {
+    geocoder = new google.maps.Geocoder();
+    var address = document.getElementById("pac-input").value;
+    geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+
+    $('#lat').html(results[0].geometry.location.lat());
+    $('#long').html(results[0].geometry.location.lng());
+    }
+
+    else {
+      alert("Geocode was not successful for the following reason: " + status);
+    }
+    });
+    }
+      </script>
     <script>
         $('#submit').click(function(e) {
             e.preventDefault();
@@ -161,8 +220,7 @@ if(!isset($_SESSION['user'])){
                     data: new FormData(document.getElementById('form')),
                     cache: false,
                     processData: false,
-                    contentType: false,
-                    dataType: 'json',
+                    contentType: false
                 })
                 .done(function(response) {
                     var r=JSON.parse(response);
@@ -170,8 +228,13 @@ if(!isset($_SESSION['user'])){
                         $('#submitstatus').html('Successfully Submitted');
                         $('#submitstatus').fadeIn();
 
-                    } else if (r.status== 'Errorimg') {
-                        $('#submitstatus').html('Image not submitted');
+                    } else if (r.status== 'GEO ACCESS FAILED') {
+                        var a='Location not accessible try adding it manually';
+                        var ad='<input id="pac-input" class="controls" type="text" placeholder="Enter district"><button id="getCords" onClick="codeAddress();">getLat&Long</button>';
+                        ad= ad + '<br><input id="lat" type="text" placeholder="latitude" readonly="readonly"><input id="long" type="text" placeholder="longitude" readonly="readonly">';
+                        $('#submitstatus').html(a);
+                        $('#manualaddress').html(ad);
+                        $('#manualaddress').fadeIn();
                         $('#submitstatus').fadeIn();
                     }else
                         {
@@ -182,9 +245,13 @@ if(!isset($_SESSION['user'])){
                 });
         });
         /*Form controll scripts ----------------------------------------------------------------*/
-        $('.policy_fields').fadeOut();
-    
-        
+                $('.policy_fields').fadeOut();
+        $('.form-control').on('focus', function() {
+            this.closest('.form-group').classList.add('active');
+        });
+        $('.form-control').on('blur', function() {
+            this.closest('.form-group').classList.remove('active');
+        });
         $('input[name=policy_radio]').click(function(){
             if($(this).val()=='radio_true') {
                 $('.policy_fields').fadeIn();
@@ -192,13 +259,7 @@ if(!isset($_SESSION['user'])){
             else{
                 $('.policy_fields').fadeOut();
             }
-        });
-    $('.form-control').on('focus', function() {
-      this.closest('.form-group').classList.add('active');
-    });
-    $('.form-control').on('blur', function() {
-      this.closest('.form-group').classList.remove('active');
-    });
+        })
     </script>
 </body>
 

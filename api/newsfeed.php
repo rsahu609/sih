@@ -27,7 +27,7 @@ function search_in_lat_long_range($latstart, $latend, $longstart, $longend) {
   return $data;
 }
 
-if($_REQUEST['request_type'] == 'search_in_lat_long_range') {
+if(($_GET['request_type'] ?? null) == 'search_in_lat_long_range') {
 
   $latstart = $_GET['latstart'];
   $latend = $_GET['latend'];
