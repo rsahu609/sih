@@ -78,39 +78,13 @@ while($row = mysqli_fetch_assoc($result)){
         </div>
    
     <div class="container">
+        <button class="btn btn-primary float-right" id="btn-map-search">Search in the shown area</button>
         <div class="row">
             <div class="col-sm">
                 <div id="map" style=""></div>
             </div>
         </div>
     </div>
-    <script src="js/popper.min.js"></script>
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
-    <script src="js/handlebars.min.js"></script>
-    <script>
-      function populateMap(context) {
-        console.log(context.activity);
-        var locations = [];
-        context.activity.forEach(function(activity) {
-          locations.push(new google.maps.LatLng(activity.latitude, activity.longitude));
-        });
-        var mapCanvas = document.getElementById("map");
-        var mapOptions = {
-            center: locations[0],
-            zoom: 6
-        };
-        var map = new google.maps.Map(mapCanvas, mapOptions);
-        var markers = [];
-        locations.forEach(function(location) {
-          markers.push(new google.maps.Marker({ position: location }));
-        });
-        markers.forEach(function(marker) {
-          marker.setMap(map);
-        });
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY"></script>
     <div class="template" id="entry-template" style="display:none;">
         {{#each activity}}
         <div class="card">
@@ -126,8 +100,48 @@ while($row = mysqli_fetch_assoc($result)){
         </div>
         {{/each}}
     </div>
-    
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/handlebars.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY"></script>
     <script>
+      (function(){
+        var map;
+        function populateMap(context) {
+          console.log(context.activity);
+          var locations = [];
+          context.activity.forEach(function(activity) {
+            locations.push(new google.maps.LatLng(activity.latitude, activity.longitude));
+          });
+          var mapCanvas = document.getElementById("map");
+          var mapOptions = {
+              center: locations[0],
+              zoom: 6
+          };
+          map = new google.maps.Map(mapCanvas, mapOptions);
+          console.log(map);
+          var markers = [];
+          locations.forEach(function(location) {
+            markers.push(new google.maps.Marker({ position: location }));
+          });
+          markers.forEach(function(marker) {
+            marker.setMap(map);
+          });
+        }
+
+        $('#btn-map-search').on('click', function() {
+          const bounds = map.getBounds();
+          $.getJSON('api/newsfeed.php', {
+              request_type: 'search_in_lat_long_range',
+              latstart: bounds.f.b,
+              latend: bounds.f.f,
+              longstart: bounds.b.b,
+              longend: bounds.b.f
+          }).then(function(response) {
+            populateMap(response);
+          });
+        });
         var source = $('#entry-template').html();
         var template = Handlebars.compile(source);
         $(document).ready(function() {
@@ -165,6 +179,7 @@ while($row = mysqli_fetch_assoc($result)){
                     populateMap(context);
                 })
         })
+      })();
     </script>
 <?php include('footer.php');?>
 </body>
