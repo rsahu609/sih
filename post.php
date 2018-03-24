@@ -44,7 +44,9 @@ if( isset($_REQUEST['post_id'])){
         </div>
           </div>
         <hr>
-
+<div class="button-container">
+    <input type="button" value="upvote" id="upvote">
+</div>
        <!-- /container -->
 
     </main>

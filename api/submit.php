@@ -65,11 +65,11 @@
     $ar=array('status' => 'SUCCESS');
     echo json_encode($ar);
   }
-  }
   else {
     $ar=array('status'=>'Error');
     echo json_encode($ar);
   }
+      }
 }else{
   $t = array('STATUS' => 'GEO ACCESS FAILED');
   echo json_encode($t);
