@@ -42,11 +42,11 @@ if( isset($_REQUEST['post_id'])){
             <p><?=$result['equipments']?></p>
           </div>
         </div>
+          </div>
         <hr>
 <div class="button-container">
-    <input type="button" class="btn btn-success" value="upvote " id="upvote">
+    <input type="button" value="upvote" id="upvote">
 </div>
-          </div>
        <!-- /container -->
 
     </main>

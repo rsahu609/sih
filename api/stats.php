@@ -26,7 +26,9 @@ function get_count_by_state($month=null, $year=null) {
 
 function get_count_by_category($month=null, $year=null) {
   global $connect;
-  $query = "select count(post_id) as cc, category from a_submit group by category";
+  $query = "select name as category, count(*) as cc from category_map cm  inner join ".
+   " category ct  on cm.cat_id = ct.id group by cat_id";
+  // $query = "select count(post_id) as cc, category from a_submit group by category";
   if($month && $year) {
     $query .= " where month(date_time) = $month and year(date_time) = $year";
   }
