@@ -54,47 +54,54 @@
 
     <div id="map" style="width:800px;height:500px;margin:auto;"></div>
 
-    <script>
-        /*-----------------------------MAP API CODE HERE----------------------------------------------------------*/
-        $('document').ready(
-            function myMap() {
-                var location = new google.maps.LatLng(21.200437, 81.298213);
-                var mapCanvas = document.getElementById("map");
-                var mapOptions = {
-                    center: location,
-                    zoom: 13
-                };
-                var map = new google.maps.Map(mapCanvas, mapOptions);
-                var marker = new google.maps.Marker({
-                    position: location
-                });
-                marker.setMap(map);
-                
-            });
-        /*-------------------------AJAX RESPONSE CODES HERE -------------------------------------------------------------*/
-        var source = $('#entry-template').html();
-                var template = Handlebars.compile(source);
-                $(document).ready(function() {
-                    var source = $('#entry-template').html();
-                    var template = Handlebars.compile(source);
-                    console.log("ready funciton called");
-                    $.ajax({
-                            url: 'api/home_user.php',
-                            method: 'post',
-                            data: {
-                                request: 'data'
-                            },
-                            dataType: 'json',
-                        })
-                        .done(function(response) {
+    <script type="text/Handlebars" id="card-template">
+    {{#each activity}}
+        <div class="card">
+            <div class="card-header" id="heading{{post_id}}">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{post_id}}" aria-expanded="true" aria-controls="collapse{{post_id}}"> {{idea}} </button>
+                </h5>
+            </div>
+            <div id="collapse{{post_id}}" class="collapse show" aria-labelledby="heading{{post_id}}" data-parent="#accordion">
+                <div class="card-body">
+                  {{description}}
+                </div>
+            </div>
+        </div>
+  {{/each}}
+  </script>
 
-                            console.log(source)
-                            var context = response;
-                            console.log(response)
-                            var html = template(context);
-                            console.log(html)
-                            $('#feed-container').html(html);
-                        })
-                });
+    <script>
+        $('document').ready(function() {
+          var map;
+          function populateMap(context) {
+            console.log(context.activity);
+            var locations = [];
+            context.activity.forEach(function(activity) {
+              locations.push(new google.maps.LatLng(activity.latitude, activity.longitude));
+            });
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = {
+                center: locations[0],
+                zoom: 6
+            };
+            map = new google.maps.Map(mapCanvas, mapOptions);
+            console.log(map);
+            var markers = [];
+            locations.forEach(function(location) {
+              markers.push(new google.maps.Marker({ position: location }));
+            });
+            markers.forEach(function(marker) {
+              marker.setMap(map);
+            });
+          }
+          $.getJSON('api/activity.php', function(response) {
+            var source = $('#card-template').html();
+            var template = Handlebars.compile(source);
+            var html = template(response);
+            $('#accordion').html(html);
+            populateMap(response);
+          });
+        });
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY"></script>
