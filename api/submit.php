@@ -60,11 +60,6 @@
        //$result[datetime]
 }
 } else {
-  if (!move_uploaded_file($temp,$lo_img)) {
-  $ar=array('status'=>'Error');
-  echo json_encode($ar);
-  exit();
-}
   if (isset($_REQUEST['lat'])) {
     $lat=$_REQUEST['lat'];
     $long=$_REQUEST['long'];
@@ -72,7 +67,12 @@
     $t = array('STATUS' => 'GEO ACCESS FAILED');
     echo json_encode($t);
     exit();
-  }
+  }       
+  if (!move_uploaded_file($temp,$lo_img)) {
+  $ar=array('status'=>'Error');
+  echo json_encode($ar);
+  exit();
+}
 }
   include 'connection.php';
   $query="insert into a_submit values('','$_SESSION[user]','$idea','$des','$loc_img','$lat','$long','0','$dstt','$state','$zip','$budget','$equip','','','','$policy','$policy_org','$policy_details')";

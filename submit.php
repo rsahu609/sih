@@ -166,6 +166,7 @@ if(!isset($_SESSION['user'])){
             }
         })
     </script>
+       <?php include('footer.php');?>
 </body>
 
 </html>
