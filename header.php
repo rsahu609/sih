@@ -16,12 +16,13 @@
       </li>
       <li class="nav-item">
        <span>
-           <a class="nav-link" href="submit.php" style="padding-left:10px;padding-right:10px;">Submit Your Implementation</a>
+           <a class="nav-link" href="submit.php">Share Your Implementation</a>
        </span>
       </li>
       <li class="nav-item">
        <span>
-           <a class="nav-link" href="stats.php">&nbsp;Statistics</a>
+           <a class="nav-link" href="stats.php">
+           Statistics</a>
        </span>
       </li>
       </ul>

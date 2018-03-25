@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="UI - -design by Rajan Sahu">
     <link rel="icon" href="">
-
+    <link href="img/leaves-with-water-droplets_1504589.png" rel="icon" type="image/png" />
     <title>Register</title>
 
     <!-- Bootstrap core CSS -->
@@ -21,7 +21,7 @@
         <a href="newsfeed.php"><img class="md-4" src="img/fluid%20drop.gif" alt="Preloader" width="300" height="200"></a>
       <h1 class=" mb-3 font-weight-normal">Register</h1>
       <label for="username" class="sr-only">Username</label>
-      <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
+      <input type="text" id="username BRT" class="form-control" placeholder="Username" required autofocus>
       
       <label for="phone" class="sr-only">Phone Number</label>
       <input type="number" id="number" class="form-control" placeholder="Mobile Number" required>

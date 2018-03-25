@@ -12,16 +12,20 @@ if( isset($_REQUEST['post_id'])){
 <head>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link href="img/leaves-with-water-droplets_1504589.png" rel="icon" type="image/png" />
     <script src="js/handlebars.min.js"></script>
     <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+
     <meta charset="UTF-8">
     <title>
         <?= $result['idea']?>
     </title>
     <style>
-        h2 {
+        h3 {
             padding: 10px;
             border-radius: 5px;
+            color: azure;
         }
         .content p {
             background-color: white;
@@ -46,9 +50,9 @@ if( isset($_REQUEST['post_id'])){
         </div>
         <div class="flex-row">
             <div class="col-md-12">
-                <h2 class="bg-primary">
+                <h3 class="bg-success">
                     Activity Name - <?=$result['idea']?>
-                </h2>
+                </h3>
                 <p>
                     <?=$result['description']?>
                 </p>
@@ -57,9 +61,9 @@ if( isset($_REQUEST['post_id'])){
         <div class="flex-row">
             <?php if (!($result['policy_organization'] == "")) {?>
             <div class="col-md-12">
-                <h2 class="bg-primary">
+                <h3 class="bg-success">
                     <?=$result['policy_organization']?>
-                </h2>
+                </h3>
                 <p>
                     <?=$result['policy_details']?>
                 </p>
@@ -70,9 +74,9 @@ if( isset($_REQUEST['post_id'])){
         <div class="flex-row">
             <div class="container">
                 <div class="col-md-12">
-                    <h2 class="bg-primary">
+                    <h3 class="bg-success">
                         Procedure for implementation
-                    </h2>
+                    </h3>
                     <p>
                         <?=$result['_procedure']?>
                     </p>
@@ -82,7 +86,7 @@ if( isset($_REQUEST['post_id'])){
         <div class="flex-row">
             <div class="container">
                 <div class="col-md-12">
-                    <h2 class="bg-primary">Equipments required</h2>
+                    <h3 class="bg-success">Equipments required</h3>
                     <p>
                         <?=$result['equipments']?>
                     </p>
@@ -92,7 +96,7 @@ if( isset($_REQUEST['post_id'])){
         <div class="flex-row">
             <div class="container">
                 <div class="col-md-12">
-                    <h2 class="bg-primary">Cost of whole implementation</h2>
+                    <h3 class="bg-success">Cost of whole implementation</h3>
                     <p>
                         <?=$result['project_budget']?>
                     </p>
@@ -122,17 +126,17 @@ if( isset($_REQUEST['post_id'])){
                    //var res = JSON.parse(response);
                    if(response.STATUS == 'SUCCESS')
                    {
-                       $('#msg').html('Upvoted');            
+                       $('#msg').html('Upvoted :)');            
                    }
                    else if(response.STATUS == 'DOWNVOTED'){
-                       $('#msg').html('Downvoted :(');
+                       $('#msg').html('Removed upvote :(');
                    }
                    else
                    {
                        $('#msg').html('Some Error occurred while upvoting');
                    }
                        $('#msg').fadeIn("slow");
-                       $('#msg').fadeOut("slow");
+                                        
                });
             });
         </script>

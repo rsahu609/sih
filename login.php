@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="">
-
+    <link href="img/leaves-with-water-droplets_1504589.png" rel="icon" type="image/png" />
     <title>Log In</title>
 
     <!-- Bootstrap core CSS -->

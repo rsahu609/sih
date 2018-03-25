@@ -12,9 +12,9 @@ if(!isset($_SESSION['user'])){
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-    <link href="img/leaves-with-water-droplets_1504589.jpg" rel="icon" type="image/png" />
+    <link href="img/leaves-with-water-droplets_1504589.png" rel="icon" type="image/png" />
 
-    <title>Submit your Idea</title>
+    <title>Share your Idea</title>
 </head>
 
 <body>
@@ -146,71 +146,7 @@ if(!isset($_SESSION['user'])){
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1sAjyD_NDrgsRGt_9ZLqf41Tu0QGTzqI&libraries=places&callback=initAutocomplete" async defer></script>
-    <script type="text/javascript">
-
-    function initAutocomplete() {
-
-
-    // Create the search box and link it to the UI element.
-    var input = document.getElementById('pac-input');
-    var searchBox = new google.maps.places.SearchBox(input);
-
-
-    // Bias the SearchBox results towards current map's viewport.
-
-
-    // Listen for the event fired when the user selects a prediction and retrieve
-    // more details for that place.
-    searchBox.addListener('places_changed', function() {
-      var places = searchBox.getPlaces();
-
-
-      // Clear out the old markers.
-      markers.forEach(function(marker) {
-        marker.setMap(null);
-      });
-
-      // For each place, get the icon, name and location.
-     });
-    }
-    </script>
-    <script type="text/javascript">
-      function initialize() {
-      var address = (document.getElementById('pac-input'));
-      var autocomplete = new google.maps.places.Autocomplete(address);
-      autocomplete.setTypes(['geocode']);
-      google.maps.event.addListener(autocomplete, 'place_changed', function() {
-          var place = autocomplete.getPlace();
-          if (!place.geometry) {
-              return;
-          }
-
-      var address = '';
-      if (place.address_components) {
-          address = [
-              (place.address_components[0] && place.address_components[0].short_name || ''),
-              (place.address_components[1] && place.address_components[1].short_name || ''),
-              (place.address_components[2] && place.address_components[2].short_name || '')
-              ].join(' ');
-      }
-    });
-    }
-    function codeAddress() {
-    geocoder = new google.maps.Geocoder();
-    var address = document.getElementById("pac-input").value;
-    geocoder.geocode( { 'address': address}, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-
-    $('#lat').html(results[0].geometry.location.lat());
-    $('#long').html(results[0].geometry.location.lng());
-    }
-
-    else {
-      alert("Geocode was not successful for the following reason: " + status);
-    }
-    });
-    }
-      </script>
+    
     <script>
         $('#submit').click(function(e) {
             e.preventDefault();
