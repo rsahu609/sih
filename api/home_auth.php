@@ -4,20 +4,18 @@
     $query="SELECT `user_id`,`post_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`,`date_time`, `longitude`, `status` FROM `a_submit` WHERE status='1'";
     $row=mysqli_query($connect,$query);
     if($row){
-    /*  print_r($row);
-      exit();*/
       $data=[];
       while (($d=mysqli_fetch_assoc($row))) {
         $data[]=$d;
       }
-     
+
         echo json_encode(array('STATUS' => 'm_success' , 'activity' => $data));
-      
+
     } else {
       echo json_encode(array('STATUS' => 'm_fail'));
     }
   } else if(isset($_REQUEST['postid'])) {
-     
+
     $p_id=$_REQUEST['postid'];
     $query="SELECT * FROM a_submit WHERE post_id=$p_id";
 
