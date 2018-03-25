@@ -4,6 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link href="img/leaves-with-water-droplets_1504589.jpg" rel="icon" type="image/png" />
     <title>
         <?= ucfirst($_SESSION['user']); ?>
     </title>
@@ -13,7 +14,8 @@
 
     <link href="css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
     <script src="js/bootstrap.bundle.js" ></script>
-    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="css/custom.css">
     <?php include('header.php'); ?>
 

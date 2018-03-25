@@ -78,11 +78,11 @@ a.nav-link {
   color: #225422;
   padding: 15px;
   white-space: nowrap;
-}
-.nav-link{
+  padding-left:10px;
+  padding-right:10px;
 }
 .navbar {
-    padding:0 20px;
+    padding:0 ;
 }
 .navbar-brand {
   transition: .5s;
@@ -99,6 +99,9 @@ a.nav-link {
 #authority:hover {
     cursor: default;
     background-color: #00a2ff;
+}
+.nav-item {
+    padding:0 5px;
 }
 li.nav-item:hover {
   background-color: #e9ecef;
