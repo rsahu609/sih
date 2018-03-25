@@ -3,16 +3,16 @@
   $idea=$_POST['title'];
   $des=$_POST['des'];
   $equip=$_POST['equip'];
-  $policy=$_POST['policy_radio'];
+  $policy=$_POST['policy'];
   if ($policy=='radio_true'){
-    $policy_org=$_POST['policy_title'];
-    $policy_details=$_POST['policy'];
+    $policy_org=$_POST['policy_organization'];
+    $policy_details=$_POST['policy_details'];
   } else {
     $policy_org='';
     $policy_details='';
   }
   $budget=$_POST['budget'];
-  $procedure=$_POST['procedure'];
+  //$procedure=$_POST['_procedure'];
   $dstt=$_POST['city'];
   $state=$_POST['state'];
   $zip=$_POST['pin'];

@@ -31,7 +31,7 @@ body {
 /* Not required for template or sticky footer method. */
 
 body .container {
-  padding: 60px 15px 15px;
+  padding: 60px 15px 15px 15px;
   background-color: #e9ecef;
   border-radius: 5px;
   

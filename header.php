@@ -1,9 +1,8 @@
 <?php if((session_status() == PHP_SESSION_NONE)) session_start();?>
 <div class='header'>
-<link href="img/leaves-with-water-droplets_1504589.jpg" rel="icon" type="image/png" />
 <nav class="navbar navbar-expand-lg bg-green fixed-top bg-light">
   <a class="navbar-brand" href="newsfeed.php">Aprakshan</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler glyphicon glyphicon-menu-hamburger" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -25,7 +24,8 @@
            <a class="nav-link" href="stats.php">&nbsp;Statistics</a>
        </span>
       </li>
-    
+      </ul>
+      <ul class="navbar-nav ml-auto">
       <?php if(isset($_SESSION['user'])){?>
       <li class="nav-item">
        <span>

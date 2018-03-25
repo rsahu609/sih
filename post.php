@@ -23,20 +23,25 @@ if( isset($_REQUEST['post_id'])){
     <?php include('header.php') ;?>
     <div class="container">
         <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="col-md-6">
-            <image src="api/<?=$result[' image ']?>" );margin:auto;>
-            </image>
-        </div>
-        <div class="col-md-6">
-            <h2>
-                <?=$result['idea']?>
-            </h2>
-            <p>
-                <?=$result['description']?>
-            </p>
-        </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
+                <image src="api/<?=$result[' image ']?>" style="height:300px;width:500px;margin:auto;">
+                </image>
+            </div>
+        </div>
+        <div class="flex-row">
+            <div class="col-md-12">
+                <h2>
+                    Activity Name - <?=$result['idea']?>
+                </h2>
+                <p>
+                    <?=$result['description']?>
+                </p>
+            </div>
+        </div>
+        <div class="flex-row">
+            <?php if (!($result['policy_organization'] == "")) {?>
+            <div class="col-md-12">
                 <h2>
                     <?=$result['policy_organization']?>
                 </h2>
@@ -44,33 +49,44 @@ if( isset($_REQUEST['post_id'])){
                     <?=$result['policy_details']?>
                 </p>
             </div>
-            <div class="col-md-6">
-                <h2>Procedure</h2>
-                <p>
-                    <?=$result['_procedure']?>
-                </p>
-            </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <h2>equipments</h2>
-                <p>
-                    <?=$result['equipments']?>
-                </p>
-            </div>
-            <div class="col-md-6">
-                <h2>budget</h2>
-                <p>
-                    <?=$result['budget']?>
-                </p>
-            </div>
-        </div>
-        <div class="row">
+        <?php }?>
 
+        <div class="flex-row">
+            <div class="container">
+                <div class="col-md-12">
+                    <h2>
+                        Procedure for implementation
+                    </h2>
+                    <p>
+                        <?=$result['_procedure']?>
+                    </p>
+                </div>
+            </div>
         </div>
-        <hr>
-        <div class="button-container">
-            <input type="button" class="btn btn-success" value="Upvote" id="upvote">
+        <div class="flex-row">
+            <div class="container">
+                <div class="col-md-12">
+                    <h2>Equipments required</h2>
+                    <p>
+                        <?=$result['equipments']?>
+                    </p>
+                </div>
+            </div>
         </div>
-
-    </div>
+        <div class="flex-row">
+            <div class="container">
+                <div class="col-md-12">
+                    <h2>Cost of whole implementation</h2>
+                    <p>
+                        <?=$result['project_budget']?>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="flex-row">
+            <hr>
+            <div class="container">
+                <input type="button" class="btn btn-success" value="Upvote" id="upvote">
+            </div>
+        </div>
