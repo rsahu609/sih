@@ -5,8 +5,8 @@
   $equip=$_POST['equip'];
   $policy=$_POST['policy_radio'];
   if ($policy=='radio_true'){
-    $policy_org=$_POST['policy_organization'];
-    $policy_details=$_POST['policy_details'];
+    $policy_org=$_POST['policy_title'];
+    $policy_details=$_POST['policy'];
   } else {
     $policy_org=null;
     $policy_details=null;
@@ -30,7 +30,7 @@
         if($exif["GPSLatitudeRef"] == 'S'){
             $LatM = -1;
         }
-        
+
         if($exif["GPSLongitudeRef"] == 'W'){
             $LongM = -1;
         }
