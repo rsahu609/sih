@@ -13,6 +13,7 @@ $row=mysqli_query($connect,$query);
       session_start();
       $_SESSION['user']=$user;
       $_SESSION['role']=$data['role'];
+      $_SESSION['userid'] = $data['user_id'];
       $ar=array('status' => 'SUCCESS');
       echo json_encode($ar);
     }
