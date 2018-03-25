@@ -3,16 +3,16 @@
   $idea=$_POST['title'];
   $des=$_POST['des'];
   $equip=$_POST['equip'];
-  $policy=$_POST['policy'];
+  $policy=$_POST['policy_radio'];
   if ($policy=='radio_true'){
     $policy_org=$_POST['policy_organization'];
     $policy_details=$_POST['policy_details'];
   } else {
-    $policy_org='';
-    $policy_details='';
+    $policy_org=null;
+    $policy_details=null;
   }
   $budget=$_POST['budget'];
-  //$procedure=$_POST['_procedure'];
+  $procedure=$_POST['_procedure'] ?? 'asdfasdfsdfsdfsadf';
   $dstt=$_POST['city'];
   $state=$_POST['state'];
   $zip=$_POST['pin'];
@@ -76,13 +76,15 @@
 }
 }
   include 'connection.php';
-  $query="insert into a_submit values(null,'$_SESSION[userid]','$idea','$des','$loc_img','$lat','$long','0','$dstt','$state','$zip','$budget','$equip','','','','$policy','$policy_org','$policy_details')";
+  $query="insert into a_submit values(null,'$_SESSION[userid]','$idea','$des','$loc_img','$lat','$long','0','$dstt','$state','$zip','$budget','$equip','$procedure',null,0,'$policy','$policy_org','$policy_details')";
+  error_log($query);
   $resu=mysqli_query($connect,$query);
   if ($resu) {
     $ar=array('status' => 'SUCCESS');
     echo json_encode($ar);
   }
   else {
+    error_log('query failed');
     $ar=array('status'=>'Error');
     echo json_encode($ar);
   }
