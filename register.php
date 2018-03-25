@@ -35,7 +35,7 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
       <p id="error-message" class="text-danger" style="display:none"></p>
       <br>
-      <a href="login.php" class="btn btn-light">Login Here (यहां Login करें)</a>
+      <a href="login.php" class="btn btn-light">Login Here (यहां लॉग इन करें)</a>
       <p class="mt-5 mb-3" style="color:fff;">Aprakshan &copy; 2017-2018</p>
     </form>
     <script src="js/jquery-2.2.4.js"></script>
