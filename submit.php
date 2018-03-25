@@ -12,9 +12,9 @@ if(!isset($_SESSION['user'])){
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-    <link href="img/leaves-with-water-droplets_1504589.jpg" rel="icon" type="image/png" />
+    <link href="img/leaves-with-water-droplets_1504589.png" rel="icon" type="image/png" />
 
-    <title>Submit your Idea</title>
+    <title>Share your Idea</title>
 </head>
 
 <body>

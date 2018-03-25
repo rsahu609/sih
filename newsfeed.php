@@ -15,7 +15,7 @@ while($row = mysqli_fetch_assoc($result)){
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <link href="img/leaves-with-water-droplets_1504589.jpg" rel="icon" type="image/png" />
-    <title>Home - Aprakshan</title>
+    <title>Newsfeed - Aprakshan</title>
 </head>
 
 <body>

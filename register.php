@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="UI - -design by Rajan Sahu">
     <link rel="icon" href="">
-    <link href="img/leaves-with-water-droplets_1504589.jpg" rel="icon" type="image/png" />
+    <link href="img/leaves-with-water-droplets_1504589.png" rel="icon" type="image/png" />
     <title>Register</title>
 
     <!-- Bootstrap core CSS -->
