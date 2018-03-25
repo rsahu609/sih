@@ -1,3 +1,4 @@
+
 <div class="modal fade" id="samplemodal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -13,6 +14,7 @@
                         <input type="text" class="form-control" name="title" placeholder="Ferro Cement Tanks" disabled>
                         <small class="text-muted">Enter the name of the idea or Context</small>
                     </div>
+
                     <div class="form-group">
                         <label for="des">Description</label>
                             <textarea class="form-control" name="des" placeholder="This is alow cost alternative for expensive water harvesting containers made of masonry plastic and RCC. It has proved highly effective in high rainfall regions where large amoubt of water needs to be stored in clean form. These tanks requiring materials like sand, cement, mild steel bar and galvanized iron wire mesh, can be easily constructed skilled labours. It's light in weight and can be moulded into any shape required. It is believed to last for around 25 years with little maintenance. Picture here shows a ferro-cement tank under construction. It can be appropriate for use in Indian villages and disaster prone areas as its fireproof and tough in build. " disabled></textarea>
@@ -67,6 +69,7 @@
                     <div class="form-group">
                         <div class="img-submit"></div>
                         <small class="text-muted">Uploaded geotagged image</small>
+
                     </div>
                 </form>
             </div>

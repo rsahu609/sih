@@ -2,7 +2,7 @@
 <div class='header'>
 <nav class="navbar navbar-expand-lg bg-green fixed-top bg-light">
   <a class="navbar-brand" href="newsfeed.php">Aprakshan</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler glyphicon glyphicon-menu-hamburger" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -16,7 +16,7 @@
       </li>
       <li class="nav-item">
        <span>
-           <a class="nav-link" href="submit.php">&nbsp;&nbsp;Submit Your Implementation&nbsp;&nbsp;</a>
+           <a class="nav-link" href="submit.php" style="padding-left:10px;padding-right:10px;">Submit Your Implementation</a>
        </span>
       </li>
       <li class="nav-item">
@@ -24,6 +24,8 @@
            <a class="nav-link" href="stats.php">&nbsp;Statistics</a>
        </span>
       </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
       <?php if(isset($_SESSION['user'])){?>
       <li class="nav-item">
        <span>
@@ -50,9 +52,8 @@
        </span>
       </li>
       <?php } ?>
+   
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-    </form>
   </div>
 </nav>
 </div>
