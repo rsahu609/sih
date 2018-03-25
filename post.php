@@ -43,7 +43,7 @@ if( isset($_REQUEST['post_id'])){
             <div class="col-md-12">
        
                 <p class="d-flex flex-justified">
-                  <image src="api/<?=$result['image']?>" style="margin:auto;">
+                  <image src="<?=$result['image']?>" class="rounded mx-auto">
                   </image>
                 </p>
             </div>
@@ -110,6 +110,8 @@ if( isset($_REQUEST['post_id'])){
                 <span id="msg" class="text-success" style="display:hidden"></span>
             </div>
         </div>
+    </div>
+        <?php include('footer.php');?>
         <script>
             $('#upvote').click(function(){
                $.ajax({
@@ -135,12 +137,9 @@ if( isset($_REQUEST['post_id'])){
                    {
                        $('#msg').html('Some Error occurred while upvoting');
                    }
-                       $('#msg').fadeIn("slow");
-                                        
+                       $('#msg').fadeIn("slow");                       
                });
             });
         </script>
-        <?php include('footer.php');?>
-    </div>
     </body>
 </html>

@@ -15,7 +15,7 @@ if(!isset($_SESSION['user'])){
     
     <link href="img/leaves-with-water-droplets_1504589.png" rel="icon" type="image/png" />
 
-    <title>Share your Idea</title>
+    <title>Share your Activities</title>
 </head>
 
 <body>
@@ -26,14 +26,14 @@ if(!isset($_SESSION['user'])){
             <div class="form-row form">
                 <div class="form-group col-md-12">
                     <br>
-                    <label for="idea-title">Idea title</label>
+                    <label for="idea-title">Activity title</label>
                     <input type="text" class="form-control" name="title" id="title" placeholder="अभ्यास का शीर्षक" autofocus>
                     <small class="text-muted">Enter the name of the idea or Context</small>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="des">Description</label>
                     <textarea class="form-control" name="des" id="des" placeholder="यहाँ प्रस्ताव का विवरण दर्ज करें"></textarea>
-                    <small class="text-muted">All the details regarding practical utility, budget, precautions and crop type, soil type(in case of irrigation ideas)</small>
+                    <small class="text-muted">All the details regarding practical utility, budget, precautions and crop type, soil type(in case of irrigation activities)</small>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="equip">List of Items and Equipments required</label>
@@ -62,12 +62,12 @@ if(!isset($_SESSION['user'])){
             <div class="form-group col-md-5">
                 <label for="budget">Approximate Budget</label>
                 <input type="text" class="form-control" name="budget" id="budget" placeholder="प्रस्ताव का अनुमानित मूल्य">
-                <small class="text-muted">Approximate bugdet of your project</small>
+                <small class="text-muted">Approximate bugdet of your activity</small>
             </div>
            <div class="form-group col-md-7">
                 <label for="city">District</label>
                 <input type="text" class="form-control" name="city" id="city" placeholder="जिला">
-                <small class="text-muted">Place where is the idea implemented</small>
+                <small class="text-muted">Place where is the activity implemented</small>
             </div>
             <div class="form-group col-md-8">
                 <label for="state">State</label>

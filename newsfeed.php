@@ -65,7 +65,7 @@ while($row = mysqli_fetch_assoc($result)){
             <div class="cardouter">
               <form>
                 <div class="form-group row">
-                    <label for="filter" class="col-sm-6 col-form-label"><span style="font-size:22px; margin-height:auto">Filter entries by state</span></label>
+                    <label for="filter" class="col-sm-6 col-form-label"><span style="font-size:22px; margin-height:auto">Filter activities by state</span></label>
                   <div class="col-sm-6" style="margin:auto;">
                     <select class="form-control form-control-sm" id="filter" style="padding:auto;">
                       <option value="all">All</option>
