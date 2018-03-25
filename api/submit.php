@@ -67,7 +67,8 @@
     $t = array('STATUS' => 'GEO ACCESS FAILED');
     echo json_encode($t);
     exit();
-  }       
+  }
+       error_log("$temp $lo_img");
   if (!move_uploaded_file($temp,$lo_img)) {
   $ar=array('status'=>'Error');
   echo json_encode($ar);
@@ -75,7 +76,7 @@
 }
 }
   include 'connection.php';
-  $query="insert into a_submit values('','$_SESSION[user]','$idea','$des','$loc_img','$lat','$long','0','$dstt','$state','$zip','$budget','$equip','','','','$policy','$policy_org','$policy_details')";
+  $query="insert into a_submit values(null,'$_SESSION[userid]','$idea','$des','$loc_img','$lat','$long','0','$dstt','$state','$zip','$budget','$equip','','','','$policy','$policy_org','$policy_details')";
   $resu=mysqli_query($connect,$query);
   if ($resu) {
     $ar=array('status' => 'SUCCESS');

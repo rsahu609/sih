@@ -17,7 +17,14 @@ while($row = mysqli_fetch_assoc($result)){
     <link href="img/leaves-with-water-droplets_1504589.png" rel="icon" type="image/png" />
     <title>Newsfeed - Aprakshan</title>
 </head>
-
+<style>
+    #feed-container .card-img-top {
+       
+        height: 300px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+</style>
 <body>
     <?php  include('header.php');?>
     <div class="container">
@@ -89,7 +96,7 @@ while($row = mysqli_fetch_assoc($result)){
     <div class="template" id="entry-template" style="display:none;">
         {{#each activity}}
         <div class="card">
-            <img class="card-img-top" src="api/{{image}}" alt="{{image}}" style="image-size:cover;">
+            <div class="card-img-top" style="background-image:url('{{image}}');" alt="{{image}}"></div>
             <div class="card-body">
                 <h5 class="card-title">{{idea}}</h5>
                 <p class="card-text">{{description}}</p>
