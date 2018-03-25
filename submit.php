@@ -73,13 +73,34 @@ if(!isset($_SESSION['user'])){
                 <label for="state">State</label>
                 <select id="state" name="state" required class="form-control">
                     <option value="">Choose State(राज्य चुनें)</option>
-                    <option value="chhattisgarh">Chhattisgarh</option>
-                    <option value="telangana" name="telangana">Telangana</option>
-                    <option value="varanasi" name="varanasi">Varanasi</option>
-                    <option value="West Bengal" name="West Bengal">West Bengal</option>
+                    <option value="Andhra Pradesh" name="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh" name="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam" name="Assam">Assam</option>
+                    <option value="Bihar" name="Bihar">Bihar</option>
+                    <option value="Chhattisgarh" name="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Delhi" name="Delhi">Delhi</option>
+                    <option value="Gujrat" name="Gujrat">Gujrat</option>
+                    <option value="Karnatka" name="Karnatka">Karnatka</option>
                     <option value="Kerala" name="Kerala">Kerala</option>
-                    <option value="Uttar Pradesh" name="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Goa" name="Goa">Goa</option>
+                    <option value="Haryana" name="Haryana">Haryana</option>
+                    <option value="Himanchal Pradesh" name="Himanchal Pradesh">Himanchal Pradesh</option>
+                    <option value="Jammu and Kashmir" name="Jammu and Kashmir">Jammu and Kashmir</option>
+                    <option value="Jharkhand" name="Jharkhand">Jharkhand</option>
+                    <option value="Madhya Pradesh" name="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra" name="Maharashtra">Maharashtra</option>
+                    <option value="Manipur" name="Manipur">Manipur</option>
+                    <option value="Meghalaya" name="Meghalaya">Meghalaya</option>
+                    <option value="Nagaland" name="Nagaland">Nagaland</option>
+                    <option value="Odisha" name="Odisha">Odisha</option>
                     <option value="Punjab" name="Punjab">Punjab</option>
+                    <option value="Rajasthan" name="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim" name="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu" name="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana" name="Telangana">Telangana</option>
+                    <option value="Uttar Pradesh" name="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttrakhand" name="Uttrakhand">Uttrakhand</option>
+                    <option value="West Bengal" name="West Bengal">West Bengal</option>
                 </select>
                 <small class="text-muted">Name of the state</small>
             </div>
