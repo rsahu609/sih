@@ -47,7 +47,7 @@ if(!isset($_SESSION['user'])){
                      <label for="yes">Yes </label>
                       <input type="radio" name="policy_radio" value="radio_true" id="yes">
                      <label for="no">No </label>
-                      <input type="radio" name="policy_radio" value="radio_false" id="no">
+                      <input type="radio" name="policy_radio" value="radio_false" id="no" checked>
                     </div>
                     <label for="policytitle"></label>
                     <input type="text" class="form-control policy_fields" name="policy_title" placeholder="सब्सिडी प्रदान करने वाले संगठन का नाम यहाँ दर्ज करे">
