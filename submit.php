@@ -19,8 +19,8 @@ if(!isset($_SESSION['user'])){
 
 <body>
     <?php include('header.php');?>
-
-    <div class="form-container">
+    <div class="container">
+      <div class="form-container">
         <form id="form">
             <div class="form-row form">
                 <div class="form-group col-md-12">
@@ -105,6 +105,7 @@ if(!isset($_SESSION['user'])){
             </div>
     </form>
     </div>
+  </div>
 
     <div class="map-container" style="padding: 10px;">
         <div id="map" style="width:800px;height:500px;margin:auto;"></div>
