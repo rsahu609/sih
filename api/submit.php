@@ -22,7 +22,7 @@
     $exif = exif_read_data($temp);
     if(isset($exif["GPSLatitudeRef"])){
       if (!move_uploaded_file($temp,$lo_img)) {
-      $ar=array('status'=>'Errorimg');
+      $ar=array('status'=>'Error');
       echo json_encode($ar);
       exit();
     } else{
@@ -57,7 +57,23 @@
     $result['datetime']  = $exif["DateTime"];
     $lat=$result["latitude"];
     $long=$result["longitude"];
-    //$result[datetime]
+       //$result[datetime]
+}
+} else {
+  if (!move_uploaded_file($temp,$lo_img)) {
+  $ar=array('status'=>'Error');
+  echo json_encode($ar);
+  exit();
+}
+  if (isset($_REQUEST['lat'])) {
+    $lat=$_REQUEST['lat'];
+    $long=$_REQUEST['long'];
+  }else{
+    $t = array('STATUS' => 'GEO ACCESS FAILED');
+    echo json_encode($t);
+    exit();
+  }
+}
   include 'connection.php';
   $query="insert into a_submit values('','$_SESSION[user]','$idea','$des','$loc_img','$lat','$long','0','$dstt','$state','$zip','$budget','$equip','','','','$policy','$policy_org','$policy_details')";
   $resu=mysqli_query($connect,$query);
@@ -69,9 +85,6 @@
     $ar=array('status'=>'Error');
     echo json_encode($ar);
   }
-      }
-}else{
-  $t = array('STATUS' => 'GEO ACCESS FAILED');
-  echo json_encode($t);
-}
+
+
 ?>
