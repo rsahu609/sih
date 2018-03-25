@@ -32,7 +32,7 @@
                             <input type="radio" name="policy_radio" value="radio_false" disabled>
                         </div>
                         <label for="policytitle"></label>
-                        <input type="text" class="form-control" name="policy-title" value="{{policy_organization}}" placeholder="CWC" disabled>
+                        <input type="text" class="form-control" name="policy-title" value="Green Earth NGO, Delhi" placeholder="CWC" disabled>
                         <small class="text-muted">Enter the name of the idea or Context</small>
                     </div>
                     <div class="form-group">
@@ -41,9 +41,9 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-5">
-                            <label for="budget">Approximate Budget</label>
+                            <label for="budget">Approximate cost</label>
                             <input type="text" class="form-control" name="budget" placeholder="10,000" disabled>
-                            <small class="text-muted">Approximate bugdet of your project</small>
+                            <small class="text-muted">Approximate cost of your project</small>
                         </div>
                         <div class="form-group col-md-7">
                             <label for="city">District</label>
@@ -54,7 +54,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-8">
                             <label for="state" for="state">State</label>
-                            <input type="text" class="form-control" value="Meghalaya">
+                            <input type="text" class="form-control" value="Meghalaya" disabled>
                             <small class="text-muted">Name of the state</small>
                         </div>
                         <div class="form-group col-md-4">
