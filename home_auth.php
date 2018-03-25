@@ -25,7 +25,7 @@
 {{#each activity}}
 <tr>
   <td>{{state}}</td>
-  <td><img src="{{image}}" height=50px></td>
+  <td><img src="{{image}}" class="rounded mx-auto" height=50px></td>
   <td>{{idea}}</td>
   <td>{{date}}</td>
   <td class="description-overflow" style="max-width:'200px';text-overflow:ellipsis;overflow:hidden;">{{description}}</td>
