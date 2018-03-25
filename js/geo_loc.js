@@ -1,3 +1,4 @@
+
 function initialize() {
     var address = (document.getElementById('pac-input'));
     var autocomplete = new google.maps.places.Autocomplete(address);
@@ -29,8 +30,8 @@ function codeAddress() {
         }      else {
             alert("Geocode was not successful for the following reason: " + status);
         }
+        $('#submit').removeAttr("disabled");
     });
-    $('#submit').removeAttr("disabled");
 }
 function initAutocomplete() {
     /* Create the search box and link it to the UI element. */

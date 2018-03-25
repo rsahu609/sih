@@ -14,7 +14,7 @@ while($row = mysqli_fetch_assoc($result)){
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-    <link href="img/leaves-with-water-droplets_1504589.jpg" rel="icon" type="image/png" />
+    <link href="img/leaves-with-water-droplets_1504589.png" rel="icon" type="image/png" />
     <title>Newsfeed - Aprakshan</title>
 </head>
 

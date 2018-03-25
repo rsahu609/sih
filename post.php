@@ -12,7 +12,7 @@ if( isset($_REQUEST['post_id'])){
 <head>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-    <link href="img/leaves-with-water-droplets_1504589.jpg" rel="icon" type="image/png" />
+    <link href="img/leaves-with-water-droplets_1504589.png" rel="icon" type="image/png" />
     <script src="js/handlebars.min.js"></script>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
