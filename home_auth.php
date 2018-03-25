@@ -1,12 +1,12 @@
 <table class="table table-striped" style="table-layout:fixed">
     <thead>
         <tr>
-            <th scope="col">Serial No.</th>
-            <th scope="col">Post ID</th>
-            <th scope="col">User ID</th>
-            <th scope="col" style="max-width:'200px';text-overflow:ellipsis;overflow:hidden;">Description</th>
-            <th scope="col">Date</th>
-            <th scope="col">Options</th>
+            <th scope="col">State</th>
+            <th scope="col">Image</th>
+            <th scope="col">Activity</th>
+            <th scope="col" style="max-width:'200px';text-overflow:ellipsis;overflow:hidden;">Date</th>
+            <th scope="col">Description</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody id="submit-container">
@@ -24,11 +24,11 @@
 <script id="submit-template" type="text/handlebar">
 {{#each activity}}
 <tr>
-  <td>{{@key}}</td>
-  <td>{{post_id}}</td>
-  <td>{{user_id}}</td>
-  <td class="description-overflow" style="max-width:'200px';text-overflow:ellipsis;overflow:hidden;">{{description}}</td>
+  <td>{{state}}</td>
+  <td><img src="{{image}}" height=50px></td>
+  <td>{{idea}}</td>
   <td>{{date}}</td>
+  <td class="description-overflow" style="max-width:'200px';text-overflow:ellipsis;overflow:hidden;">{{description}}</td>
   <td><button class="btn btn-primary view-btn" data-toggle="modal" data-postid="{{post_id}}" data-target="#myModal{{post_id}}">View</button></td>
   </tr>
   {{/each}}
@@ -48,6 +48,8 @@
             dataType: 'json',
         }).done(function(response) {
             var context = response;
+            console.log(response);
+            response.activity.forEach(function(act) { act.date = act.date_time.substr(0,10) });
             var html = template(context);
             $('#submit-container').html(html);
         });
@@ -81,3 +83,4 @@
         this.closest('.form-group').classList.remove('active');
     });
 </script>
+

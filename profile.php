@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="img/leaves-with-water-droplets_1504589.jpg" rel="icon" type="image/png" />
+    <link href="img/leaves-with-water-droplets_1504589.png" rel="icon" type="image/png" />
     <title>
         <?= ucfirst($_SESSION['user']); ?>
     </title>
@@ -67,4 +67,5 @@
          })
      });
 </script>
+   <?php include('footer.php');?>
     </body>

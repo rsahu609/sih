@@ -28,5 +28,6 @@ if(!(isset($_SESSION['user']))){
            /*FOR ADMIN*/
     ?>
     </div>
+    <?php include('footer.php');?>
 </body>
 </html>

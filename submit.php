@@ -12,6 +12,7 @@ if(!isset($_SESSION['user'])){
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
+    
     <link href="img/leaves-with-water-droplets_1504589.png" rel="icon" type="image/png" />
 
     <title>Share your Idea</title>
@@ -97,7 +98,7 @@ if(!isset($_SESSION['user'])){
                     <br><br>
                     <div class="text-success" id="manualaddress" style="display:none;"></div>
                     <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                    <button class="btn btn-secondary" id="modal-btn" style="float:right" data-toggle="modal" data-target="#samplemodal">See Sample Submission</button>
+                    <button class="btn btn-info" id="modal-btn" style="float:right" data-toggle="modal" data-target="#samplemodal">See Sample Submission</button>
                     <div class="text-success" id="submitstatus" style="display:none;"></div>
                 </div>
             </div>
@@ -168,6 +169,7 @@ if(!isset($_SESSION['user'])){
                         $('#submitstatus').html(a);
                         $('#manualaddress').load('geo.php');
                         $('#manualaddress').fadeIn();
+                        $('#submit').attr("disabled","disabled");
                         $('#submitstatus').fadeIn();
                     }else
                         {

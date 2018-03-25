@@ -20,7 +20,6 @@ function initialize() {
     });
 }
 function codeAddress() {
-    $('#submit').attr("disabled","disabled");
     geocoder = new google.maps.Geocoder();
     var address = document.getElementById("pac-input").value;
     geocoder.geocode( { 'address': address}, function(results, status) {

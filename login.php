@@ -38,7 +38,7 @@
         <p class="mt-5 mb-3" style="color:fff;">Aprakshan &copy; 2017-2018</p>
     </form>
     </div>
-    <script src="js/jquery-2.2.4.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script>
         $('.form-signin').on('submit', function(e) {
             e.preventDefault();

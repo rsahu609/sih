@@ -140,3 +140,7 @@ if( isset($_REQUEST['post_id'])){
                });
             });
         </script>
+        <?php include('footer.php');?>
+    </div>
+    </body>
+</html>
