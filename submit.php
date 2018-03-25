@@ -20,8 +20,8 @@ if(!isset($_SESSION['user'])){
 
 <body>
     <?php include('header.php');?>
-
-    <div class="form-container">
+    <div class="container">
+      <div class="form-container">
         <form id="form">
             <div class="form-row form">
                 <div class="form-group col-md-12">
@@ -105,48 +105,12 @@ if(!isset($_SESSION['user'])){
             </div>
     </form>
     </div>
+  </div>
 
-    <div class="map-container" style="padding: 10px;">
-        <div id="map" style="width:800px;height:500px;margin:auto;"></div>
-    </div>
-
-  <!--  <script>
-        $('document').ready( function(){
-            $('.policy_fields').fadeOut();
-            function myMap() {
-                var location = new google.maps.LatLng(21.200437, 81.298213);
-                var mapCanvas = document.getElementById("map");
-                var mapOptions = {
-                    center: location,
-                    zoom: 13
-                };
-                var map = new google.maps.Map(mapCanvas, mapOptions);
-                var marker = new google.maps.Marker({
-                    position: location
-                });
-                marker.setMap(map);
-                var location = new google.maps.LatLng(21.1800, 81.2800);
-                var marker = new google.maps.Marker({
-                    position: location
-                });
-                marker.setMap(map);
-                var location = new google.maps.LatLng(21.1922, 81.2822);
-                var marker = new google.maps.Marker({
-                    position: location
-                });
-                marker.setMap(map);
-            };
-            console.log('function befor ready');
-        });
-            $('[data-toggle="tooltip"]').tooltip();
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>-->
     <!-- Ajax data request with submitted data -->
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1sAjyD_NDrgsRGt_9ZLqf41Tu0QGTzqI&libraries=places&callback=initAutocomplete" async defer></script>
-    
     <script>
         $('#submit').click(function(e) {
             e.preventDefault();
@@ -186,7 +150,7 @@ if(!isset($_SESSION['user'])){
             })
          });
         /*Form controll scripts ----------------------------------------------------------------*/
-                $('.policy_fields').fadeOut();
+        $('.policy_fields').fadeOut();
         $('.form-control').on('focus', function() {
             this.closest('.form-group').classList.add('active');
         });
