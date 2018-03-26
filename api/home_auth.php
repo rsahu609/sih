@@ -1,7 +1,7 @@
 <?php session_start();
   include 'connection.php';
   if (isset($_REQUEST['request'])) {
-    $query="SELECT `user_id`,`post_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`,`date_time`, `longitude`, `status` FROM `a_submit` WHERE status='1'";
+    $query="SELECT `user_id`,`post_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`,`date_time`, `longitude`, `status` FROM `a_submit` WHERE status='0'";
     $row=mysqli_query($connect,$query);
     if($row){
       $data=[];

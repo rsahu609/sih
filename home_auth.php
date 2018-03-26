@@ -23,7 +23,7 @@
 
 <script id="submit-template" type="text/handlebar">
 {{#each activity}}
-<tr>
+<tr id="row{{post_id}}">
   <td>{{state}}</td>
   <td><img src="{{image}}" height=50px></td>
   <td>{{idea}}</td>
@@ -83,4 +83,3 @@
         this.closest('.form-group').classList.remove('active');
     });
 </script>
-

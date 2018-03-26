@@ -64,13 +64,13 @@
                         </form>
                                <div class="btn-group btn-group-justified">
                                    <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-success">Approve</button>
+                                    <button type="button" class="btn btn-success" id="Approve{{post_id}}">Approve</button>
                                    </div>
                                    <div class="btn-group" role="group">
                                     <button type="button" class="btn btn-primary">No Change</button>
                                    </div>
                                     <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-danger">Deny</button>
+                                    <button type="button" class="btn btn-danger" id="Deny{{post_id}}">Deny</button>
                                    </div>
                                </div>
                     </div>
@@ -96,6 +96,42 @@
                                 marker.setMap(map);
                             }
                         );
+                        $('#Approve{{post_id}}').click(function(){
+                          $.ajax({
+                            method : "POST",
+                            url : "api/moderation.php",
+                            data : {
+                              postid : "{{post_id}}",
+                              status : "Approve"
+                            },
+                            dataType : 'json',
+                          }).done(function(response){
+                            var a = JSON.parse(response);
+                            $('#Show').html(a.status);
+                            $('#Show').fadeIn('slow');
+                            $('#row{{post_id}}').style("display","none");
+                            $('#Approve{{post_id}}').attr("disabled","disabled");
+                            $('#Deny{{post_id}}').attr("disabled","disabled");
+                          });
+                        });
+                        $('#Deny{{post_id}}').click(function(){
+                          $.ajax({
+                            method : "POST",
+                            url : "api/moderation.php",
+                            data : {
+                              postid : "{{post_id}}",
+                              status : "Deny"
+                            },
+                            dataType : 'json',
+                          }).done(function(response){
+                            var a=JSON.parse(response);
+                            $('#Show').html(a.status);
+                            $('#Show').fadeIn('slow');
+                            $('#row{{post_id}}').style("display","none");
+                            $('#Approve{{post_id}}').attr("disabled","disabled");
+                            $('#Deny{{post_id}}').attr("disabled","disabled");
+                          });
+                        });
                     </script>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
