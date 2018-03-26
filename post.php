@@ -43,7 +43,7 @@ if( isset($_REQUEST['post_id'])){
             <div class="col-md-12">
        
                 <p class="d-flex flex-justified">
-                  <image src="<?=$result['image']?>" class="rounded mx-auto">
+                  <image src="<?=$result['image']?>" class="rounded mx-auto img-fluid" style="max-width:100%; height:auto">
                   </image>
                 </p>
             </div>
@@ -129,10 +129,10 @@ if( isset($_REQUEST['post_id'])){
                    //var res = JSON.parse(response);
                    if(response.STATUS == 'SUCCESS')
                    {
-                       $('#msg').html('Upvoted :)');            
+                       $('#msg').html('Upvoted &#9786');            
                    }
                    else if(response.STATUS == 'DOWNVOTED'){
-                       $('#msg').html('Removed upvote :(');
+                       $('#msg').html('Removed upvote &#9785');
                    }
                    else
                    {

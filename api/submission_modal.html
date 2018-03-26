@@ -128,7 +128,7 @@
                             var a=JSON.parse(response);
                             $('#Show').html(a.status);
                             $('#Show').fadeIn('slow');
-                            $('#row{{post_id}}').style("display","none");
+                            $('#row{{post_id}}').css("display","none");
                             $('#Approve{{post_id}}').attr("disabled","disabled");
                             $('#Deny{{post_id}}').attr("disabled","disabled");
                           });

@@ -34,7 +34,12 @@ body .container {
   padding: 60px 15px 15px 15px;
   background-color: #e9ecef;
   border-radius: 5px;
-  
+
+}
+.container {
+  /*background-image: url("../img/images.jpg");
+  background-repeat: repeat;
+  background-: */
 }
 
 .footer  .container {
