@@ -1,5 +1,7 @@
 <?php
 
+  include 'connection.php';
+  $arr;
 function search_in_lat_long_range($latstart, $latend, $longstart, $longend) {
   $db = mysqli_connect('localhost', 'root', 'password', 'sih');
   if(!$db) {
@@ -43,7 +45,6 @@ if(($_GET['request_type'] ?? null) == 'search_in_lat_long_range') {
 
 
 if( isset($_REQUEST['request'])){
-  include 'connection.php';
   $query = "SELECT `user_id`,`post_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1'";
   $result=mysqli_query($connect,$query);
   while($row = mysqli_fetch_assoc($result)){
