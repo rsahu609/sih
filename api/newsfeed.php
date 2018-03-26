@@ -11,7 +11,7 @@ function search_in_lat_long_range($latstart, $latend, $longstart, $longend) {
   }
 
   $query = "SELECT `post_id`, `user_id`, `idea`, `description`, `image`,".
-    " `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE".
+    " `city`, `state`, `latitude`, `longitude`, `upvote`, `status` FROM `a_submit` WHERE".
     " status='1' and latitude between $latstart and $latend and longitude".
     " between $longstart and $longend";
 
@@ -45,7 +45,7 @@ if(($_GET['request_type'] ?? null) == 'search_in_lat_long_range') {
 
 
 if( isset($_POST['request'])){
-  $query = "SELECT `user_id`,`post_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1'";
+  $query = "SELECT `user_id`,`post_id`, `idea`,`upvote`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1'";
   $result=mysqli_query($connect,$query);
   while($row = mysqli_fetch_assoc($result)){
     $arr[] = $row;
@@ -56,9 +56,9 @@ if( isset($_POST['request'])){
   $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
 
   if($_POST['state']=='all'){
-    $query="SELECT `user_id`,`post_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1' ";
+    $query="SELECT `user_id`,`post_id`, `idea`, `upvote`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1' ";
   } else {
-    $query="SELECT `user_id`,`post_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1' AND `state`='$_POST[state]'";
+    $query="SELECT `user_id`,`post_id`, `idea`, `upvote`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1' AND `state`='$_POST[state]'";
   }
 
   $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
