@@ -15,7 +15,7 @@ if(!isset($_SESSION['user'])){
     
     <link href="img/leaves-with-water-droplets_1504589.png" rel="icon" type="image/png" />
 
-    <title>Share your Idea</title>
+    <title>Share your Activities</title>
 </head>
 
 <body>
@@ -26,14 +26,14 @@ if(!isset($_SESSION['user'])){
             <div class="form-row form">
                 <div class="form-group col-md-12">
                     <br>
-                    <label for="idea-title">Idea title</label>
+                    <label for="idea-title">Activity title</label>
                     <input type="text" class="form-control" name="title" id="title" placeholder="अभ्यास का शीर्षक" autofocus>
                     <small class="text-muted">Enter the name of the idea or Context</small>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="des">Description</label>
                     <textarea class="form-control" name="des" id="des" placeholder="यहाँ प्रस्ताव का विवरण दर्ज करें"></textarea>
-                    <small class="text-muted">All the details regarding practical utility, budget, precautions and crop type, soil type(in case of irrigation ideas)</small>
+                    <small class="text-muted">All the details regarding practical utility, budget, precautions and crop type, soil type(in case of irrigation activities)</small>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="equip">List of Items and Equipments required</label>
@@ -62,24 +62,45 @@ if(!isset($_SESSION['user'])){
             <div class="form-group col-md-5">
                 <label for="budget">Approximate Budget</label>
                 <input type="text" class="form-control" name="budget" id="budget" placeholder="प्रस्ताव का अनुमानित मूल्य">
-                <small class="text-muted">Approximate bugdet of your project</small>
+                <small class="text-muted">Approximate bugdet of your activity</small>
             </div>
            <div class="form-group col-md-7">
                 <label for="city">District</label>
                 <input type="text" class="form-control" name="city" id="city" placeholder="जिला">
-                <small class="text-muted">Place where is the idea implemented</small>
+                <small class="text-muted">Place where is the activity implemented</small>
             </div>
             <div class="form-group col-md-8">
                 <label for="state">State</label>
                 <select id="state" name="state" required class="form-control">
                     <option value="">Choose State(राज्य चुनें)</option>
-                    <option value="chhattisgarh">Chhattisgarh</option>
-                    <option value="telangana" name="telangana">Telangana</option>
-                    <option value="varanasi" name="varanasi">Varanasi</option>
-                    <option value="West Bengal" name="West Bengal">West Bengal</option>
+                    <option value="Andhra Pradesh" name="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh" name="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam" name="Assam">Assam</option>
+                    <option value="Bihar" name="Bihar">Bihar</option>
+                    <option value="Chhattisgarh" name="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Delhi" name="Delhi">Delhi</option>
+                    <option value="Gujrat" name="Gujrat">Gujrat</option>
+                    <option value="Karnatka" name="Karnatka">Karnatka</option>
                     <option value="Kerala" name="Kerala">Kerala</option>
-                    <option value="Uttar Pradesh" name="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Goa" name="Goa">Goa</option>
+                    <option value="Haryana" name="Haryana">Haryana</option>
+                    <option value="Himanchal Pradesh" name="Himanchal Pradesh">Himanchal Pradesh</option>
+                    <option value="Jammu and Kashmir" name="Jammu and Kashmir">Jammu and Kashmir</option>
+                    <option value="Jharkhand" name="Jharkhand">Jharkhand</option>
+                    <option value="Madhya Pradesh" name="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra" name="Maharashtra">Maharashtra</option>
+                    <option value="Manipur" name="Manipur">Manipur</option>
+                    <option value="Meghalaya" name="Meghalaya">Meghalaya</option>
+                    <option value="Nagaland" name="Nagaland">Nagaland</option>
+                    <option value="Odisha" name="Odisha">Odisha</option>
                     <option value="Punjab" name="Punjab">Punjab</option>
+                    <option value="Rajasthan" name="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim" name="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu" name="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana" name="Telangana">Telangana</option>
+                    <option value="Uttar Pradesh" name="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttrakhand" name="Uttrakhand">Uttrakhand</option>
+                    <option value="West Bengal" name="West Bengal">West Bengal</option>
                 </select>
                 <small class="text-muted">Name of the state</small>
             </div>
@@ -166,6 +187,7 @@ if(!isset($_SESSION['user'])){
             }
         })
     </script>
+      <?php include('go_to_top.html');?>
        <?php include('footer.php');?>
 </body>
 

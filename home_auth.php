@@ -15,7 +15,7 @@
 </table>
 
 <script src="js/popper.min.js"></script>
-<script src="js/jquery-3.3.1.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.bundle.js"></script>
 
 
@@ -25,7 +25,7 @@
 {{#each activity}}
 <tr id="row{{post_id}}">
   <td>{{state}}</td>
-  <td><img src="{{image}}" height=50px></td>
+  <td><img src="{{image}}" class="rounded mx-auto" height=50px></td>
   <td>{{idea}}</td>
   <td>{{date}}</td>
   <td class="description-overflow" style="max-width:'200px';text-overflow:ellipsis;overflow:hidden;">{{description}}</td>

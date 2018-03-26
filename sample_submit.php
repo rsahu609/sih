@@ -10,7 +10,7 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="idea-title">Idea title</label>
+                        <label for="idea-title">Activity title</label>
                         <input type="text" class="form-control" name="title" placeholder="Ferro Cement Tanks" disabled>
                         <small class="text-muted">Enter the name of the idea or Context</small>
                     </div>
@@ -35,7 +35,7 @@
                         </div>
                         <label for="policytitle"></label>
                         <input type="text" class="form-control" name="policy-title" value="Green Earth NGO, Delhi" placeholder="CWC" disabled>
-                        <small class="text-muted">Enter the name of the idea or Context</small>
+                        <small class="text-muted">Enter the name of your activity</small>
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" name="policy" placeholder="50% of the total cost is provided as subsidy" disabled></textarea>

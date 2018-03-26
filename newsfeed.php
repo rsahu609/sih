@@ -65,7 +65,7 @@ while($row = mysqli_fetch_assoc($result)){
             <div class="cardouter">
               <form>
                 <div class="form-group row">
-                    <label for="filter" class="col-sm-6 col-form-label"><span style="font-size:22px; margin-height:auto">Filter entries by state</span></label>
+                    <label for="filter" class="col-sm-6 col-form-label"><span style="font-size:22px; margin-height:auto">Filter activities by state</span></label>
                   <div class="col-sm-6" style="margin:auto;">
                     <select class="form-control form-control-sm" id="filter" style="padding:auto;">
                       <option value="all">All</option>
@@ -112,7 +112,7 @@ while($row = mysqli_fetch_assoc($result)){
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/handlebars.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY"></script>
+    
     <script>
       (function(){
         var map;
@@ -189,6 +189,7 @@ while($row = mysqli_fetch_assoc($result)){
         })
       })();
     </script>
+<?php include('go_to_top.html');?>
 <?php include('footer.php');?>
 </body>
 
