@@ -44,21 +44,21 @@ if(($_GET['request_type'] ?? null) == 'search_in_lat_long_range') {
 }
 
 
-if( isset($_REQUEST['request'])){
+if( isset($_POST['request'])){
   $query = "SELECT `user_id`,`post_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1'";
   $result=mysqli_query($connect,$query);
   while($row = mysqli_fetch_assoc($result)){
     $arr[] = $row;
   }
   echo json_encode(array('activity'=>$arr));
-} else if( isset($_REQUEST['state'])){
+} else if( isset($_POST['state'])){
   $password = 'password';
   $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
 
-  if($_REQUEST['state']=='all'){
+  if($_POST['state']=='all'){
     $query="SELECT `user_id`,`post_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1' ";
   } else {
-    $query="SELECT `user_id`,`post_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1' AND `state`='$_REQUEST[state]'";
+    $query="SELECT `user_id`,`post_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1' AND `state`='$_POST[state]'";
   }
 
   $connect=mysqli_connect('127.0.0.1','root',$password,'sih');
