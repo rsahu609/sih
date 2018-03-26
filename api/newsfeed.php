@@ -42,7 +42,7 @@ if(($_GET['request_type'] ?? null) == 'search_in_lat_long_range') {
 }
 
 
-    $arr[];
+    $arr;
 if( isset($_REQUEST['request'])){
 
   $query = "SELECT `user_id`,`post_id`, `idea`, `description`, `image`, `city`, `state`, `latitude`, `longitude`, `status` FROM `a_submit` WHERE status='1'";
