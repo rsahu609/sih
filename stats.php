@@ -46,6 +46,8 @@
                 marker.setMap(map);
             }); */
     </script>
+    <?php include('go_to_top.html');?>
+    <?php include('footer.php');?>
 </body>
 
 </html>

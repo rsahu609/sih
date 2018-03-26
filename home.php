@@ -12,8 +12,9 @@ if(!(isset($_SESSION['user']))){
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-    <link href="img/leaves-with-water-droplets_1504589.png" rel="icon" type="image/png" />
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/handlebars.min.js"></script>
+    <link href="img/leaves-with-water-droplets_1504589.png" rel="icon" type="image/png" />
     <title>Home</title>
 </head>
 
@@ -29,5 +30,6 @@ if(!(isset($_SESSION['user']))){
     ?>
     </div>
     <?php include('footer.php');?>
+    <?php include('go_to_top.html');?>
 </body>
 </html>

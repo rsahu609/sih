@@ -131,3 +131,18 @@ td.description-overflow {
 .modal-class {
     max-width: 600px;
 }
+#top {
+    text-decoration:none;
+    border-color: greenyellow;
+    border: 2px;
+    background-color: aquamarine;
+    position: fixed;
+    bottom: 70px;
+    right: 60px;
+    border-radius: 5px;
+    padding: 10px;
+    opacity: .7;
+}
+a#top {
+    color: green;
+}

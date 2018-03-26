@@ -111,6 +111,7 @@ if( isset($_REQUEST['post_id'])){
             </div>
         </div>
     </div>
+       <?php include('go_to_top.html');?>
         <?php include('footer.php');?>
         <script>
             $('#upvote').click(function(){
@@ -141,5 +142,6 @@ if( isset($_REQUEST['post_id'])){
                });
             });
         </script>
+        
     </body>
 </html>

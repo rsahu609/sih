@@ -66,6 +66,7 @@
                 <div class="card-body">
                   {{description}}
                 </div>
+                <a href="post.php?post_id={{post_id}}" style="float:right" target="_blank"><small>View full article</small></a>
             </div>
         </div>
   {{/each}}

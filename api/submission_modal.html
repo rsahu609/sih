@@ -62,8 +62,10 @@
                                 </div>
                               </div>
                         </form>
-                              <!--<div class="container">-->
-                               <div class="btn-group  text-right d-block">
+                             
+                    </div>
+                              <div>
+                               <div class="btn-group  ml-auto">
                                    <div class="btn-group" role="group">
                                     <button type="button" class="btn btn-success">Approve</button>
                                    </div>
@@ -74,24 +76,23 @@
                                     <button type="button" class="btn btn-danger">Deny</button>
                                    </div>
                                </div>
-                             <!--</div>-->
-                    </div>
+                               </div>
 
                     <div class="map-container" style="padding: 10px;">
-                        <div id="map{{post_id}}" style="width: auto; height:500px;margin:auto;"></div>
+                        <div id="map{{post_id}}" style="width:inherit; height:500px;margin:auto;"></div>
                     </div>
 
                       <script>
                         $('document').ready(
                             function myMap() {
-                                var location = new google.maps.LatLng({{lat}},{{long}});
+                                var location = new google.maps.LatLng({{latitude}},{{longitude}});
                                 var mapCanvas = document.getElementById("map{{post_id}}");
                                 var mapOptions = {
                                     center: location,
                                     zoom: 13
                                 };
                                 var map = new google.maps.Map(mapCanvas, mapOptions);
-                                var location = new google.maps.LatLng({{lat}},{{long}});
+                                var location = new google.maps.LatLng({{latitude}},{{longitude}});
                                 var marker = new google.maps.Marker({
                                     position: location
                                 });
@@ -99,6 +100,7 @@
                             }
                         );
                     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY&callback=myMap"></script>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
