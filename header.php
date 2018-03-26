@@ -16,7 +16,7 @@
       </li>
       <li class="nav-item">
        <span>
-           <a class="nav-link" href="submit.php">Share Your Activites</a>
+           <a class="nav-link" href="submit.php">Share Your Activity</a>
        </span>
       </li>
       <li class="nav-item">
