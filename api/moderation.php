@@ -1,6 +1,6 @@
 <?php
   include 'auth.php';
-  $p_id=$_REQUEST['post_id'];
+  $p_id=$_REQUEST['postid'];
   $state=$_REQUEST['status'];
   if ($state=='Approve') {
     $status=1;

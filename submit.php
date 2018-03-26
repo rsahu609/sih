@@ -21,6 +21,7 @@ if(!isset($_SESSION['user'])){
 <body>
     <?php include('header.php');?>
     <div class="container">
+     <h2 class="text-center">Share your Activity</h2>
       <div class="form-container">
         <form id="form">
             <div class="form-row form">
@@ -41,8 +42,13 @@ if(!isset($_SESSION['user'])){
                     <small class="text-muted">Number of Items with costs</small>
                 </div>
                 <div class="form-group col-md-12">
-                    <label for="radio">Is there any policy or subsidy of government or any other <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data-placement="top">agencies</a> ?
-                      <br>(क्या सरकार या किसी अन्य <a href="#" data-toggle="tooltip" title="NGO's and various CWCs" data-placement="top">एजेंसियों</a> की कोई नीति या सब्सिडी है?)
+                    <label for="procedure">Procedure</label>
+                    <textarea class="form-control" id="procedure" placeholder=""></textarea>
+                    <small class="text-muted">Steps to imitate the activity</small>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="radio">Is there any policy or subsidy of government or any other <span data-toggle="tooltip" title="e.g. NGO's and various CWCs" data-placement="top" style="color: green;">agencies</span> ?
+                      <br>(क्या सरकार या किसी अन्य <span data-toggle="tooltip" title="e.g. NGO's and various CWCs" data-placement="top" style="color: green;">एजेंसियों</span> की कोई नीति या सब्सिडी है?)
                     </label>
                     <div>
                      <label for="yes">Yes </label>
@@ -133,6 +139,7 @@ if(!isset($_SESSION['user'])){
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>
+        
         $('#submit').click(function(e) {
             e.preventDefault();
             $.ajax({
@@ -186,6 +193,7 @@ if(!isset($_SESSION['user'])){
                 $('.policy_fields').fadeOut();
             }
         })
+ $(function () { $('[data-toggle="tooltip"]').tooltip() });/*To enable tooltip*/
     </script>
       <?php include('go_to_top.html');?>
        <?php include('footer.php');?>
