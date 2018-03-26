@@ -120,7 +120,7 @@ if(!isset($_SESSION['user'])){
                 <div class="custom-file">
                     <div class="img-submit"></div>
                     <label class="custom-file-label" for="customFile">Click here to Upload Image(चित्र अपलोड करने हेतु यहाँ क्लिक करें)</label>
-                    <input type="file" class="custom-file-input" id="file_submit" name="img">
+                    <input type="file" accept="image/jpeg" class="custom-file-input" id="file_submit" name="img">
                     <small class="text-muted">Here is some help</small>
                     <br><br>
                     <div class="text-success" id="manualaddress" style="display:none;"></div>
