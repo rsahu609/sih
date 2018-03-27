@@ -22,7 +22,7 @@
     $exif = exif_read_data($temp);
     if(isset($exif["GPSLatitudeRef"])){
       if (!move_uploaded_file($temp,$lo_img)) {
-      $ar=array('status'=>'Error');
+      $ar=array('status'=>'Errorimg');
       echo json_encode($ar);
       exit();
     } else{
