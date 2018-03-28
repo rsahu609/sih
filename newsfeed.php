@@ -19,7 +19,6 @@ while($row = mysqli_fetch_assoc($result)){
 </head>
 <style>
     #feed-container .card-img-top {
-       
         height: 300px;
         background-position: center;
         background-repeat: no-repeat;
@@ -83,13 +82,18 @@ while($row = mysqli_fetch_assoc($result)){
                   <p> Loading feed .. </p>
                 </div>
             </div>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+          </div>
         </div>
-   
     <div class="container">
-        <button class="btn btn-primary float-right" id="btn-map-search">Search in the shown area</button>
         <div class="row">
-            <div class="col-sm">
+            <div class="col-md-8">
                 <div id="map" style=""></div>
+            </div>
+            <div class="col-md-4">
+              <p>Drag the map to desired area and click on the button to search on map</p>
+              <button class="btn btn-primary" id="btn-map-search">Search in the shown area</button>
             </div>
         </div>
     </div>
@@ -112,8 +116,7 @@ while($row = mysqli_fetch_assoc($result)){
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/handlebars.min.js"></script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY"></script>
- 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY"></script>
     <script>
       (function(){
         var map;
