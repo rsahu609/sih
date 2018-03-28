@@ -1,5 +1,6 @@
  <?php if(!isset($_SESSION['user'])){session_start();} ?>
 
+    <h3>Your submissions</h3>
     <div id="accordion">
         <div class="card">
             <div class="card-header" id="headingOne">
@@ -77,6 +78,9 @@
           var map;
           function populateMap(context) {
             console.log(context.activity);
+            if(!context.activity.length) {
+              return;
+            }
             var locations = [];
             context.activity.forEach(function(activity) {
               locations.push(new google.maps.LatLng(activity.latitude, activity.longitude));
@@ -97,6 +101,10 @@
             });
           }
           $.getJSON('api/activity.php', function(response) {
+            if(!response.activity.length) {
+              $('#accordion').html('<p> Seems like you not posted any activity yet. You can post one by clicking <a href="submit.php">here</a></p>');
+              return;
+            }
             var source = $('#card-template').html();
             var template = Handlebars.compile(source);
             var html = template(response);
