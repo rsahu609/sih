@@ -1,7 +1,10 @@
 div.container {
   margin-top: 2em;
 }
-
+#quotes span {
+    padding-right: 100%;
+    padding-left: 15px;
+}
 html {
   position: relative;
   min-height: 100%;
@@ -75,7 +78,10 @@ body .container {
     /* overflow-y: scroll; */
 }
 
-nav.bg-green {
+nav.bg-blue {
+  background-color:#00a2ff !important;
+}
+.bg-blue{
   background-color:#00a2ff !important;
 }
 a.nav-link {
@@ -140,14 +146,15 @@ td.description-overflow {
     text-decoration:none;
     border-color: greenyellow;
     border: 2px;
-    background-color: aquamarine;
+    background-color: antiquewhite;
     position: fixed;
     bottom: 70px;
     right: 60px;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 13px 7px; 13px;
     opacity: .7;
 }
 a#top {
+    text-decoration: none;
     color: green;
 }

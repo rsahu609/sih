@@ -37,13 +37,29 @@ if(!isset($_SESSION['user'])){
                     <small class="text-muted">All the details regarding practical utility, budget, precautions and crop type, soil type(in case of irrigation activities)</small>
                 </div>
                 <div class="form-group col-md-12">
+                    <label>Define categories कृपया श्रेणियों को परिभाषित करें</label>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-md-6">
+                    <input type="checkbox" name=">Home"> Home (घोरेलू) <br>
+                    <input type="checkbox" name="industry"> Industry (उद्योग) <br>
+                    <input type="checkbox" name="Rural"> Rural (ग्रामीण) <br>
+                        </div>
+                        <div class="col-md-6">
+                    <input type="checkbox" name="Urban"> Urban (शहरी) <br>
+                    <input type="checkbox" name="Agriculture"> Agriculture (कृषि) <br>
+                    <input type="checkbox" name="River"> River (नदी) <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
                     <label for="equip">List of Items and Equipments required</label>
                     <textarea class="form-control" name="equip" id="equip" placeholder="उपकरणों एवं वस्तुओं का विवरण यहाँ दर्ज करें"></textarea>
                     <small class="text-muted">Number of Items with costs</small>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="procedure">Procedure</label>
-                    <textarea class="form-control" id="procedure" placeholder=""></textarea>
+                    <textarea class="form-control" id="procedure" placeholder="प्रक्रिया का क्रमानुसार विवरण दीजिए"></textarea>
                     <small class="text-muted">Steps to imitate the activity</small>
                 </div>
                 <div class="form-group col-md-12">
@@ -120,8 +136,8 @@ if(!isset($_SESSION['user'])){
                 <div class="custom-file">
                     <div class="img-submit"></div>
                     <label class="custom-file-label" for="customFile">Click here to Upload Image(चित्र अपलोड करने हेतु यहाँ क्लिक करें)</label>
-                    <input type="file" class="custom-file-input" id="file_submit" name="img">
-                    <small class="text-muted">Here is some help</small>
+                    <input type="file" accept="image/jpeg" class="custom-file-input" id="file_submit" name="img">
+                    <div class="small text-muted">Upload <span data-toggle="tooltip" title="Images which also contain information where it is clicked" data-placement="top" style="color: green;">Geotagged</span> Image</div>
                     <br><br>
                     <div class="text-success" id="manualaddress" style="display:none;"></div>
                     <button type="submit" class="btn btn-primary" id="submit">Submit</button>

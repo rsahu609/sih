@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/custom.css">
     <?php include('header.php'); ?>
 
-   <div class="image row" >
+   <div class="image text-center" >
     <img src="<?=$_SESSION['profilepic']?>" alt="<?=ucfirst($_SESSION['user'])?>" style="max-height:400px; max-width:4oopx; margin:auto;">
 </div>
     <form id="form">
@@ -70,4 +70,4 @@
   <?php include('go_to_top.html');?>
    <?php include('footer.php');?>
    
-    </body>
+</body>
