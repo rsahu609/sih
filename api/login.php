@@ -14,7 +14,7 @@ $row=mysqli_query($connect,$query);
       $_SESSION['user']=$user;
       $_SESSION['role']=$data['role'];
       $_SESSION['userid'] = $data['user_id'];
-      $ar=array('status' => 'SUCCESS');
+      $ar=array('status' => 'SUCCESS' , 'userid' => $data['user_id'] , 'user' => $data['username']);
       echo json_encode($ar);
     }
 ?>

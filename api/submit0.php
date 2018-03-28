@@ -1,5 +1,6 @@
 <?php
-  include 'auth.php';
+  //include 'auth.php';
+  $user=$_POST['user'];
   $idea=$_POST['title'];
   $des=$_POST['des'];
   $equip=$_POST['equip'];
@@ -22,7 +23,7 @@
     $exif = exif_read_data($temp);
     if(isset($exif["GPSLatitudeRef"])){
       if (!move_uploaded_file($temp,$lo_img)) {
-      $ar=array('status'=>'Errorimg');
+      $ar=array('status'=>'Error');
       echo json_encode($ar);
       exit();
     } else{
@@ -76,7 +77,7 @@
 }
 }
   include 'connection.php';
-  $query="insert into a_submit values(null,'$_SESSION[userid]','$idea','$des','$loc_img','$lat','$long','0','$dstt','$state','$zip','$budget','$equip','$procedure',null,'0','$policy','$policy_org','$policy_details')";
+  $query="insert into a_submit values(null,'$user','$idea','$des','$loc_img','$lat','$long','0','$dstt','$state','$zip','$budget','$equip','$procedure',null,0,'$policy','$policy_org','$policy_details')";
   error_log($query);
   $resu=mysqli_query($connect,$query);
   if ($resu) {
