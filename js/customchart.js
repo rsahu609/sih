@@ -54,9 +54,10 @@ $.ajax('api/stats.php', {
   labels_c.forEach(function(l) {
     categoryData.push(byCategory[l]);
   });
+  console.log(categoryData);
   var ctx_c = document.getElementById('myChart_c').getContext('2d');
   var myChart_c = new Chart(ctx_c, {
-    type: 'bar',
+    type: 'doughnut',
     data: {
       labels: labels_c,
       datasets: [{

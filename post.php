@@ -41,7 +41,6 @@ if( isset($_REQUEST['post_id'])){
   
         <div class="flex-row">
             <div class="col-md-12">
-       
                 <p class="d-flex flex-justified">
                   <image src="<?=$result['image']?>" class="rounded mx-auto img-fluid" style="max-width:100%; height:auto">
                   </image>
@@ -50,7 +49,7 @@ if( isset($_REQUEST['post_id'])){
         </div>
         <div class="flex-row">
             <div class="col-md-12">
-                <h3 class="bg-success">
+                <h3 class="bg-blue">
                     Activity Name - <?=$result['idea']?>
                 </h3>
                 <p>
@@ -61,20 +60,20 @@ if( isset($_REQUEST['post_id'])){
         <div class="flex-row">
             <?php if (!($result['policy_organization'] == "")) {?>
             <div class="col-md-12">
-                <h3 class="bg-success">
+                <h3 class="bg-blue">
                     <?=$result['policy_organization']?>
                 </h3>
                 <p>
                     <?=$result['policy_details']?>
                 </p>
             </div>
-        </div>
         <?php }?>
+        </div>
 
         <div class="flex-row">
             <div class="container">
                 <div class="col-md-12">
-                    <h3 class="bg-success">
+                    <h3 class="bg-blue">
                         Procedure for implementation
                     </h3>
                     <p>
@@ -86,7 +85,7 @@ if( isset($_REQUEST['post_id'])){
         <div class="flex-row">
             <div class="container">
                 <div class="col-md-12">
-                    <h3 class="bg-success">Equipments required</h3>
+                    <h3 class="bg-blue">Equipments required</h3>
                     <p>
                         <?=$result['equipments']?>
                     </p>
@@ -96,7 +95,7 @@ if( isset($_REQUEST['post_id'])){
         <div class="flex-row">
             <div class="container">
                 <div class="col-md-12">
-                    <h3 class="bg-success">Cost of whole implementation</h3>
+                    <h3 class="bg-blue">Cost of whole implementation</h3>
                     <p>
                         <?=$result['project_budget']?>
                     </p>
@@ -110,9 +109,9 @@ if( isset($_REQUEST['post_id'])){
                 <span id="msg" class="text-success" style="display:hidden"></span>
             </div>
         </div>
+        <div class="index-fixed" id="top" ><h5><a href="#header">Go to top &#8593;</a></h5></div>
     </div>
-       <?php include('go_to_top.html');?>
-        <?php include('footer.php');?>
+       
         <script>
             $('#upvote').click(function(){
                $.ajax({
@@ -143,5 +142,6 @@ if( isset($_REQUEST['post_id'])){
             });
         </script>
         
+        <?php include('footer.php'); ?>
     </body>
 </html>

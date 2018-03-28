@@ -27,6 +27,7 @@ while($row = mysqli_fetch_assoc($result)){
 </style>
 <body>
     <?php  include('header.php');?>
+    <?php  include('quotes.php');?>
     <div class="container">
         <!-- <div class="carousels">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -61,12 +62,12 @@ while($row = mysqli_fetch_assoc($result)){
                 <!-------------------Carousels end here-->
 
 
-
-            <div class="cardouter">
-              <form>
-                <div class="form-group row">
-                    <label for="filter" class="col-sm-6 col-form-label"><span style="font-size:22px; margin-height:auto">Filter activities by state</span></label>
-                  <div class="col-sm-6" style="margin:auto;">
+<div class="row">
+    <div class="cardouter col-md-8">
+        <form>
+            <div class="form-group row">
+                <label for="filter" class="col-sm-6 col-form-label"><span style="font-size:22px; margin-height:auto" class="h3">Filter activities by state</span></label>
+                <div class="col-sm-6" style="margin:auto;">
                     <select class="form-control form-control-sm" id="filter" style="padding:auto;">
                       <option value="all">All</option>
                       <?php
@@ -74,29 +75,32 @@ while($row = mysqli_fetch_assoc($result)){
                         echo "<option value='$state'>$state</option>";
                       }
                       ?>
-                    </select>
-                  </div>
-
-                </div>
-              </form>
-                <div id="feed-container">
-                  <p> Loading feed .. </p>
+                      </select>
                 </div>
             </div>
+        </form>
+        <div id="feed-container">
+            <p> Loading feed .. </p>
         </div>
-   
-    <div class="container">
-        <button class="btn btn-primary float-right" id="btn-map-search">Search in the shown area</button>
+    </div>
+    <div class="bg-white col-md-4" >
         <div class="row">
-            <div class="col-sm">
-                <div id="map" style=""></div>
+            Most upvoted posts of the month
+        </div>
+        <div class="row">
+            <div>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     </div>
+</div>
+   </div>
     <div class="template" id="entry-template" style="display:none;">
         {{#each activity}}
         <div class="card">
-            <div class="card-img-top" style="background-image:url('{{image}}');" alt="{{image}}"></div>
+            <img src='{{image}}' class="mx-auto rounded" alt="{{image}}">
             <div class="card-body">
                 <h5 class="card-title">{{idea}}</h5>
                 <p class="card-text">{{description}}</p>
@@ -112,7 +116,7 @@ while($row = mysqli_fetch_assoc($result)){
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/handlebars.min.js"></script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY"></script>
  
     <script>
       (function(){
