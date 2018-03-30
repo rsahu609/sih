@@ -19,7 +19,6 @@ while($row = mysqli_fetch_assoc($result)){
 </head>
 <style>
     #feed-container .card-img-top {
-       
         height: 300px;
         background-position: center;
         background-repeat: no-repeat;
@@ -29,44 +28,12 @@ while($row = mysqli_fetch_assoc($result)){
     <?php  include('header.php');?>
     <?php  include('quotes.php');?>
     <div class="container">
-        <!-- <div class="carousels">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="img/1.jpg" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="img/2.jpg" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="img/3.jpg" alt="Third slide">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-            </div>
-          -->
-
-
-                <!-------------------Carousels end here-->
-
-
-<div class="row">
-    <div class="cardouter col-md-8">
+      <div class="cardouter">
         <form>
             <div class="form-group row">
-                <label for="filter" class="col-sm-6 col-form-label"><span style="font-size:22px; margin-height:auto" class="h3">Filter activities by state</span></label>
+                <label for="filter" class="col-sm-6 col-form-label">
+                  <span style="font-size:22px; margin-height:auto" class="h3">Filter activities by state</span>
+                </label>
                 <div class="col-sm-6" style="margin:auto;">
                     <select class="form-control form-control-sm" id="filter" style="padding:auto;">
                       <option value="all">All</option>
@@ -75,23 +42,34 @@ while($row = mysqli_fetch_assoc($result)){
                         echo "<option value='$state'>$state</option>";
                       }
                       ?>
-                      </select>
+                    </select>
                 </div>
             </div>
         </form>
         <div id="feed-container">
             <p> Loading feed .. </p>
         </div>
-    </div>
-    <div class="bg-white col-md-4" >
-        <div class="row">
-            Most upvoted posts of the month
+      </div>
+      <div class="card">
+        <h5 class="card-header">Top post of the month</h5>
+        <div class="card-body">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=CZ5bN85CO1k" allowfullscreen>
+            </iframe>
+          </div>
+          <h6 class="card-title">Activity by user <a href="#">Rajan</a> from Raigarh, Chhattisgarh</h6>
+          <p class="card-text">
+            In this video, Rajan tells us about a new method of irrigation which saves water and time
+          </p>
         </div>
+      </div>
         <div class="row">
-            <div>
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                </div>
+            <div class="col-md-8">
+                <div id="map" style=""></div>
+            </div>
+            <div class="col-md-4">
+              <p>Drag the map to desired area and click on the button to search on map</p>
+              <button class="btn btn-primary" id="btn-map-search">Search in the shown area</button>
             </div>
         </div>
     </div>
@@ -123,7 +101,6 @@ while($row = mysqli_fetch_assoc($result)){
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/handlebars.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi21mn-01q0jKWx3rkiho8rh5xWxvWPwY"></script>
- 
     <script>
       (function(){
         var map;

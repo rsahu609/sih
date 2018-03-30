@@ -10,6 +10,7 @@ function get_submissions_by_user($userid) {
     exit();
   }
 
+  $data = [];
   while($row = mysqli_fetch_array($result)) {
     $data[] = $row;
   }
