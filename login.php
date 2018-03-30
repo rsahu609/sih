@@ -35,7 +35,7 @@
         <br>
         <p id="error-message" class="text-danger" style="display:none;">Please check username and password</p>
         <a href="register.php" class="btn btn-light">Register Here (यहां रजिस्टर करें)</a>
-        <p class="mt-5 mb-3" style="color:fff;">Aprakshan &copy; 2017-2018</p>
+        <p class="mt-5 mb-3" style="color:fff;">Aprakshan &copy; 2018-2019</p>
     </form>
     </div>
     <script src="js/jquery-3.3.1.min.js"></script>

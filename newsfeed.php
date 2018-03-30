@@ -101,9 +101,15 @@ while($row = mysqli_fetch_assoc($result)){
         {{#each activity}}
         <div class="card">
             <img src='{{image}}' class="mx-auto rounded" alt="{{image}}">
-            <div class="card-body">
+            <div class="row">
+            <div class="card-body col-md-10">
                 <h5 class="card-title">{{idea}}</h5>
                 <p class="card-text">{{description}}</p>
+            </div>
+            <div class="card-body col-md-2">
+                <input type="button" post_id={{post_id}} class="btn btn-success upvote" value="Upvote"> 
+                <span id="msg" class="text-success" style="display:hidden"></span>
+            </div>
             </div>
             <div class="card-footer">
                 <small class="text-muted">{{city}}, {{state}}</small>
@@ -193,6 +199,33 @@ while($row = mysqli_fetch_assoc($result)){
                 })
         })
       })();
+            $('body').click(".upvote",function(){
+               $.ajax({
+                   url: 'api/upvote.php',
+                   method: 'POST',
+                   data:{
+                       postid: $(this).attr('[post_id]'),
+                   
+                   },
+                   dataType: 'json'
+               })
+                .done(function(response){
+                   
+                   //var res = JSON.parse(response);
+                   if(response.STATUS == 'SUCCESS')
+                   {
+                       $('#msg').html('Upvoted &#9786');            
+                   }
+                   else if(response.STATUS == 'DOWNVOTED'){
+                       $('#msg').html('Removed upvote &#9785');
+                   }
+                   else
+                   {
+                       $('#msg').html('Some Error occurred while upvoting');
+                   }
+                       $('#msg').fadeIn("slow");                       
+               });
+            });
     </script>
 <?php include('go_to_top.html');?>
 <?php include('footer.php');?>
