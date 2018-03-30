@@ -1,5 +1,6 @@
 <?php
   include 'auth.php';
+  include 'functions.php';
   $idea=$_POST['title'];
   $des=$_POST['des'];
   $cat=$_POST['category'];
@@ -20,82 +21,47 @@
   $temp=$_FILES['img']['tmp_name'];
   $loc_img="images/".uniqid().".jpg";
   $lo_img="../".$loc_img;
-    $exif = exif_read_data($temp);
-    if(isset($exif["GPSLatitudeRef"])){
-      if (!move_uploaded_file($temp,$lo_img)) {
-      $ar=array('status'=>'Errorimg');
-      echo json_encode($ar);
+  if(isset($_POST['lat']) && isset($_POST['long'])) {
+    $lat = $_POST['lat'];
+    $long = $_POST['long'];
+  } else {
+    if (!($latlong = get_lat_long($temp))) {
+      error_log('Geotag not found');
+      http_response_code(400);
+      echo json_encode(array('status'=>'fail', 'error'=>'geotag not found'));
       exit();
-    } else{
-        $LatM = 1; $LongM = 1;
-        if($exif["GPSLatitudeRef"] == 'S'){
-            $LatM = -1;
-        }
+    }
+    list($lat, $long) = $latlong;
+  }
 
-        if($exif["GPSLongitudeRef"] == 'W'){
-            $LongM = -1;
-        }
-        //get the GPS data
-        $gps['LatDegree']=$exif["GPSLatitude"][0];
-        $gps['LatMinute']=$exif["GPSLatitude"][1];
-        $gps['LatgSeconds']=$exif["GPSLatitude"][2];
-        $gps['LongDegree']=$exif["GPSLongitude"][0];
-        $gps['LongMinute']=$exif["GPSLongitude"][1];
-        $gps['LongSeconds']=$exif["GPSLongitude"][2];
-
-        //convert strings to numbers
-        foreach($gps as $key => $value){
-            $pos = strpos($value, '/');
-            if($pos !== false){
-                $temp = explode('/',$value);
-                $gps[$key] = $temp[0] / $temp[1];
-            }
-        }
-
-    //calculate the decimal degree
-    $result['latitude']  = $LatM * ($gps['LatDegree'] + ($gps['LatMinute'] / 60) + ($gps['LatgSeconds'] / 3600));
-    $result['longitude'] = $LongM * ($gps['LongDegree'] + ($gps['LongMinute'] / 60) + ($gps['LongSeconds'] / 3600));
-    $result['datetime']  = $exif["DateTime"];
-    $lat=$result["latitude"];
-    $long=$result["longitude"];
-       //$result[datetime]
-}
-} else {
-  if (isset($_REQUEST['lat'])) {
-    $lat=$_REQUEST['lat'];
-    $long=$_REQUEST['long'];
-  }else{
-    $t = array('STATUS' => 'GEO ACCESS FAILED');
-    echo json_encode($t);
+  if (!move_uploaded_file($temp,$lo_img)) {
+    error_log('Cannot move uploaded file');
+    echo json_encode(
+      array(
+        'status' => 'fail',
+        'error' => 'cannot move uploaded file',
+      )
+    );
     exit();
   }
-       error_log("$temp $lo_img");
-  if (!move_uploaded_file($temp,$lo_img)) {
-  $ar=array('status'=>'Error');
-  echo json_encode($ar);
-  exit();
-}
-}
   include 'connection.php';
   $query="insert into a_submit values(null,'$_SESSION[userid]','$idea','$des','$loc_img','$lat','$long','0','$dstt','$state','$zip','$budget','$equip','$procedure',null,'0','$policy','$policy_org','$policy_details')";
-  
   error_log($query);
   $resu=mysqli_query($connect,$query);
   if ($resu) {
     $ar=array('status' => 'SUCCESS');
     $post_id=mysqli_insert_id ($connect);/*to insert categories in cat_map*/
-  error_log("here $post_id");
-      foreach($_POST['category'] as $cat_id){
-        error_log("and here $cat_id");
-       $query2="INSERT INTO category_map values(null,$post_id,$cat_id)";/*to insert categories in cat_map*/
-       $result = mysqli_query($connect,$query2);
-       if(!$result) {
+    error_log("here $post_id");
+    foreach($_POST['category'] as $cat_id){
+      error_log("and here $cat_id");
+      $query2="INSERT INTO category_map values(null,$post_id,$cat_id)";/*to insert categories in cat_map*/
+      $result = mysqli_query($connect,$query2);
+      if(!$result) {
            error_log('inserting into db failed');
-       }
       }
+    }
     echo json_encode($ar);
-  }
-  else {
+  } else {
     error_log('query failed');
     $ar=array('status'=>'Error');
     echo json_encode($ar);

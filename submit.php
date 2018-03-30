@@ -140,7 +140,12 @@ if(!isset($_SESSION['user'])){
                     <input type="file" accept="image/jpeg" class="custom-file-input form-control" id="file_submit" name="img">
                     <div class="small text-muted">Upload <span data-toggle="tooltip" title="Images which also contain information where it is clicked" data-placement="top" style="color: green;">Geotagged</span> Image only</div>
                     <br><br>
-                    <div class="text-success" id="manualaddress" style="display:none;"></div>
+                    <div class="text-success" id="manualaddress" style="display:none;">
+                        <input id="pac-input" class="controls form-control" type="text" onblur="codeAddress()" placeholder="Search Box">
+                        <input type="hidden" id="lat" disabled="disabled" name="lat">
+                        <input type="hidden" id="long" disabled="disabled" name="long">
+                        <div id="map" height="500"></div>
+                    </div>
                     <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                     <button class="btn btn-info" id="modal-btn" style="float:right" data-toggle="modal" data-target="#samplemodal">See Sample Submission</button>
                     <div class="text-success" id="submitstatus" style="display:none;"></div>
@@ -156,8 +161,40 @@ if(!isset($_SESSION['user'])){
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/validate.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/geo_loc.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1sAjyD_NDrgsRGt_9ZLqf41Tu0QGTzqI&libraries=places&callback=initAutocomplete" async defer></script>
     <script>
         
+    window.populateMap = function(context) {
+        //console.log(context.activity);
+        var geocoder = new google.maps.Geocoder;
+        var marker;
+        var location;
+        location = (new google.maps.LatLng($('#lat').val(),$('#long').val()));
+       //   context.activity.forEach(function(activity) {
+       //       locations.push(new google.maps.LatLng(activity.latitude, activity.longitude));
+       //   });
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = {
+            center: location,
+            zoom: 6
+        };
+        map = new google.maps.Map(mapCanvas, mapOptions);
+        google.maps.event.addListener(map, "click", function (e) {
+            //lat and lng is available in e object
+            console.log(map);
+
+            var latLng = e.latLng;
+            location = (new google.maps.LatLng(latLng.lat(), latLng.lng()));
+            marker.setMap(null);
+            marker = (new google.maps.Marker({ position: location }));
+            marker.setMap(map);
+            console.log(marker);
+            console.log(latLng.lat(), latLng.lng());
+        });
+        var marker = (new google.maps.Marker({ position: location }));
+        marker.setMap(map);
+    }
         $('#submit').click(function(e) {
             e.preventDefault();
             $.ajax({
@@ -166,18 +203,21 @@ if(!isset($_SESSION['user'])){
                     data: new FormData(document.getElementById('form')),
                     cache: false,
                     processData: false,
-                    contentType: false
+                    contentType: false,
+                    dataType: 'json',
                 })
                 .done(function(response) {
-                    var r=JSON.parse(response);
-                    if (r.status== 'SUCCESS') {
+                    if (response.status== 'SUCCESS') {
                         $('#submitstatus').html('Successfully Submitted');
                         $('#submitstatus').fadeIn();
 
-                    } else if (r.STATUS== 'GEO ACCESS FAILED') {
+                    } else if (response.error == 'geotag not found') {
+                        console.log('here');
                         var a='Location not accessible try adding it manually';
                         $('#submitstatus').html(a);
-                        $('#manualaddress').load('geo.php');
+                        // $('#manualaddress').load('geo.php', function() {
+                        //     //populateMap();
+                        // });
                         $('#manualaddress').fadeIn();
                         $('#submit').attr("disabled","disabled");
                         $('#submitstatus').fadeIn();
@@ -185,6 +225,13 @@ if(!isset($_SESSION['user'])){
                         {
                         $('#submitstatus').html('Some error occured. Please try submitting it again.');
                         $('#submitstatus').fadeIn();
+                    }
+                }).fail(function(response, body) {
+                    if(response.responseJSON.error === 'geotag not found') {
+                        $('#manualaddress').fadeIn();
+                        $('#lat').removeAttr('disabled');
+                        $('#long').removeAttr('disabled');
+                        populateMap();
                     }
                 });
         });

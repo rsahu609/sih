@@ -3,8 +3,7 @@ function initialize() {
     var address = (document.getElementById('pac-input'));
     var autocomplete = new google.maps.places.Autocomplete(address);
     autocomplete.setTypes(['geocode']);
-    google.maps.event.addListener(autocomplete, 'place_changed', function()
-                {
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
         var place = autocomplete.getPlace();
         if (!place.geometry) {
             return;
@@ -26,9 +25,11 @@ function codeAddress() {
         if (status == google.maps.GeocoderStatus.OK) {
             $('#lat').val(results[0].geometry.location.lat());
             $('#long').val(results[0].geometry.location.lng());
-        }      else {
-            alert("Geocode was not successful for the following reason: " + status);
+            populateMap();
         }
+        // }      else {
+        //     alert("Geocode was not successful for the following reason: " + status);
+        // }
         $('#submit').removeAttr("disabled");
     });
 }
