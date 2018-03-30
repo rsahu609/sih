@@ -54,7 +54,7 @@ while($row = mysqli_fetch_assoc($result)){
         <h5 class="card-header">Top post of the month</h5>
         <div class="card-body">
           <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen>
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=CZ5bN85CO1k" allowfullscreen>
             </iframe>
           </div>
           <h6 class="card-title">Activity by user <a href="#">Rajan</a> from Raigarh, Chhattisgarh</h6>
