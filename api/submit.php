@@ -2,6 +2,7 @@
   include 'auth.php';
   $idea=$_POST['title'];
   $des=$_POST['des'];
+  $cat=$_POST['category'];
   $equip=$_POST['equip'];
   $policy=$_POST['policy_radio'];
   if ($policy=='radio_true'){
@@ -77,10 +78,21 @@
 }
   include 'connection.php';
   $query="insert into a_submit values(null,'$_SESSION[userid]','$idea','$des','$loc_img','$lat','$long','0','$dstt','$state','$zip','$budget','$equip','$procedure',null,'0','$policy','$policy_org','$policy_details')";
+  
   error_log($query);
   $resu=mysqli_query($connect,$query);
   if ($resu) {
     $ar=array('status' => 'SUCCESS');
+    $post_id=mysqli_insert_id ($connect);/*to insert categories in cat_map*/
+  error_log("here $post_id");
+      foreach($_POST['category'] as $cat_id){
+        error_log("and here $cat_id");
+       $query2="INSERT INTO category_map values(null,$post_id,$cat_id)";/*to insert categories in cat_map*/
+       $result = mysqli_query($connect,$query2);
+       if(!$result) {
+           error_log('inserting into db failed');
+       }
+      }
     echo json_encode($ar);
   }
   else {
@@ -88,6 +100,4 @@
     $ar=array('status'=>'Error');
     echo json_encode($ar);
   }
-
-
 ?>

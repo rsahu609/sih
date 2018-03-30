@@ -28,12 +28,12 @@ if(!isset($_SESSION['user'])){
                 <div class="form-group col-md-12">
                     <br>
                     <label for="idea-title">Activity title</label>
-                    <input type="text" class="form-control" name="title" id="title" placeholder="अभ्यास का शीर्षक" autofocus>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="अभ्यास का शीर्षक" required autofocus> 
                     <small class="text-muted">Enter the name of the idea or Context</small>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="des">Description</label>
-                    <textarea class="form-control" name="des" id="des" placeholder="यहाँ प्रस्ताव का विवरण दर्ज करें"></textarea>
+                    <textarea class="form-control" name="des" id="des" placeholder="यहाँ प्रस्ताव का विवरण दर्ज करें" required></textarea>
                     <small class="text-muted">All the details regarding practical utility, budget, precautions and crop type, soil type(in case of irrigation activities)</small>
                 </div>
                 <div class="form-group col-md-12">
@@ -41,14 +41,15 @@ if(!isset($_SESSION['user'])){
                     <br><br>
                     <div class="row">
                         <div class="col-md-6">
-                    <input type="checkbox" name=">Home"> Home (घोरेलू) <br>
-                    <input type="checkbox" name="industry"> Industry (उद्योग) <br>
-                    <input type="checkbox" name="Rural"> Rural (ग्रामीण) <br>
+                    <input class="form-check-input form-control" type="checkbox" name="category[3]" value="3"> Home (घोरेलू) <br>
+                    <input class="form-check-input form-control" type="checkbox" name="category[2]" value="2"> Industry (उद्योग) <br> 
+                    <input class="form-check-input form-control" type="checkbox" name="category[5]" value="5"> Urban (शहरी) <br>
+                    <input class="form-check-input form-control" type="checkbox" name="category[4]" value="4"> Rural (ग्रामीण) <br>
                         </div>
                         <div class="col-md-6">
-                    <input type="checkbox" name="Urban"> Urban (शहरी) <br>
-                    <input type="checkbox" name="Agriculture"> Agriculture (कृषि) <br>
-                    <input type="checkbox" name="River"> River (नदी) <br>
+                    <input class="form-check-input form-control" type="checkbox" name="category[1]" value="1"> Agriculture (कृषि) <br>
+                    <input class="form-check-input form-control" type="checkbox" name="category[6]" value="6"> River (नदी) <br>
+                    <input class="form-check-input form-control" type="checkbox" name="category[7]" value="7"> Dam (बांध) <br>
                         </div>
                     </div>
                 </div>
@@ -136,8 +137,8 @@ if(!isset($_SESSION['user'])){
                 <div class="custom-file">
                     <div class="img-submit"></div>
                     <label class="custom-file-label" for="customFile">Click here to Upload Image(चित्र अपलोड करने हेतु यहाँ क्लिक करें)</label>
-                    <input type="file" accept="image/jpeg" class="custom-file-input" id="file_submit" name="img">
-                    <div class="small text-muted">Upload <span data-toggle="tooltip" title="Images which also contain information where it is clicked" data-placement="top" style="color: green;">Geotagged</span> Image</div>
+                    <input type="file" accept="image/jpeg" class="custom-file-input form-control" id="file_submit" name="img">
+                    <div class="small text-muted">Upload <span data-toggle="tooltip" title="Images which also contain information where it is clicked" data-placement="top" style="color: green;">Geotagged</span> Image only</div>
                     <br><br>
                     <div class="text-success" id="manualaddress" style="display:none;"></div>
                     <button type="submit" class="btn btn-primary" id="submit">Submit</button>
@@ -153,6 +154,7 @@ if(!isset($_SESSION['user'])){
     <!-- Ajax data request with submitted data -->
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/validate.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>
         

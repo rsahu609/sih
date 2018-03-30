@@ -1,3 +1,6 @@
+<script src="js/popper.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.bundle.js"></script>
 <table class="table table-striped" style="table-layout:fixed">
     <thead>
         <tr>
@@ -14,9 +17,6 @@
     </tbody>
 </table>
 
-<script src="js/popper.min.js"></script>
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/bootstrap.bundle.js"></script>
 
 
 <div id="map" style="width:800px;height:500px;margin:auto;"></div>
