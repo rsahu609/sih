@@ -21,8 +21,8 @@
       </li>
       <li class="nav-item">
        <span>
-           <!--<a class="nav-link" href="stats.php">
-           Statistics</a>-->
+           <a class="nav-link" href="stats.php">
+           Statistics</a>
        </span>
       </li>
       </ul>
