@@ -20,6 +20,7 @@ if(!isset($_SESSION['user'])){
 
 <body>
     <?php include('header.php');?>
+    <?php include('geotag_modal.html');?>
     <div class="container">
      <h2 class="text-center">Share your Activity</h2>
       <div class="form-container">
@@ -43,9 +44,8 @@ if(!isset($_SESSION['user'])){
                         <div class="col-md-6">
                     <input class="form-check-input form-control" type="checkbox" name="category[3]" value="3"> Home (घोरेलू) <br>
                     <input class="form-check-input form-control" type="checkbox" name="category[2]" value="2"> Industry (उद्योग) <br> 
-                    <input class="form-check-input form-control" type="checkbox" name="category[5]" value="5"> Urban (शहरी) <br>
-                    <input class="form-check-input form-control" type="checkbox" name="category[4]" value="4"> Rural (ग्रामीण) <br>
-                        </div>
+                    <input class="form-check-input form-control" type="radio" name="RU" value="5" checked> Urban (शहरी) <br>
+                    <input class="form-check-input form-control" type="radio" name="RU" value="4"> Rural (ग्रामीण) <br>                  </div>
                         <div class="col-md-6">
                     <input class="form-check-input form-control" type="checkbox" name="category[1]" value="1"> Agriculture (कृषि) <br>
                     <input class="form-check-input form-control" type="checkbox" name="category[6]" value="6"> River (नदी) <br>
@@ -134,18 +134,24 @@ if(!isset($_SESSION['user'])){
                 <small class="text-muted">Enter pin code</small>
             </div>
             <div class="form-group col-md-12">
+                <div class="big">Upload Image :</div>
+                <input type="radio" id="geo" class="form-check-input form-control" name="geo" value="Y" checked>Geotagged Image<br>
+                <input type="radio" id="n_geo" class="form-check-input form-control" name="geo" value="N">Non-Geotagged Image
+            </div>
+            <div class="form-group col-md-12">
                 <div class="custom-file">
                     <div class="img-submit"></div>
                     <label class="custom-file-label" for="customFile">Click here to Upload Image(चित्र अपलोड करने हेतु यहाँ क्लिक करें)</label>
                     <input type="file" accept="image/jpeg" class="custom-file-input form-control" id="file_submit" name="img">
-                    <div class="small text-muted">Upload <span data-toggle="tooltip" title="Images which also contain information where it is clicked" data-placement="top" style="color: green;">Geotagged</span> Image only</div>
+                    <div class="small text-muted">Upload Image (<span data-toggle="tooltip" title="Images which also contain information where it is clicked" data-placement="top" style="color: green;">Geotagged</span> recommended)</div>
                     <br><br>
                     <div class="text-success" id="manualaddress" style="display:none;">
-                        <input id="pac-input" class="controls form-control" type="text" onblur="codeAddress()" placeholder="Search Box">
+                        <input id="pac-input" class="controls form-control" type="text" onblur="codeAddress()" placeholder="Search Location here">
                         <input type="hidden" id="lat" disabled="disabled" name="lat">
                         <input type="hidden" id="long" disabled="disabled" name="long">
                         <div id="map" height="500"></div>
                     </div>
+                    <br>
                     <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                     <button class="btn btn-info" id="modal-btn" style="float:right" data-toggle="modal" data-target="#samplemodal">See Sample Submission</button>
                     <div class="text-success" id="submitstatus" style="display:none;"></div>
@@ -207,17 +213,20 @@ if(!isset($_SESSION['user'])){
                     dataType: 'json',
                 })
                 .done(function(response) {
-                    if (response.status== 'SUCCESS') {
+                    if (res.status== 'SUCCESS') {
                         $('#submitstatus').html('Successfully Submitted');
                         $('#submitstatus').fadeIn();
+                        console.log('success runnning');
 
-                    } else if (response.error == 'geotag not found') {
+                    } else if (res.error == 'geotag not found') {
                         console.log('here');
                         var a='Location not accessible try adding it manually';
                         $('#submitstatus').html(a);
                         // $('#manualaddress').load('geo.php', function() {
                         //     //populateMap();
                         // });
+                        console.log('geotag not found runnning');
+                    
                         $('#manualaddress').fadeIn();
                         $('#submit').attr("disabled","disabled");
                         $('#submitstatus').fadeIn();
@@ -228,6 +237,8 @@ if(!isset($_SESSION['user'])){
                     }
                 }).fail(function(response, body) {
                     if(response.responseJSON.error === 'geotag not found') {
+                        console.log('this has ran');
+                        $('#geotag').modal('show');
                         $('#manualaddress').fadeIn();
                         $('#lat').removeAttr('disabled');
                         $('#long').removeAttr('disabled');
@@ -258,6 +269,20 @@ if(!isset($_SESSION['user'])){
                 $('.policy_fields').fadeOut();
             }
         })
+        $('input[name=geo]').click(function(){
+            if($(this).val()=='N') {
+                $('#manualaddress').fadeIn();
+                        $('#lat').removeAttr('disabled');
+                        $('#long').removeAttr('disabled');
+                        populateMap();
+            }
+            else{
+                    $('#manualaddress').fadeOut();
+                    $('#lat').attr('disabled','disabled');
+                    $('#long').attr('disabled','disabled');
+                }
+            }
+        );
  $(function () { $('[data-toggle="tooltip"]').tooltip() });/*To enable tooltip*/
     </script>
       <?php include('go_to_top.html');?>

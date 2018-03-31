@@ -181,7 +181,7 @@ while($row = mysqli_fetch_assoc($result)){
                    url: 'api/upvote.php',
                    method: 'POST',
                    data:{
-                       postid: $(this).attr('[post_id]'),
+                       postid: $(this).attr('post_id'),
                    
                    },
                    dataType: 'json'
@@ -191,10 +191,10 @@ while($row = mysqli_fetch_assoc($result)){
                    //var res = JSON.parse(response);
                    if(response.STATUS == 'SUCCESS')
                    {
-                       $('#msg').html('Upvoted &#9786');            
+                       $('.msg').html('Upvoted &#9786');            
                    }
                    else if(response.STATUS == 'DOWNVOTED'){
-                       $('#msg').html('Removed upvote &#9785');
+                       $('.msg').html('Removed upvote &#9785');
                    }
                    else
                    {

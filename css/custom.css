@@ -81,6 +81,13 @@ body .container {
 nav.bg-blue {
   background-color:#00a2ff !important;
 }
+#search-btn:hover {
+    color:aliceblue;
+    border-color: black;
+}
+#search-btn {
+    border-color: aliceblue;
+}
 .bg-blue{
   background-color:#00a2ff !important;
 }
@@ -146,10 +153,10 @@ td.description-overflow {
     text-decoration:none;
     border-color: greenyellow;
     border: 2px;
-    background-color: antiquewhite;
+    background-color: azure;
     position: fixed;
     bottom: 70px;
-    right: 60px;
+    right: 8.5%;
     border-radius: 5px;
     padding: 10px 13px 7px; 13px;
     opacity: .7;

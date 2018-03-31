@@ -3,7 +3,9 @@
   include 'functions.php';
   $idea=$_POST['title'];
   $des=$_POST['des'];
-  $cat=$_POST['category'];
+  $cat=$_POST['category'] ?? [];
+  $RU=$_POST['RU'];
+  $cat[$RU]=$RU;
   $equip=$_POST['equip'];
   $policy=$_POST['policy_radio'];
   if ($policy=='radio_true'){
@@ -52,7 +54,7 @@
     $ar=array('status' => 'SUCCESS');
     $post_id=mysqli_insert_id ($connect);/*to insert categories in cat_map*/
     error_log("here $post_id");
-    foreach($_POST['category'] as $cat_id){
+    foreach($cat as $cat_id){
       error_log("and here $cat_id");
       $query2="INSERT INTO category_map values(null,$post_id,$cat_id)";/*to insert categories in cat_map*/
       $result = mysqli_query($connect,$query2);

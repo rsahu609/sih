@@ -5,13 +5,13 @@
   <button class="navbar-toggler glyphicon glyphicon-menu-hamburger" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-<script>
+<script>/*To get url parameter*/
 function getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
     var results = regex.exec(location.search);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-}
+};   
 </script>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -34,6 +34,10 @@ function getUrlParameter(name) {
       </li>
       </ul>
       <ul class="navbar-nav ml-auto">
+    <form action="search.php" method="get" class="form-inline my-2 my-lg-0" style="padding-right:10px;">
+       <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+       <button class="btn bg-blue my-2 my-sm-0" id="search-btn" type="submit" role="Submit">Search</button>
+    </form>
       <?php if(isset($_SESSION['user'])){?>
       <li class="nav-item">
        <span>
@@ -42,7 +46,7 @@ function getUrlParameter(name) {
       </li>
       <li class="nav-item">
        <span>
-           <a class="nav-link" href="profile.php"><?=ucfirst($_SESSION['user']) ?></a>
+           <a class="nav-link" href="profile.php"><?=ucfirst(strtolower($_SESSION['user'])) ?></a>
        </span>
       </li>
       <?php } else {?>
@@ -62,10 +66,6 @@ function getUrlParameter(name) {
       <?php } ?>
 
     </ul>
-    <form action="search.php" method="get" class="form-inline my-2 my-lg-0" style="padding-right:10px;">
-       <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
-       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" role="Submit">Search</button>
-    </form>
   </div>
 </nav>
 </div>

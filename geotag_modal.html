@@ -1,0 +1,44 @@
+﻿<div class="modal fade" id="geotag" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h5>Your image is not geotagged</h5>
+                <p>Please select a geotagged image or manually enter location.</p>
+                <hr>
+                <h5>Geotag</h5>
+                <p><a href="" class="get-tooltip" title="A geotagged is a image associated with a location">Geotagged</a> images</p>
+                <p>To take geotagged images make sure you turn on location(GPS) on your device</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+
+  $resu=mysqli_query($connect,$query);
+  if ($resu) {
+    $ar=array('status' => 'SUCCESS');
+    $post_id=mysqli_insert_id ($connect);/*to insert categories in cat_map*/
+  error_log("here $post_id");
+      foreach($_POST['category'] as $cat_id){
+        error_log("and here $cat_id");
+       $query2="INSERT INTO category_map values(null,$post_id,$cat_id)";/*to insert categories in cat_map*/
+       $result = mysqli_query($connect,$query2);
+       if(!$result) {
+           error_log('inserting into db failed');
+       }
+       $query2="INSERT INTO category_map values(null,$post_id,$RU)";/*TO INSERT RURAL AND URBAN*/
+       $result = mysqli_query($connect,$query2);
+       if(!$result) {
+           error_log('inserting into db failed');
+       }
+      }
+    echo json_encode($ar);
+  }
+  else {
+    error_log('query failed');
+    $ar=array('status'=>'Error');
+    echo json_encode($ar);
+  }
+?>
+-->
