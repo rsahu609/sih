@@ -1,6 +1,7 @@
 <script src="js/popper.min.js"></script>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.bundle.js"></script>
+<h1 class="text-center"><img src="img/leaves-with-water-droplets_1504589.png" style="padding:10px" height="80px" width="80px;">Pending Approvals<img src="img/leaves-with-water-droplets_1504589.png"  style="padding:10px" height="80px" width="80px"></h1>
 <table class="table table-striped" style="table-layout:fixed">
     <thead>
         <tr>

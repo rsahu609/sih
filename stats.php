@@ -14,7 +14,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h2>Number of activities by state</h2>
+          <h2>Number of activities by state<img src="img/leaves-with-water-droplets_1504589.png"  style="padding:10px" height="80px" width="80px"></h2>
           <canvas id="myChart" width="400" height="400" style="height: 400px; width: 400px"></canvas>
         </div>
         <div class="col-md-6">

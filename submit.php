@@ -22,7 +22,7 @@ if(!isset($_SESSION['user'])){
     <?php include('header.php');?>
     <?php include('geotag_modal.html');?>
     <div class="container">
-     <h2 class="text-center">Share your Activity</h2>
+     <h2 class="text-center"><img src="img/leaves-with-water-droplets_1504589.png"  style="padding:10px" height="80px" width="80px">Share your Activity<img src="img/leaves-with-water-droplets_1504589.png"  style="padding:10px" height="80px" width="80px"></h2>
       <div class="form-container">
         <form id="form">
             <div class="form-row form">
@@ -38,7 +38,7 @@ if(!isset($_SESSION['user'])){
                     <small class="text-muted">All the details regarding practical utility, budget, precautions and crop type, soil type(in case of irrigation activities)</small>
                 </div>
                 <div class="form-group col-md-12">
-                    <label>Define categories कृपया श्रेणियों को परिभाषित करें</label>
+                    <label class="big">Define categories कृपया श्रेणियों को परिभाषित करें</label>
                     <br><br>
                     <div class="row">
                         <div class="col-md-6">
@@ -214,7 +214,8 @@ if(!isset($_SESSION['user'])){
                 })
                 .done(function(response) {
                     if (res.status== 'SUCCESS') {
-                        $('#submitstatus').html('Successfully Submitted');
+                        $('#submitstatus')
+                            .html('Successfully Submitted');
                         $('#submitstatus').fadeIn();
                         console.log('success runnning');
 

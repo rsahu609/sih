@@ -32,7 +32,7 @@ while($row = mysqli_fetch_assoc($result)){
         <form>
             <div class="form-group row">
                 <label for="filter" class="col-sm-6 col-form-label">
-                  <span style="font-size:22px; margin-height:auto" class="h3">Filter activities by state</span>
+                  <span style="font-size:22px; margin-height:auto" class="h1"><img src="img/leaves-with-water-droplets_1504589.png"  style="padding:10px" height="80px" width="80px">Filter activities by state<img src="img/leaves-with-water-droplets_1504589.png"  style="padding:10px" height="80px" width="80px"></span>
                 </label>
                 <div class="col-sm-6" style="margin:auto;">
                     <select class="form-control form-control-sm" id="filter" style="padding:auto;">
@@ -85,8 +85,12 @@ while($row = mysqli_fetch_assoc($result)){
                 <p class="card-text">{{description}}</p>
             </div>
             <div class="card-body col-md-2">
-                <input type="button" post_id={{post_id}} class="btn btn-success upvote" value="Upvote"> 
-                <span id="msg" class="text-success" style="display:hidden"></span>
+                <a post_id={{post_id}} class="btn btn-secondary upvote text-light" value="Upvote">Upvotes<span class="badge">( {{upvote}} )</span></a>
+                <!--TODO - 1) MAKE upvote functional
+                            2) add upvote counts
+                 
+                    -->
+                <span class="text-success msg" style="display:hidden"></span>
             </div>
             </div>
             <div class="card-footer">
@@ -113,7 +117,7 @@ while($row = mysqli_fetch_assoc($result)){
           var mapCanvas = document.getElementById("map");
           var mapOptions = {
               center: locations[0],
-              zoom: 6
+              zoom: 4
           };
           map = new google.maps.Map(mapCanvas, mapOptions);
           console.log(map);
@@ -191,10 +195,10 @@ while($row = mysqli_fetch_assoc($result)){
                    //var res = JSON.parse(response);
                    if(response.STATUS == 'SUCCESS')
                    {
-                       $('.msg').html('Upvoted &#9786');            
+                       $(this).siblings('next').html(' Upvoted &#9786');            
                    }
                    else if(response.STATUS == 'DOWNVOTED'){
-                       $('.msg').html('Removed upvote &#9785');
+                       $(this).siblings('next').html(' Removed upvote &#9785');
                    }
                    else
                    {

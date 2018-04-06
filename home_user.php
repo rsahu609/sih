@@ -1,49 +1,8 @@
  <?php if(!isset($_SESSION['user'])){session_start();} ?>
 
-    <h3>Your submissions</h3>
+    <h1 class="text-center"><img src="img/leaves-with-water-droplets_1504589.png"  style="padding:10px" height="80px" width="80px">My Submissions<img src="img/leaves-with-water-droplets_1504589.png"  style="padding:10px" height="80px" width="80px"></h1>
     <div id="accordion">
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Submission 1
-        </button>
-                </h5>
-            </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-                    Description about the third submission - Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Submission 2
-        </button>
-                </h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body">
-                    Description about the third submission - Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingThree">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Submission 3
-        </button>
-                </h5>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                <div class="card-body">
-                    Description about the third submission - Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-            </div>
-        </div>
+        Loading ...
     </div>
     <br><br>
     <!--div class="map col-md-8" ><h3>Innovations Near You</h3>
@@ -54,8 +13,9 @@
     <script src="js/bootstrap.bundle.js"></script>
 
     <div id="map" style="width:800px;height:500px;margin:auto;"></div>
-
+    
     <script type="text/Handlebars" id="card-template">
+    
     {{#each activity}}
         <div class="card">
             <div class="card-header" id="heading{{post_id}}">
@@ -63,9 +23,16 @@
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{post_id}}" aria-expanded="true" aria-controls="collapse{{post_id}}"> {{idea}} </button>
                 </h5>
             </div>
+            
             <div id="collapse{{post_id}}" class="collapse show" aria-labelledby="heading{{post_id}}" data-parent="#accordion">
                 <div class="card-body">
+                  <div class="">
+                    
+                    <img src="{{image}}" class="img-thumbnail" alt="{{idea}}" style="height:50px;">
+                    
+                  </div><span>
                   {{description}}
+                  </span>
                 </div>
                 <a href="post.php?post_id={{post_id}}" style="float:right" target="_blank"><small>View full article</small></a>
             </div>
