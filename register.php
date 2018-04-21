@@ -68,7 +68,8 @@
                 $('#error-message').fadeIn();
             }
             });
-         }          else{
+         }          
+          else{
                 $('#error-message').html("Password doesn't match");
                 $('#error-message').fadeIn();
           }

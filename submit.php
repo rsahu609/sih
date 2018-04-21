@@ -165,7 +165,7 @@ if(!isset($_SESSION['user'])){
     <!-- Ajax data request with submitted data -->
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/validate.js"></script>
+    
     <script src="js/bootstrap.min.js"></script>
     <script src="js/geo_loc.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1sAjyD_NDrgsRGt_9ZLqf41Tu0QGTzqI&libraries=places&callback=initAutocomplete" async defer></script>

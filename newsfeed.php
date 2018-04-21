@@ -180,7 +180,7 @@ while($row = mysqli_fetch_assoc($result)){
                 })
         })
       })();
-            $('body').click(".upvote",function(){
+            /*$('body').click(".upvote",function(){
                $.ajax({
                    url: 'api/upvote.php',
                    method: 'POST',
@@ -206,7 +206,7 @@ while($row = mysqli_fetch_assoc($result)){
                    }
                        $('#msg').fadeIn("slow");                       
                });
-            });
+            });*/
     </script>
 <?php include('go_to_top.html');?>
 <?php include('footer.php');?>
